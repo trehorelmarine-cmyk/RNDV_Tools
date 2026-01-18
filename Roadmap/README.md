@@ -1,6 +1,6 @@
 # RNDV Roadmap - Documentation Technique
 
-> Planning interactif de type Gantt pour la gestion de projet RNDV
+> Planning interactif de type Gantt pour la gestion de projet RNDV - Comédie-Française
 
 ## Table des matières
 
@@ -25,8 +25,10 @@ Application web standalone (HTML unique) permettant de visualiser et manipuler u
 - Redimensionnement des tâches (bordures gauche/droite)
 - Édition des tâches (double-clic)
 - Sauvegarde/chargement localStorage
-- Jalons (milestones) avec lignes verticales
-- 5 types de tâches visuellement distincts
+- Jalons (milestones) avec niveaux de positionnement
+- 6 catégories de tâches avec couleurs pastel
+- Indicateurs de livraison maintenue et priorité
+- Récapitulatif des dates de livraison
 - Accessible (ARIA, navigation clavier)
 
 ### Timeline
@@ -40,11 +42,14 @@ Application web standalone (HTML unique) permettant de visualiser et manipuler u
 
 ```
 Roadmap/
-├── roadmap.html      # Application principale (HTML + CSS + JS)
-├── Logo_RNDV.png     # Logo affiché dans le header
-├── README.md         # Cette documentation
+├── roadmap.html          # Application principale (HTML + CSS + JS)
+├── Logo_RNDV.png         # Logo affiché dans le header
+├── README.md             # Cette documentation
 └── .claude/
-    └── agents/       # Agents Claude Code installés
+    └── agents/           # Agents Claude Code
+        ├── documentation-expert.md
+        ├── frontend-developer.md
+        └── fullstack-developer.md
 ```
 
 ---
@@ -69,8 +74,11 @@ Roadmap/
 | `--rndv-gray-600` | `#5F6368` | Gris foncé |
 | **Couleurs Statut** |||
 | `--rndv-green` | `#00D9A5` | Vert (livraison maintenue) |
-| `--rndv-red` | `#EA4335` | Rouge (danger) |
+| `--rndv-green-light` | `#E6FBF5` | Vert clair |
+| `--rndv-red` | `#EA4335` | Rouge (danger/priorité) |
+| `--rndv-red-light` | `#FCE8E6` | Rouge clair |
 | `--rndv-yellow` | `#FBBC04` | Jaune (à valider) |
+| `--rndv-yellow-light` | `#FEF7E0` | Jaune clair |
 | **Layout** |||
 | `--category-width` | `140px` | Largeur sidebar catégories |
 | `--month-width` | `100px` | Largeur d'un mois |
@@ -80,6 +88,7 @@ Roadmap/
 | `--shadow-sm` | `0 1px 3px rgba(0,0,0,0.08)` | Ombre légère |
 | `--shadow-md` | `0 4px 12px rgba(0,0,0,0.1)` | Ombre moyenne |
 | `--shadow-lg` | `0 8px 24px rgba(0,0,0,0.15)` | Ombre forte |
+| `--shadow-primary` | `0 4px 12px rgba(70,48,234,0.3)` | Ombre violette |
 | `--transition-fast` | `0.15s ease` | Transition rapide |
 | `--transition-normal` | `0.2s ease` | Transition normale |
 
@@ -95,17 +104,19 @@ Roadmap/
 | `.timeline-container` | Conteneur flex du Gantt |
 | `.categories` | Sidebar gauche des catégories |
 | `.gantt-area` | Zone principale du diagramme |
+| `.gantt-header` | Header sticky (milestones + années + mois) |
+| `.gantt-content` | Contenu scrollable du Gantt |
 
-#### Catégories
+#### Catégories (6 catégories)
 
-| Classe | Description |
-|--------|-------------|
-| `.category` | Style de base catégorie |
-| `.category--rapports` | Bordure verte |
-| `.category--vente` | Bordure violette |
-| `.category--billetterie` | Bordure bleue |
-| `.category--pmo` | Bordure violet clair |
-| `.category--commercialisation` | Bordure jaune |
+| Classe | Couleur bordure | Description |
+|--------|-----------------|-------------|
+| `.category--pac` | `#9CA3AF` (Gris) | PAC |
+| `.category--rapports` | `#93C5FD` (Bleu) | Rapports |
+| `.category--vente` | `#6EE7B7` (Vert) | Vente |
+| `.category--billetterie` | `#FDE68A` (Jaune) | Gestion Billetterie |
+| `.category--pmo` | `#FDBA74` (Orange) | PMO |
+| `.category--commercialisation` | `#A5B4FC` (Violet) | Commercialisation |
 
 #### Timeline
 
@@ -118,31 +129,49 @@ Roadmap/
 | `.gantt-row` | Ligne de tâches |
 | `.gantt-cell` | Cellule grille (1 mois) |
 
-#### Tâches
+#### Tâches - Types par catégorie
+
+| Classe | Apparence | Signification |
+|--------|-----------|---------------|
+| `.task--pac` | Fond gris `#9CA3AF` | PAC - Plein |
+| `.task--pac-light` | Fond gris clair, bordure pointillée | PAC - Light |
+| `.task--rapports` | Fond bleu `#93C5FD` | Rapports - Plein |
+| `.task--rapports-light` | Fond bleu clair, bordure pointillée | Rapports - Light |
+| `.task--vente` | Fond vert `#6EE7B7` | Vente - Plein |
+| `.task--vente-light` | Fond vert clair, bordure pointillée | Vente - Light |
+| `.task--billetterie` | Fond jaune `#FDE68A` | Billetterie - Plein |
+| `.task--billetterie-light` | Fond jaune clair, bordure pointillée | Billetterie - Light |
+| `.task--pmo` | Fond orange `#FDBA74` | PMO - Plein |
+| `.task--pmo-light` | Fond orange clair, bordure pointillée | PMO - Light |
+| `.task--commercialisation` | Fond violet `#A5B4FC` | Commercialisation - Plein |
+| `.task--commercialisation-light` | Fond violet clair, bordure pointillée | Commercialisation - Light |
+
+#### Indicateurs de tâches
+
+| Classe | Apparence | Signification |
+|--------|-----------|---------------|
+| `.task--delivered` | Bordure verte `#10B981` | Livraison maintenue |
+| `.task--priority` | Bordure rouge `#DC2626` | Prioritaire |
+
+#### États des tâches
 
 | Classe | Description |
 |--------|-------------|
-| `.task` | Style de base tâche |
-| `.task--green` | Livraison maintenue (vert) |
-| `.task--red` | Prioritaire (violet primary) |
-| `.task--dashed` | À valider (jaune pointillé) |
-| `.task--gray` | Préparation (gris) |
-| `.task--blue-dashed` | En attente (bleu pointillé) |
-| `.task--selected` | État sélectionné |
+| `.task--selected` | État sélectionné (outline violet) |
 | `.task--dragging` | État en cours de déplacement |
 
 #### Jalons (Milestones)
 
 | Classe | Description |
 |--------|-------------|
-| `.temps-forts-row` | Ligne des temps forts |
-| `.milestone` | Conteneur jalon |
-| `.milestone__diamond` | Losange du jalon |
-| `.milestone__label` | Texte du jalon |
-| `.milestone__date` | Date en gras |
-| `.vline` | Ligne verticale |
-| `.vline--blue` / `--green` / `--red` | Couleurs des lignes |
-| `.mev-box` | Boîte "Mises en Vente" |
+| `.milestones-row` | Ligne des jalons dans le header |
+| `.milestone-label` | Étiquette du jalon |
+| `.milestone-label--level-1/2/3` | Positionnement vertical (3 niveaux) |
+| `.milestone-label--blue/green/red` | Couleurs des jalons |
+| `.milestone-connector` | Ligne verticale connecteur (header) |
+| `.milestones-lines` | Conteneur des lignes dans le content |
+| `.milestone-line` | Ligne verticale dans le contenu |
+| `.milestone-line--blue/green/red` | Couleurs des lignes |
 
 #### UI Components
 
@@ -157,6 +186,20 @@ Roadmap/
 | `.modal-overlay` | Fond modal |
 | `.modal` | Fenêtre modale |
 | `.form-group` | Groupe de formulaire |
+
+#### Récapitulatif des livraisons
+
+| Classe | Description |
+|--------|-------------|
+| `.delivery-summary` | Section récapitulative |
+| `.delivery-summary__title` | Titre de la section |
+| `.delivery-summary__sections` | Grille des sections par catégorie |
+| `.delivery-summary__section` | Section individuelle |
+| `.delivery-summary__section--[category]` | Variante par catégorie |
+| `.delivery-summary__list` | Liste des tâches |
+| `.delivery-summary__item` | Item tâche + date |
+| `.delivery-summary__task-name` | Nom de la tâche |
+| `.delivery-summary__date` | Date de livraison |
 
 ---
 
@@ -220,9 +263,12 @@ let state = {
 | `renderTimeline(year)` | Affiche la timeline |
 | `renderTasks()` | Affiche les tâches |
 | `renderMilestones()` | Affiche les jalons |
+| `renderDeliverySummary()` | Affiche le récapitulatif des livraisons |
+| `positionToDate(position)` | Convertit une position en date |
 | `handleTaskMouseDown(e, task)` | Gère le clic sur tâche |
 | `handleMouseMove(e)` | Gère le déplacement |
 | `handleMouseUp()` | Gère le relâchement |
+| `handleTaskKeydown(e, task)` | Gère les raccourcis clavier |
 | `showTooltip(e, task)` | Affiche l'infobulle |
 | `hideTooltip()` | Cache l'infobulle |
 | `showPositionIndicator(e, left, width)` | Affiche l'indicateur |
@@ -242,18 +288,18 @@ let state = {
 
 ```
 ┌─────────────────────────────────────────────────┐
-│ [Logo RNDV]  │  Planning                        │
+│ [Logo RNDV]  │  Roadmap billetterie Comédie-Fr. │
 └─────────────────────────────────────────────────┘
 ```
 
 - Logo : `Logo_RNDV.png` (filtre blanc)
-- Titre : "Planning"
+- Titre : "Roadmap billetterie Comédie-Française"
 
 ### 2. Toolbar
 
 ```
 ┌─────────────────────────────────────────────────┐
-│ [Sauvegarder]  [Réinitialiser]                  │
+│                    [Sauvegarder]  [Réinitialiser]│
 └─────────────────────────────────────────────────┘
 ```
 
@@ -261,15 +307,18 @@ let state = {
 
 ```
 ┌──────────┬──────────────────────────────────────┐
-│          │ Temps Forts (milestones)             │
+│          │ Milestones (3 niveaux)               │
 │          ├──────────────────────────────────────┤
 │          │ 2025 │      2026       │ 2027        │
 │ Sidebar  ├──────────────────────────────────────┤
 │ Catégor. │ DÉC │ JAN │ FÉV │ ... │ JAN         │
 │          ├──────────────────────────────────────┤
-│ RAPPORTS │ ████████  ░░░░░  ██████████         │
-│ VENTE    │ ████  ▒▒▒▒▒  ████████               │
-│ ...      │ ...                                  │
+│ PAC      │ ████████  ░░░░░  ██████████         │
+│ RAPPORTS │ ████  ▒▒▒▒▒  ████████               │
+│ VENTE    │ ...                                  │
+│ BILLET.  │ ...                                  │
+│ PMO      │ ...                                  │
+│ COMMERC. │ ...                                  │
 └──────────┴──────────────────────────────────────┘
 ```
 
@@ -282,6 +331,11 @@ let state = {
   ↑                                  ↑
   Resize handle gauche       Resize handle droite
 ```
+
+**Indicateurs visuels :**
+- Bordure verte : Livraison maintenue
+- Bordure rouge : Prioritaire
+- Bordure pointillée : À valider (variante light)
 
 **Interactions :**
 - **Drag** : Clic + glisser sur le corps
@@ -302,7 +356,13 @@ let state = {
 │ [________________________]          │
 │                                     │
 │ Type                                │
-│ [Livraison maintenue (vert)    ▼]  │
+│ [PAC - Plein                    ▼] │
+│   ├── PAC (Gris)                   │
+│   ├── Rapports (Bleu)              │
+│   ├── Vente (Vert)                 │
+│   ├── Billetterie (Jaune)          │
+│   ├── PMO (Orange)                 │
+│   └── Commercialisation (Violet)   │
 │                                     │
 ├─────────────────────────────────────┤
 │ [Supprimer] [Annuler] [Sauvegarder]│
@@ -314,6 +374,22 @@ let state = {
 ```
 ┌─────────────────────────────────────────────────┐
 │ 💡 Instructions...  ████ Maintenue  ████ Prio  │
+│                     ░░░░ À valider              │
+└─────────────────────────────────────────────────┘
+```
+
+### 7. Récapitulatif des livraisons
+
+```
+┌─────────────────────────────────────────────────┐
+│ Récapitulatif des dates de livraison            │
+├─────────────────────────────────────────────────┤
+│ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ │
+│ │ PAC         │ │ RAPPORTS    │ │ VENTE       │ │
+│ │ ─────────── │ │ ─────────── │ │ ─────────── │ │
+│ │ Tâche1 Date │ │ Tâche1 Date │ │ Tâche1 Date │ │
+│ │ Tâche2 Date │ │ Tâche2 Date │ │ Tâche2 Date │ │
+│ └─────────────┘ └─────────────┘ └─────────────┘ │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -326,13 +402,15 @@ let state = {
 ```javascript
 {
     id: 'task-1',                    // Identifiant unique
-    row: 'rapports',                 // Catégorie (rapports|vente|billetterie|pmo|commercialisation)
+    row: 'pac',                      // Catégorie (pac|rapports|vente|billetterie|pmo|commercialisation)
     name: 'Préparation HLM',         // Nom affiché
-    type: 'gray',                    // Type visuel (green|red|dashed|gray|blue-dashed)
+    type: 'pac',                     // Type visuel (voir Types de tâches)
     left: 10,                        // Position X en pixels
-    top: 12,                         // Position Y en pixels (dans la ligne)
+    top: 45,                         // Position Y en pixels (dans la ligne)
     width: 140,                      // Largeur en pixels
-    info: 'Description complète'     // Texte tooltip/info
+    info: 'Description complète',    // Texte tooltip/info
+    delivered: true,                 // (optionnel) Indicateur livraison maintenue
+    priority: true                   // (optionnel) Indicateur prioritaire
 }
 ```
 
@@ -343,29 +421,38 @@ let state = {
     date: '21/01',           // Date affichée
     label: 'BIS Nantes',     // Nom de l'événement
     position: 170,           // Position X en pixels
-    color: 'blue'            // Couleur (blue|green|red)
+    color: 'blue',           // Couleur (blue|green|red)
+    level: 1                 // Niveau de positionnement (1|2|3)
 }
 ```
 
-### Catégories disponibles
+### Catégories disponibles (6)
 
-| ID | Nom affiché |
-|----|-------------|
-| `rapports` | RAPPORTS PAC |
-| `vente` | VENTE |
-| `billetterie` | GESTION BILLETTERIE |
-| `pmo` | PMO |
-| `commercialisation` | COMMERCIALISATION |
+| ID | Nom affiché | Couleur |
+|----|-------------|---------|
+| `pac` | PAC | Gris |
+| `rapports` | RAPPORTS | Bleu |
+| `vente` | VENTE | Vert |
+| `billetterie` | GESTION BILLETTERIE | Jaune |
+| `pmo` | PMO | Orange |
+| `commercialisation` | COMMERCIALISATION | Violet |
 
-### Types de tâches
+### Types de tâches (12)
 
 | Type | Apparence | Signification |
 |------|-----------|---------------|
-| `green` | Fond vert plein | Livraison maintenue |
-| `red` | Fond violet plein | Prioritaire |
-| `dashed` | Fond jaune, bordure pointillée | À valider |
-| `gray` | Fond gris | Préparation |
-| `blue-dashed` | Fond bleu clair, bordure pointillée | En attente |
+| `pac` | Fond gris plein | PAC standard |
+| `pac-light` | Fond gris clair, bordure pointillée | PAC à valider |
+| `rapports` | Fond bleu plein | Rapports standard |
+| `rapports-light` | Fond bleu clair, bordure pointillée | Rapports à valider |
+| `vente` | Fond vert plein | Vente standard |
+| `vente-light` | Fond vert clair, bordure pointillée | Vente à valider |
+| `billetterie` | Fond jaune plein | Billetterie standard |
+| `billetterie-light` | Fond jaune clair, bordure pointillée | Billetterie à valider |
+| `pmo` | Fond orange plein | PMO standard |
+| `pmo-light` | Fond orange clair, bordure pointillée | PMO à valider |
+| `commercialisation` | Fond violet plein | Commercialisation standard |
+| `commercialisation-light` | Fond violet clair, bordure pointillée | Commercialisation à valider |
 
 ---
 
@@ -418,11 +505,13 @@ Dans `INITIAL_TASKS`, ajouter :
     id: 'task-34',              // ID unique
     row: 'vente',               // Catégorie
     name: 'Nouvelle tâche',
-    type: 'green',
+    type: 'vente',              // Type = catégorie pour couleur pleine
     left: 300,                  // Position (mois 3 = 300px)
-    top: 12,                    // Première ligne de la catégorie
+    top: 45,                    // Position verticale dans la ligne
     width: 100,                 // Durée 1 mois
-    info: 'Description'
+    info: 'Description',
+    delivered: false,           // Optionnel
+    priority: false             // Optionnel
 }
 ```
 
@@ -435,15 +524,16 @@ Dans `MILESTONES`, ajouter :
     date: '15/04',
     label: 'Événement',
     position: 450,              // Avril 15 ≈ 400 + 50
-    color: 'green'
+    color: 'green',             // blue | green | red
+    level: 1                    // 1, 2 ou 3 (éviter chevauchement)
 }
 ```
 
 ### Ajouter une nouvelle catégorie
 
-1. **HTML** : Ajouter dans `.categories` et `.gantt-area`
-2. **CSS** : Créer `.category--nouvelle`
-3. **JS** : Ajouter dans le tableau `rows` de `renderTimeline()`
+1. **HTML** : Ajouter dans `.categories` et `.gantt-content`
+2. **CSS** : Créer `.category--nouvelle` et `.task--nouvelle` / `.task--nouvelle-light`
+3. **JS** : Ajouter dans le tableau `rows` de `renderTimeline()` et dans `renderDeliverySummary()`
 
 ### Modifier la période
 
@@ -470,6 +560,14 @@ Dans `CONFIG.MONTHS`, modifier le tableau des mois.
 ---
 
 ## Changelog
+
+### v2.1.0 (Janvier 2026)
+- Ajout de la catégorie PAC
+- Nouveau système de couleurs par catégorie (pastel)
+- Indicateurs visuels "delivered" et "priority"
+- Section récapitulatif des dates de livraison
+- Jalons avec niveaux de positionnement (évite chevauchement)
+- Header sticky pour navigation améliorée
 
 ### v2.0.0 (Janvier 2026)
 - Refactorisation complète du code
