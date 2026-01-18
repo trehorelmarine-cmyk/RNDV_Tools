@@ -111,6 +111,9 @@ document.getElementById('startBtn').addEventListener('click', async () => {
   statusText.innerHTML = 'Chargement des messages... <span id="messageCount">0</span> messages';
   progressBar.style.width = '10%';
 
+  // Masquer les stats précédentes
+  document.getElementById('statsBox')?.classList.remove('visible');
+
   try {
     // Inject and execute content script
     const results = await chrome.scripting.executeScript({
@@ -155,14 +158,18 @@ document.getElementById('startBtn').addEventListener('click', async () => {
               const updated = response.rowsUpdated || 0;
               const skipped = response.rowsSkipped || 0;
               const ignored = response.rowsIgnored || 0;
+              const total = added + updated + skipped + ignored;
 
-              let resultText = '';
-              if (added > 0) resultText += `${added} nouveau(x)`;
-              if (updated > 0) resultText += `${resultText ? ', ' : ''}${updated} maj`;
-              if (skipped > 0) resultText += `${resultText ? ', ' : ''}${skipped} doublon(s)`;
-              if (ignored > 0) resultText += `${resultText ? ', ' : ''}${ignored} non-support`;
+              // Afficher la box de stats
+              const statsBox = document.getElementById('statsBox');
+              document.getElementById('statSupport').textContent = added;
+              document.getElementById('statUpdated').textContent = updated;
+              document.getElementById('statDuplicates').textContent = skipped;
+              document.getElementById('statIgnored').textContent = ignored;
+              document.getElementById('statTotal').textContent = total || messages.length;
+              statsBox.classList.add('visible');
 
-              statusText.textContent = resultText || `${messages.length} messages traites !`;
+              statusText.textContent = `Traitement terminé !`;
             }
           } catch (sheetsError) {
             status.className = 'error';

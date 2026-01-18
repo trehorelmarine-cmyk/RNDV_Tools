@@ -219,6 +219,80 @@
     .help-link a:hover {
       text-decoration: underline;
     }
+
+    /* Stats box */
+    .stats-box {
+      display: none;
+      background: #252542;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 12px;
+      border: 1px solid #333;
+    }
+
+    .stats-box.visible {
+      display: block;
+    }
+
+    .stats-title {
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 8px 4px;
+      border-radius: 6px;
+      background: #1a1a2e;
+    }
+
+    .stat-icon {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 9px;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .stat-item.support .stat-value { color: #10b981; }
+    .stat-item.updated .stat-value { color: #3b82f6; }
+    .stat-item.duplicates .stat-value { color: #f59e0b; }
+    .stat-item.ignored .stat-value { color: #6b7280; }
+
+    .stats-total {
+      text-align: center;
+      font-size: 11px;
+      color: #666;
+      padding-top: 8px;
+      border-top: 1px solid #333;
+    }
+
+    .stats-total span {
+      color: #fff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -260,6 +334,36 @@
     <div id="statusText">Initialisation...</div>
     <div class="progress">
       <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <!-- Statistiques détaillées -->
+  <div id="statsBox" class="stats-box">
+    <div class="stats-title">Résultat de l'analyse</div>
+    <div class="stats-grid">
+      <div class="stat-item support">
+        <span class="stat-icon">✅</span>
+        <span class="stat-value" id="statSupport">0</span>
+        <span class="stat-label">Support</span>
+      </div>
+      <div class="stat-item updated">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-value" id="statUpdated">0</span>
+        <span class="stat-label">Mises à jour</span>
+      </div>
+      <div class="stat-item duplicates">
+        <span class="stat-icon">📋</span>
+        <span class="stat-value" id="statDuplicates">0</span>
+        <span class="stat-label">Doublons</span>
+      </div>
+      <div class="stat-item ignored">
+        <span class="stat-icon">💬</span>
+        <span class="stat-value" id="statIgnored">0</span>
+        <span class="stat-label">Non-support</span>
+      </div>
+    </div>
+    <div class="stats-total">
+      Total analysé: <span id="statTotal">0</span> messages
     </div>
   </div>
 
