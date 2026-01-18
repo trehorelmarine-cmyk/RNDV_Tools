@@ -1,0 +1,20 @@
+{
+  "name": "rndv-server",
+  "version": "1.0.0",
+  "description": "Serveur Node.js pour les applications RNDV",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "db:init": "psql -f db/init.sql"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
