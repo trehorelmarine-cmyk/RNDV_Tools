@@ -8,13 +8,13 @@
  * DATE | URGENCE / IMPACT | CATÉGORIE | PROBLÈME | DESCRIPTION | COMMANDE | SIGNALÉ PAR | CANAL | STATUT | COMMENTAIRE
  */
 
-// ⚠️ CONFIGURATION - Remplacez ces valeurs par vos propres clés
-const SPREADSHEET_ID = 'VOTRE_SPREADSHEET_ID'; // ID du Google Sheet
-const OPENAI_API_KEY = 'VOTRE_OPENAI_API_KEY'; // Clé API OpenAI (sk-...)
+// ⚠️ CONFIGURATION - Voir .env pour la documentation des clés
+const SPREADSHEET_ID = 'VOTRE_SPREADSHEET_ID';
+const OPENAI_API_KEY = 'VOTRE_OPENAI_API_KEY';
 
 // ClickUp Configuration
-const CLICKUP_API_KEY = 'VOTRE_CLICKUP_API_KEY'; // Clé API ClickUp (pk_...)
-const CLICKUP_LIST_ID = 'VOTRE_CLICKUP_LIST_ID'; // ID de la liste ClickUp
+const CLICKUP_API_KEY = 'VOTRE_CLICKUP_API_KEY';
+const CLICKUP_LIST_ID = 'VOTRE_CLICKUP_LIST_ID'; // Liste "RNDV - Demande"
 
 // Statut qui déclenche la création d'une tâche ClickUp (un seul)
 const CLICKUP_TRIGGER_STATUS = 'En cours d\'investigation';
