@@ -6,18 +6,77 @@
  *
  * Colonnes du document :
  * DATE | URGENCE / IMPACT | CATÉGORIE | PROBLÈME | DESCRIPTION | COMMANDE | SIGNALÉ PAR | CANAL | STATUT | COMMENTAIRE
+ *
+ * CONFIGURATION:
+ * Exécuter setupConfig() une fois pour configurer les clés API
+ * Ou aller dans: Paramètres du projet > Propriétés du script
  */
 
-// ⚠️ CONFIGURATION - Voir .env pour la documentation des clés
-const SPREADSHEET_ID = 'VOTRE_SPREADSHEET_ID';
-const OPENAI_API_KEY = 'VOTRE_OPENAI_API_KEY';
+// =====================================================
+// CONFIGURATION - Chargement dynamique depuis PropertiesService
+// =====================================================
+function getConfig(key) {
+  const props = PropertiesService.getScriptProperties();
+  const value = props.getProperty(key);
+  if (!value) {
+    Logger.log(`⚠️ Configuration manquante: ${key}. Exécutez setupConfig() ou configurez dans Paramètres du projet > Propriétés du script`);
+  }
+  return value || '';
+}
 
-// ClickUp Configuration
-const CLICKUP_API_KEY = 'VOTRE_CLICKUP_API_KEY';
-const CLICKUP_LIST_ID = 'VOTRE_CLICKUP_LIST_ID'; // Liste "RNDV - Demande"
+// Raccourcis pour accéder aux configs
+const SPREADSHEET_ID = getConfig('SPREADSHEET_ID');
+const OPENAI_API_KEY = getConfig('OPENAI_API_KEY');
+const CLICKUP_API_KEY = getConfig('CLICKUP_API_KEY');
+const CLICKUP_LIST_ID = getConfig('CLICKUP_LIST_ID');
 
 // Statut qui déclenche la création d'une tâche ClickUp (un seul)
 const CLICKUP_TRIGGER_STATUS = 'En cours d\'investigation';
+
+/**
+ * ⚠️ EXÉCUTER UNE FOIS pour configurer les clés API
+ * Modifiez les valeurs ci-dessous puis exécutez cette fonction
+ */
+function setupConfig() {
+  const props = PropertiesService.getScriptProperties();
+
+  // ⚠️ MODIFIEZ CES VALEURS AVEC VOS VRAIES CLÉS
+  props.setProperties({
+    'SPREADSHEET_ID': '1PyHVc6MWJlPs61mt8CdnWLaxyth47EUk3Z9cIQj6EY0',
+    'OPENAI_API_KEY': 'sk-proj-VOTRE_CLE_OPENAI',
+    'CLICKUP_API_KEY': 'pk_VOTRE_CLE_CLICKUP',
+    'CLICKUP_LIST_ID': '901215324535'
+  });
+
+  Logger.log('✅ Configuration sauvegardée!');
+  Logger.log('Propriétés actuelles:');
+  const all = props.getProperties();
+  for (const key in all) {
+    // Masquer les clés sensibles dans les logs
+    const value = all[key];
+    const masked = value.length > 10 ? value.substring(0, 6) + '...' + value.substring(value.length - 4) : value;
+    Logger.log(`  ${key}: ${masked}`);
+  }
+}
+
+/**
+ * Affiche la configuration actuelle (masquée)
+ */
+function showConfig() {
+  const props = PropertiesService.getScriptProperties();
+  const all = props.getProperties();
+
+  Logger.log('=== Configuration actuelle ===');
+  for (const key in all) {
+    const value = all[key];
+    const masked = value.length > 10 ? value.substring(0, 6) + '...' + value.substring(value.length - 4) : value;
+    Logger.log(`${key}: ${masked}`);
+  }
+
+  if (Object.keys(all).length === 0) {
+    Logger.log('❌ Aucune configuration trouvée. Exécutez setupConfig()');
+  }
+}
 
 // Mapping des priorités Sheet -> ClickUp (1=urgent, 2=high, 3=normal, 4=low)
 const PRIORITY_MAP = {

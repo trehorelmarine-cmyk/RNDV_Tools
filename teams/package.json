@@ -5,11 +5,13 @@
   "main": "get-teams-messages.ts",
   "scripts": {
     "start": "npx ts-node get-teams-messages.ts",
-    "list-chats": "npx ts-node get-teams-messages.ts"
+    "list-chats": "npx ts-node get-teams-messages.ts",
+    "test-ai": "node teams-exporter-extension/test-ai-detection.js"
   },
   "dependencies": {
     "@azure/identity": "^4.2.0",
-    "@microsoft/microsoft-graph-client": "^3.0.7"
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "dotenv": "^16.6.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
