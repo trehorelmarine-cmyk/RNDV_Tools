@@ -16,3 +16,6 @@ npm-debug.log*
 
 # Logs
 server/server.log
+
+# Fichiers avec secrets
+teams/teams-exporter-extension/google-apps-script.js
