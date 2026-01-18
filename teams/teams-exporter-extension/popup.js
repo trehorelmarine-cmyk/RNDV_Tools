@@ -150,6 +150,10 @@ document.getElementById('startBtn').addEventListener('click', async () => {
             progressBar.style.width = '100%';
             status.className = 'success';
 
+            // Debug: afficher la réponse complète
+            console.log('=== RÉPONSE GOOGLE SHEETS ===');
+            console.log(JSON.stringify(response, null, 2));
+
             if (response.warning) {
               statusText.textContent = `${messages.length} messages envoyes ! Verifiez la feuille.`;
             } else {
@@ -159,6 +163,8 @@ document.getElementById('startBtn').addEventListener('click', async () => {
               const skipped = response.rowsSkipped || 0;
               const ignored = response.rowsIgnored || 0;
               const total = added + updated + skipped + ignored;
+
+              console.log(`Stats: added=${added}, updated=${updated}, skipped=${skipped}, ignored=${ignored}`);
 
               // Afficher la box de stats
               const statsBox = document.getElementById('statsBox');
