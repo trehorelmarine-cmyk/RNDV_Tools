@@ -143,6 +143,88 @@ const STATUTS = [
 ];
 
 /**
+ * Vérifie si deux dates sont le même jour (format DD/MM/YYYY)
+ */
+function isSameDay(dateStr1, dateStr2) {
+  if (!dateStr1 || !dateStr2) return false;
+  return dateStr1.toString().trim() === dateStr2.toString().trim();
+}
+
+/**
+ * Vérifie si un message est une citation (contient un identifiant + date)
+ * Ces messages sont des réponses qui citent un message précédent
+ */
+function isQuotedMessage(content) {
+  if (!content) return false;
+  // Pattern 1: Prénom Nom DD/MM/YYYY (avec ou sans heure)
+  // Ex: "Isabelle Pallet 16/01/2026 11:30" ou "Stephen Cornet 16/01/2026"
+  const pattern1 = /[A-ZÀ-Ý][a-zà-ÿ]+\s+[A-ZÀ-Ý][a-zà-ÿ]+\s+\d{2}\/\d{2}\/\d{4}/;
+
+  // Pattern 2: identifiant.style ou identifiant DD/MM/YYYY
+  // Ex: "marine.trehorel 18/01/2026" ou "jean.dupont 16/01/2026"
+  const pattern2 = /[a-zA-Z][a-zA-Z0-9._-]+\s+\d{2}\/\d{2}\/\d{4}/;
+
+  return pattern1.test(content) || pattern2.test(content);
+}
+
+/**
+ * Vérifie si un message est un message simple à ignorer (pas une demande de support)
+ * Salutations, remerciements, bavardage, etc.
+ */
+function isSimpleNonSupportMessage(content) {
+  if (!content) return true;
+
+  const cleaned = content.toLowerCase().trim()
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/\s+/g, ' ');
+
+  // Messages très courts (moins de 30 caractères) qui ne contiennent pas de mots-clés support
+  const supportKeywords = ['help', 'problème', 'probleme', 'erreur', 'bug', 'bloqué', 'bloque',
+    'fusionner', 'fusion', 'modifier', 'commande', 'accès', 'acces', 'impossible',
+    'pouvez-vous', 'pouvez vous', 'merci de', 'il faudrait', 'possible de', 'svp', 's\'il vous plaît'];
+
+  const hasKeyword = supportKeywords.some(kw => cleaned.includes(kw));
+
+  // Liste de messages à ignorer (exact ou qui commencent par)
+  const ignoreExact = [
+    'merci', 'merci !', 'merci!', 'merci beaucoup', 'ok', 'okay', 'd\'accord', 'daccord',
+    'parfait', 'super', 'top', 'génial', 'genial', 'cool', 'nickel', 'impeccable',
+    'bonjour', 'bonsoir', 'salut', 'coucou', 'hello', 'hi',
+    'bonne journée', 'bonne journee', 'bonne soirée', 'bonne soiree', 'bon week-end', 'bon weekend',
+    'à bientôt', 'a bientot', 'à plus', 'a plus', 'bye', 'ciao',
+    'oui', 'non', 'c\'est bon', 'c\'est fait', 'c\'est noté', 'noté', 'note',
+    'je te remercie', 'je vous remercie'
+  ];
+
+  // Patterns de messages à ignorer (commence par)
+  const ignoreStartsWith = [
+    'merci ', 'bonjour,', 'bonsoir,', 'salut,', 'ok ', 'okay ',
+    'bonne ', 'bon ', 'super ', 'parfait ', 'génial ', 'top '
+  ];
+
+  // Vérifier correspondance exacte
+  if (ignoreExact.includes(cleaned)) {
+    return true;
+  }
+
+  // Vérifier si commence par un pattern à ignorer ET pas de mot-clé support
+  if (!hasKeyword) {
+    for (const prefix of ignoreStartsWith) {
+      if (cleaned.startsWith(prefix) && cleaned.length < 50) {
+        return true;
+      }
+    }
+
+    // Messages très courts sans mot-clé support
+    if (cleaned.length < 25) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+/**
  * Normalise un texte pour la comparaison (doublons)
  */
 function normalizeText(text) {
@@ -226,22 +308,25 @@ RÈGLES:
 - Mineur = demande simple (fusion, modification email, info)
 - Extrais TOUS les numéros de commande (W.XXXX.XXXXX, XXXXX, etc.) et chèques cadeaux (XXXX-XXXX-XXXX)
 
-IMPORTANT - RÈGLE D'INCLUSION:
-- Par DÉFAUT, considère que c'est une demande de support (isSupport: true)
-- Mets isSupport: false UNIQUEMENT si le message est:
-  * Une salutation SEULE ("Salut", "Bonjour", "Coucou") sans autre contenu
-  * Une réponse simple ("OK", "Merci", "D'accord", "Parfait", "Super")
-  * Une question sur le statut d'une demande précédente ("Où en est ma demande ?", "Des nouvelles ?")
-  * Du bavardage sans rapport avec le support ("Bon week-end", "Ça va ?")
+IMPORTANT - RÈGLE D'INCLUSION (SOIS TRÈS STRICT):
+Par DÉFAUT, mets isSupport: false. Mets isSupport: true SEULEMENT si TOUTES ces conditions sont remplies:
+1. Le message est une DEMANDE INITIALE (pas une réponse)
+2. Le message contient une ACTION demandée ou un PROBLÈME signalé
+3. Le message ne cite PAS un autre message (pas de format "Prénom Nom Date")
 
-- Mets isSupport: true si le message:
-  * Mentionne un problème, une erreur, un souci
-  * Contient un numéro de commande, client, ou chèque cadeau
-  * Demande une action (fusion, modification, vérification, annulation, remise d'accès...)
-  * Décrit une situation anormale ou une perte d'accès
-  * Demande des droits, accès, permissions, contingents, ou tarifs
-  * Mentionne "je n'ai plus accès", "je ne peux plus", "impossible de", "je n'arrive pas"
-  * Contient "help" ou s'adresse au support (mais ce n'est pas obligatoire)
+Mets OBLIGATOIREMENT isSupport: false si:
+- Message court sans demande claire (Merci, OK, Bonjour, Bonne soirée, D'accord, Parfait, Super)
+- Réponse/confirmation ("La fusion est faite", "C'est corrigé", "Je confirme", "c'est fait", "c'est réglé")
+- Message qui cite un message précédent (contient "Prénom Nom JJ/MM/AAAA")
+- Message du support répondant ("Bonjour [Prénom]", "Je te tiendrai au courant")
+- Bavardage ("Bon week-end", "je peux venir vous voir", "Ça va ?")
+- Remerciements même avec texte ("Merci Bonne soirée", "Merci beaucoup", "Je te remercie")
+
+Mets isSupport: true UNIQUEMENT si le message:
+- Contient "help" ET décrit un problème concret
+- OU demande explicitement une action ("pouvez-vous", "merci de", "il faudrait", "possible de fusionner")
+- OU signale un problème ("je n'ai plus accès", "problème", "erreur", "bloqué", "ne fonctionne pas")
+- ET ne correspond à aucun critère d'exclusion ci-dessus
 
 Réponds UNIQUEMENT en JSON valide (sans backticks ni markdown):
 {
@@ -334,9 +419,8 @@ RÈGLES IMPORTANTES:
 1. C'est une MISE À JOUR si le message dit "par rapport à", "suite à", "concernant mon message", "voici le numéro", etc.
 2. C'est une MISE À JOUR si le même auteur ajoute des infos (numéro de commande, précision, etc.)
 3. C'est une MISE À JOUR si le message fait référence au même problème/commande/client
-4. C'est une MISE À JOUR si c'est une réponse, un suivi, ou une information complémentaire
-5. PRIVILÉGIE les lignes du MÊME AUTEUR quand le message fait référence à "mon message précédent"
-6. C'est un NOUVEAU problème SEULEMENT si c'est un sujet complètement différent
+4. PRIVILÉGIE les lignes du MÊME AUTEUR et du MÊME JOUR
+5. C'est un NOUVEAU problème si c'est un sujet différent OU un jour différent
 
 Réponds UNIQUEMENT en JSON (sans backticks):
 {
@@ -378,6 +462,13 @@ Réponds UNIQUEMENT en JSON (sans backticks):
 
     if (analysis.isUpdate && analysis.relatedIndex !== null && analysis.relatedIndex < relevantRows.length) {
       const targetRow = relevantRows[analysis.relatedIndex];
+
+      // Vérifier que les messages sont du même jour
+      if (!isSameDay(newMessage.date, targetRow.date)) {
+        Logger.log(`Update rejected: dates differ (${newMessage.date} vs ${targetRow.date})`);
+        return null;
+      }
+
       return {
         rowNumber: targetRow.rowNumber,
         rowData: targetRow,
@@ -416,18 +507,18 @@ RÈGLES URGENCE:
 - Majeur = important mais pas immédiat
 - Mineur = demande simple, fusion, modification email
 
-RÈGLE D'INCLUSION (TRÈS IMPORTANT):
-- Par DÉFAUT, isSupport: true (considère que c'est une demande)
-- isSupport: false UNIQUEMENT pour:
-  * Salutation SEULE sans contenu ("Salut", "Bonjour")
-  * Réponse simple ("OK", "Merci", "D'accord", "Parfait")
-  * Bavardage ("Bon week-end", "Ça va ?")
+RÈGLE D'INCLUSION (SOIS TRÈS STRICT - par défaut isSupport: false):
+isSupport: false OBLIGATOIRE si:
+- Message court (Merci, OK, Bonjour, Bonne soirée, D'accord, Parfait)
+- Réponse/confirmation ("La fusion est faite", "C'est corrigé", "c'est fait")
+- Cite un message ("Prénom Nom JJ/MM/AAAA")
+- Réponse du support ("Bonjour [Prénom]", "Je te tiendrai au courant")
+- Remerciements ("Merci Bonne soirée", "Merci beaucoup")
 
-- isSupport: true si le message:
-  * Mentionne un problème, erreur, souci
-  * Contient un numéro (commande, client, chèque cadeau)
-  * Demande une action (fusion, modification, vérification, annulation)
-  * Décrit une situation à traiter
+isSupport: true UNIQUEMENT si:
+- "help" + problème concret
+- OU demande action ("pouvez-vous", "merci de", "il faudrait", "possible de")
+- OU signale problème ("je n'ai plus accès", "erreur", "bloqué")
 
 Réponds UNIQUEMENT en tableau JSON (sans backticks ni markdown):
 [{"index":1,"isSupport":true,"urgence":"...","categorie":"...","probleme":"...","commande":"...","statut":"Nouveau"}]`;
@@ -579,6 +670,20 @@ function doPost(e) {
         return;
       }
 
+      // Ignorer les messages qui citent un message précédent (format: "Prénom Nom JJ/MM/AAAA")
+      if (isQuotedMessage(content)) {
+        Logger.log('Skipping quoted message: ' + content.substring(0, 60) + '...');
+        skippedCount++;
+        return;
+      }
+
+      // Ignorer les messages simples (merci, bonjour, bonne soirée, etc.)
+      if (isSimpleNonSupportMessage(content)) {
+        Logger.log('Skipping simple message: ' + content.substring(0, 60) + '...');
+        skippedCount++;
+        return;
+      }
+
       // Ajouter les clés pour éviter les doublons dans le même batch
       existingKeys.add(keyWithAuthor);
       existingKeys.add(keyWithoutAuthor);
@@ -639,61 +744,41 @@ function doPost(e) {
     let ignoredNonSupport = 0;
 
     messagesToAnalyze.forEach((msg, index) => {
-      let urgence = '';
-      let categorie = 'Teams';
-      let probleme = msg.content.substring(0, 50) + (msg.content.length > 50 ? '...' : '');
-      let commande = '';
-      let statut = 'Nouveau';
-      let isSupport = true;
-
-      // Appliquer l'analyse AI si disponible
-      if (aiAnalysis) {
-        const analysis = aiAnalysis.find(a => a.index === index + 1) || aiAnalysis[index];
-        if (analysis) {
-          // Si l'IA a marqué ce message comme non-support
-          if (analysis.isSupport === false || analysis === null) {
-            Logger.log('Non-support message detected, checking if it updates existing row: ' + msg.content.substring(0, 50));
-
-            // Vérifier si c'est une mise à jour d'un problème existant
-            if (existingRowsData.length > 0) {
-              const updateInfo = findRelatedRow(msg, existingRowsData);
-              if (updateInfo) {
-                Logger.log(`Non-support message is an update for row ${updateInfo.rowNumber}`);
-                messagesToUpdate.push({
-                  ...msg,
-                  targetRow: updateInfo.rowNumber,
-                  existingData: updateInfo.rowData,
-                  updateReason: updateInfo.reason
-                });
-              } else {
-                Logger.log('Ignoring non-support message (no relation to existing): ' + msg.content.substring(0, 50));
-                ignoredNonSupport++;
-              }
-            } else {
-              Logger.log('Ignoring non-support message (no existing data): ' + msg.content.substring(0, 50));
-              ignoredNonSupport++;
-            }
-            return; // Skip adding as new row
-          }
-          urgence = analysis.urgence || '';
-          categorie = analysis.categorie || 'Teams';
-          probleme = analysis.probleme || probleme;
-          commande = analysis.commande || '';
-          statut = analysis.statut || 'Nouveau';
-        }
+      // Pas d'analyse IA = on n'ajoute pas
+      if (!aiAnalysis) {
+        Logger.log('No AI analysis available, skipping: ' + msg.content.substring(0, 50));
+        ignoredNonSupport++;
+        return;
       }
 
+      const analysis = aiAnalysis.find(a => a.index === index + 1) || aiAnalysis[index];
+
+      // Pas d'analyse pour ce message = on n'ajoute pas
+      if (!analysis) {
+        Logger.log('No analysis for message, skipping: ' + msg.content.substring(0, 50));
+        ignoredNonSupport++;
+        return;
+      }
+
+      // IA dit non-support = on n'ajoute pas
+      if (analysis.isSupport === false) {
+        Logger.log('Ignoring non-support message: ' + msg.content.substring(0, 50));
+        ignoredNonSupport++;
+        return;
+      }
+
+      // IA dit support = on ajoute avec les valeurs de l'analyse
       newRows.push([
-        msg.date,                       // DATE
-        urgence,                        // URGENCE / IMPACT
-        categorie,                      // CATÉGORIE
-        probleme,                       // PROBLÈME (analysé par AI)
-        cleanMessageContent(msg.content), // DESCRIPTION (nettoyé: sans réactions ni retours à la ligne)
-        commande,                       // COMMANDE (extrait par AI)
-        msg.author,                     // SIGNALÉ PAR
-        'Chat',                         // CANAL
-        statut,                         // STATUT
-        ''                              // COMMENTAIRE (vide par défaut)
+        msg.date,                         // DATE
+        analysis.urgence || '',           // URGENCE / IMPACT
+        analysis.categorie || '',         // CATÉGORIE
+        analysis.probleme || '',          // PROBLÈME
+        cleanMessageContent(msg.content), // DESCRIPTION
+        analysis.commande || '',          // COMMANDE
+        msg.author,                       // SIGNALÉ PAR
+        'Chat',                           // CANAL
+        analysis.statut || 'Nouveau',     // STATUT
+        ''                                // COMMENTAIRE
       ]);
     });
 

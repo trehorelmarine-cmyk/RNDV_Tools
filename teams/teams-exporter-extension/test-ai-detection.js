@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Script de test pour vérifier la détection IA des messages de support
+ * Script de test pour vérifier la détection des messages de support
+ * Inclut le pré-filtrage (code) ET l'analyse IA
  *
  * Usage:
  *   node test-ai-detection.js "Votre message à tester"
@@ -14,12 +15,80 @@ require('dotenv').config();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 if (!OPENAI_API_KEY) {
-  console.error('❌ OPENAI_API_KEY non trouvée dans .env');
-  console.log('Créez un fichier .env avec: OPENAI_API_KEY=sk-...');
+  console.error('OPENAI_API_KEY non trouvee dans .env');
+  console.log('Creez un fichier .env avec: OPENAI_API_KEY=sk-...');
   process.exit(1);
 }
 
-// Listes de référence (identiques à google-apps-script.js)
+// =====================================================
+// FONCTIONS DE PRE-FILTRAGE (identiques à google-apps-script.js)
+// =====================================================
+
+/**
+ * Vérifie si un message est une citation (contient un identifiant + date)
+ */
+function isQuotedMessage(content) {
+  if (!content) return false;
+  // Pattern 1: Prénom Nom DD/MM/YYYY
+  const pattern1 = /[A-ZÀ-Ý][a-zà-ÿ]+\s+[A-ZÀ-Ý][a-zà-ÿ]+\s+\d{2}\/\d{2}\/\d{4}/;
+  // Pattern 2: identifiant.style DD/MM/YYYY (ex: marine.trehorel 18/01/2026)
+  const pattern2 = /[a-zA-Z][a-zA-Z0-9._-]+\s+\d{2}\/\d{2}\/\d{4}/;
+  return pattern1.test(content) || pattern2.test(content);
+}
+
+/**
+ * Vérifie si un message est un message simple à ignorer
+ */
+function isSimpleNonSupportMessage(content) {
+  if (!content) return true;
+
+  const cleaned = content.toLowerCase().trim()
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/\s+/g, ' ');
+
+  const supportKeywords = ['help', 'problème', 'probleme', 'erreur', 'bug', 'bloqué', 'bloque',
+    'fusionner', 'fusion', 'modifier', 'commande', 'accès', 'acces', 'impossible',
+    'pouvez-vous', 'pouvez vous', 'merci de', 'il faudrait', 'possible de', 'svp', 's\'il vous plaît'];
+
+  const hasKeyword = supportKeywords.some(kw => cleaned.includes(kw));
+
+  const ignoreExact = [
+    'merci', 'merci !', 'merci!', 'merci beaucoup', 'ok', 'okay', 'd\'accord', 'daccord',
+    'parfait', 'super', 'top', 'génial', 'genial', 'cool', 'nickel', 'impeccable',
+    'bonjour', 'bonsoir', 'salut', 'coucou', 'hello', 'hi',
+    'bonne journée', 'bonne journee', 'bonne soirée', 'bonne soiree', 'bon week-end', 'bon weekend',
+    'à bientôt', 'a bientot', 'à plus', 'a plus', 'bye', 'ciao',
+    'oui', 'non', 'c\'est bon', 'c\'est fait', 'c\'est noté', 'noté', 'note',
+    'je te remercie', 'je vous remercie'
+  ];
+
+  const ignoreStartsWith = [
+    'merci ', 'bonjour,', 'bonsoir,', 'salut,', 'ok ', 'okay ',
+    'bonne ', 'bon ', 'super ', 'parfait ', 'génial ', 'top '
+  ];
+
+  if (ignoreExact.includes(cleaned)) {
+    return true;
+  }
+
+  if (!hasKeyword) {
+    for (const prefix of ignoreStartsWith) {
+      if (cleaned.startsWith(prefix) && cleaned.length < 50) {
+        return true;
+      }
+    }
+    if (cleaned.length < 25) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// =====================================================
+// LISTES DE REFERENCE
+// =====================================================
+
 const URGENCES = ['Critique', 'Majeur', 'Mineur', 'N/A'];
 
 const CATEGORIES = [
@@ -55,6 +124,10 @@ const STATUTS = [
   'En cours de correction', 'Corrigé', 'Non lié au système', 'Vérification', 'En attente'
 ];
 
+// =====================================================
+// ANALYSE IA
+// =====================================================
+
 async function analyzeMessage(messageContent, author = 'Utilisateur') {
   const prompt = `Tu analyses des messages du support de la Comédie-Française (système billetterie RNDV).
 
@@ -81,22 +154,25 @@ RÈGLES:
 - Mineur = demande simple (fusion, modification email, info)
 - Extrais TOUS les numéros de commande (W.XXXX.XXXXX, XXXXX, etc.) et chèques cadeaux (XXXX-XXXX-XXXX)
 
-IMPORTANT - RÈGLE D'INCLUSION:
-- Par DÉFAUT, considère que c'est une demande de support (isSupport: true)
-- Mets isSupport: false UNIQUEMENT si le message est:
-  * Une salutation SEULE ("Salut", "Bonjour", "Coucou") sans autre contenu
-  * Une réponse simple ("OK", "Merci", "D'accord", "Parfait", "Super")
-  * Une question sur le statut d'une demande précédente ("Où en est ma demande ?", "Des nouvelles ?")
-  * Du bavardage sans rapport avec le support ("Bon week-end", "Ça va ?")
+IMPORTANT - RÈGLE D'INCLUSION (SOIS TRÈS STRICT):
+Par DÉFAUT, mets isSupport: false. Mets isSupport: true SEULEMENT si TOUTES ces conditions sont remplies:
+1. Le message est une DEMANDE INITIALE (pas une réponse)
+2. Le message contient une ACTION demandée ou un PROBLÈME signalé
+3. Le message ne cite PAS un autre message (pas de format "Prénom Nom Date")
 
-- Mets isSupport: true si le message:
-  * Mentionne un problème, une erreur, un souci
-  * Contient un numéro de commande, client, ou chèque cadeau
-  * Demande une action (fusion, modification, vérification, annulation, remise d'accès...)
-  * Décrit une situation anormale ou une perte d'accès
-  * Demande des droits, accès, permissions, contingents, ou tarifs
-  * Mentionne "je n'ai plus accès", "je ne peux plus", "impossible de", "je n'arrive pas"
-  * Contient "help" ou s'adresse au support (mais ce n'est pas obligatoire)
+Mets OBLIGATOIREMENT isSupport: false si:
+- Message court sans demande claire (Merci, OK, Bonjour, Bonne soirée, D'accord, Parfait, Super)
+- Réponse/confirmation ("La fusion est faite", "C'est corrigé", "Je confirme", "c'est fait", "c'est réglé")
+- Message qui cite un message précédent (contient "Prénom Nom JJ/MM/AAAA")
+- Message du support répondant ("Bonjour [Prénom]", "Je te tiendrai au courant")
+- Bavardage ("Bon week-end", "je peux venir vous voir", "Ça va ?")
+- Remerciements même avec texte ("Merci Bonne soirée", "Merci beaucoup", "Je te remercie")
+
+Mets isSupport: true UNIQUEMENT si le message:
+- Contient "help" ET décrit un problème concret
+- OU demande explicitement une action ("pouvez-vous", "merci de", "il faudrait", "possible de fusionner")
+- OU signale un problème ("je n'ai plus accès", "problème", "erreur", "bloqué", "ne fonctionne pas")
+- ET ne correspond à aucun critère d'exclusion ci-dessus
 
 Réponds UNIQUEMENT en JSON valide (sans backticks ni markdown):
 {
@@ -120,7 +196,7 @@ Réponds UNIQUEMENT en JSON valide (sans backticks ni markdown):
         messages: [
           {
             role: 'system',
-            content: 'Tu es un assistant qui analyse des messages de support pour un système de billetterie (Comédie-Française). Tu extrais les informations clés et les catégorises. Réponds uniquement en JSON valide.'
+            content: 'Tu es un assistant qui analyse des messages de support pour un système de billetterie (Comédie-Française). Tu extrais les informations clés et les catégorises. Réponds uniquement en JSON valide. SOIS STRICT: par défaut isSupport=false.'
           },
           {
             role: 'user',
@@ -135,7 +211,7 @@ Réponds UNIQUEMENT en JSON valide (sans backticks ni markdown):
     const result = await response.json();
 
     if (result.error) {
-      console.error('❌ Erreur OpenAI:', result.error.message);
+      console.error('Erreur OpenAI:', result.error.message);
       return null;
     }
 
@@ -144,37 +220,83 @@ Réponds UNIQUEMENT en JSON valide (sans backticks ni markdown):
     return JSON.parse(jsonStr);
 
   } catch (error) {
-    console.error('❌ Erreur:', error.message);
+    console.error('Erreur:', error.message);
     return null;
   }
 }
 
-function displayResult(message, result) {
+// =====================================================
+// AFFICHAGE
+// =====================================================
+
+function displayResult(message, preFilterResult, aiResult) {
   console.log('\n' + '='.repeat(60));
-  console.log('📝 MESSAGE:');
+  console.log('MESSAGE:');
   console.log(`   "${message}"`);
   console.log('='.repeat(60));
 
-  if (!result) {
-    console.log('❌ Impossible d\'analyser le message');
-    return;
+  // Pré-filtrage
+  console.log('\n[1] PRE-FILTRAGE (code):');
+  if (preFilterResult.isQuoted) {
+    console.log('   -> IGNORE: Message cite un autre message (Prenom Nom Date)');
+  } else if (preFilterResult.isSimple) {
+    console.log('   -> IGNORE: Message simple (merci, bonjour, etc.)');
+  } else {
+    console.log('   -> PASSE: Envoyé à l\'IA pour analyse');
   }
 
-  const supportIcon = result.isSupport ? '✅' : '❌';
-  const supportText = result.isSupport ? 'OUI - Demande de support' : 'NON - Pas une demande de support';
+  // IA
+  if (!preFilterResult.isQuoted && !preFilterResult.isSimple) {
+    console.log('\n[2] ANALYSE IA:');
+    if (!aiResult) {
+      console.log('   -> ERREUR: Impossible d\'analyser');
+    } else {
+      const supportIcon = aiResult.isSupport ? 'OUI' : 'NON';
+      console.log(`   -> isSupport: ${supportIcon}`);
 
-  console.log(`\n${supportIcon} IS SUPPORT: ${supportText}`);
+      if (aiResult.isSupport) {
+        console.log(`   -> Urgence:   ${aiResult.urgence || 'N/A'}`);
+        console.log(`   -> Catégorie: ${aiResult.categorie || 'N/A'}`);
+        console.log(`   -> Problème:  ${aiResult.probleme || 'N/A'}`);
+        console.log(`   -> Commande:  ${aiResult.commande || '(aucune)'}`);
+        console.log(`   -> Statut:    ${aiResult.statut || 'Nouveau'}`);
+      }
+    }
+  }
 
-  if (result.isSupport) {
-    console.log(`\n📊 ANALYSE:`);
-    console.log(`   Urgence:   ${result.urgence || 'N/A'}`);
-    console.log(`   Catégorie: ${result.categorie || 'N/A'}`);
-    console.log(`   Problème:  ${result.probleme || 'N/A'}`);
-    console.log(`   Commande:  ${result.commande || '(aucune)'}`);
-    console.log(`   Statut:    ${result.statut || 'Nouveau'}`);
+  // Résultat final
+  console.log('\n[RESULTAT FINAL]:');
+  if (preFilterResult.isQuoted || preFilterResult.isSimple) {
+    console.log('   -> IGNORE (filtre code)');
+  } else if (!aiResult || !aiResult.isSupport) {
+    console.log('   -> IGNORE (IA: non-support)');
+  } else {
+    console.log('   -> AJOUTE AU SHEET');
   }
 
   console.log('\n' + '='.repeat(60));
+}
+
+// =====================================================
+// MODES
+// =====================================================
+
+async function testMessage(message) {
+  // Pré-filtrage
+  const preFilterResult = {
+    isQuoted: isQuotedMessage(message),
+    isSimple: isSimpleNonSupportMessage(message)
+  };
+
+  let aiResult = null;
+
+  // Si passe le pré-filtre, envoyer à l'IA
+  if (!preFilterResult.isQuoted && !preFilterResult.isSimple) {
+    console.log('\nAnalyse IA en cours...');
+    aiResult = await analyzeMessage(message);
+  }
+
+  displayResult(message, preFilterResult, aiResult);
 }
 
 async function interactiveMode() {
@@ -185,14 +307,14 @@ async function interactiveMode() {
 
   const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
 
-  console.log('\n🤖 TEST DE DÉTECTION IA - Mode Interactif');
+  console.log('\nTEST DE DETECTION - Mode Interactif');
   console.log('Tapez "exit" pour quitter\n');
 
   while (true) {
-    const message = await question('\n💬 Entrez un message à tester:\n> ');
+    const message = await question('\nEntrez un message a tester:\n> ');
 
     if (message.toLowerCase() === 'exit') {
-      console.log('\n👋 Au revoir!');
+      console.log('\nAu revoir!');
       rl.close();
       break;
     }
@@ -201,49 +323,41 @@ async function interactiveMode() {
       continue;
     }
 
-    console.log('\n⏳ Analyse en cours...');
-    const result = await analyzeMessage(message);
-    displayResult(message, result);
-
-    const feedback = await question('\n🎯 L\'IA a-t-elle raison? (o/n/skip): ');
-
-    if (feedback.toLowerCase() === 'n') {
-      const expected = await question('   Devrait être support? (o/n): ');
-      const shouldBeSupport = expected.toLowerCase() === 'o';
-
-      console.log('\n📝 FEEDBACK ENREGISTRÉ:');
-      console.log(`   Message: "${message.substring(0, 50)}..."`);
-      console.log(`   IA dit: isSupport=${result?.isSupport}`);
-      console.log(`   Attendu: isSupport=${shouldBeSupport}`);
-      console.log('\n   ➡️  Ajoutez ce cas au prompt dans google-apps-script.js');
-
-      if (shouldBeSupport && !result?.isSupport) {
-        console.log('\n   💡 SUGGESTION: Ajouter dans les règles isSupport=true:');
-        // Identifier des mots-clés du message
-        const keywords = message.toLowerCase().match(/\b\w{4,}\b/g) || [];
-        if (keywords.length > 0) {
-          console.log(`      * Messages contenant: "${keywords.slice(0, 3).join('", "')}"`);
-        }
-      }
-    } else if (feedback.toLowerCase() === 'o') {
-      console.log('   ✅ Parfait, l\'IA fonctionne correctement!');
-    }
+    await testMessage(message);
   }
 }
 
-async function singleTest(message) {
-  console.log('\n⏳ Analyse en cours...');
-  const result = await analyzeMessage(message);
-  displayResult(message, result);
+async function runExamples() {
+  console.log('\n=== TEST AVEC EXEMPLES ===\n');
+
+  const examples = [
+    // Devrait être IGNORE
+    'Merci Bonne soirée',
+    'Bonjour',
+    'OK parfait',
+    'Stephen Cornet 16/01/2026 12:11 Bonjour il faudrait fusionner ces 2 fiches',
+    'La fusion est faite. Merci !',
+    'Je te tiendrai au courant !',
+
+    // Devrait être SUPPORT
+    'Bonjour help, possible de fusionner les deux fiches ? JORDAN PEREZ et Jordan Perez merci !',
+    'Je n\'ai plus accès au contingent spécial merci de me le remettre',
+    'Bonjour help pouvez-vous modifier l\'adresse mail de la Commande N°W.2601.K6CGC'
+  ];
+
+  for (const msg of examples) {
+    await testMessage(msg);
+    console.log('\n');
+  }
 }
 
 // Point d'entrée
 const args = process.argv.slice(2);
 
-if (args.length > 0) {
-  // Mode ligne de commande avec message
-  singleTest(args.join(' '));
+if (args[0] === '--examples') {
+  runExamples();
+} else if (args.length > 0) {
+  testMessage(args.join(' '));
 } else {
-  // Mode interactif
   interactiveMode();
 }
