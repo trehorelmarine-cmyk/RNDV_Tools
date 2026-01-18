@@ -16,3 +16,4 @@ npm-debug.log*
 
 # Teams extension (contient des secrets)
 teams/
+server/server.log

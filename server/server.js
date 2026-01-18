@@ -38,10 +38,10 @@ app.use((req, res, next) => {
 // ============================================
 
 // Roadmap Application
-app.use('/roadmap', express.static(path.join(__dirname, '..', 'Roadmap')));
+app.use('/roadmap', express.static(path.join(__dirname, '..', 'client', 'Roadmap')));
 
 // Analyse Demande RNDV Application
-app.use('/analyse', express.static(path.join(__dirname, '..', 'analyse_demande_rndv')));
+app.use('/analyse', express.static(path.join(__dirname, '..', 'client', 'analyse_demande_rndv')));
 
 // Redirect root to roadmap
 app.get('/', (req, res) => {

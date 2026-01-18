@@ -10,12 +10,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-# Charger les variables d'environnement
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+# Chemin du projet
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SERVER_DIR="$PROJECT_DIR/server"
 
-if [ -f .env ]; then
-    export $(grep -v '^#' .env | xargs)
+# Charger les variables d'environnement
+if [ -f "$SERVER_DIR/.env" ]; then
+    export $(grep -v '^#' "$SERVER_DIR/.env" | xargs)
 fi
 
 PORT=${PORT:-3000}
@@ -33,5 +34,5 @@ else
         kill -9 $PID 2>/dev/null
     fi
 
-    echo -e "${GREEN}Serveur arrêté (PID: $PID)${NC}"
+    echo -e "${GREEN}Serveur RNDV arrêté (PID: $PID)${NC}"
 fi
