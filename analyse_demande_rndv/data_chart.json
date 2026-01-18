@@ -1,0 +1,466 @@
+{
+  "months": [
+    "09/2025",
+    "10/2025",
+    "11/2025",
+    "12/2025",
+    "01/2026"
+  ],
+  "problems": {
+    "Fusion fiche": [
+      25,
+      55,
+      31,
+      31,
+      20
+    ],
+    "Trop perçu / Écart de paiement": [
+      17,
+      31,
+      15,
+      13,
+      7
+    ],
+    "Association groupe adhérent": [
+      0,
+      58,
+      1,
+      0,
+      0
+    ],
+    "Places bloquées tunnel web": [
+      19,
+      0,
+      3,
+      1,
+      0
+    ],
+    "Billet à payer": [
+      0,
+      8,
+      3,
+      4,
+      3
+    ],
+    "Vérification lock de place": [
+      7,
+      7,
+      0,
+      0,
+      0
+    ],
+    "Billets non affichés": [
+      3,
+      5,
+      4,
+      1,
+      0
+    ],
+    "Places bloquées opérateurs": [
+      8,
+      5,
+      0,
+      0,
+      0
+    ],
+    "Adresse de facturation": [
+      2,
+      4,
+      4,
+      0,
+      2
+    ],
+    "Paiement chèque-cadeau": [
+      1,
+      1,
+      2,
+      5,
+      3
+    ],
+    "Doublons": [
+      6,
+      1,
+      1,
+      1,
+      2
+    ],
+    "Génération rapport": [
+      9,
+      0,
+      0,
+      0,
+      1
+    ],
+    "Non payée": [
+      6,
+      1,
+      1,
+      0,
+      0
+    ],
+    "Connexion": [
+      3,
+      3,
+      2,
+      0,
+      0
+    ],
+    "Mauvais statut commande": [
+      0,
+      2,
+      1,
+      5,
+      0
+    ],
+    "Affichage panier": [
+      7,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Lien commande": [
+      4,
+      3,
+      0,
+      0,
+      0
+    ],
+    "Places non dispos en front": [
+      4,
+      1,
+      1,
+      0,
+      0
+    ],
+    "Validation justificatif": [
+      5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "Remboursement": [
+      0,
+      5,
+      1,
+      0,
+      0
+    ],
+    "Création de commande": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "Place dispo liée à une commande": [
+      4,
+      0,
+      1,
+      0,
+      0
+    ],
+    "Sélection place": [
+      1,
+      3,
+      0,
+      1,
+      0
+    ],
+    "Archivage fiche": [
+      0,
+      0,
+      4,
+      1,
+      0
+    ],
+    "Génération chèque cadeau": [
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    "Génération documents": [
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Vérification compte client": [
+      2,
+      2,
+      0,
+      0,
+      0
+    ],
+    "Accès tarif": [
+      0,
+      1,
+      1,
+      2,
+      0
+    ],
+    "Mail de confirmation non reçu": [
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "Commande vide à 0€": [
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Places bloquées": [
+      0,
+      2,
+      1,
+      0,
+      0
+    ],
+    "Téléchargement billets": [
+      0,
+      1,
+      0,
+      2,
+      0
+    ],
+    "Affichage mauvaise date billet": [
+      0,
+      0,
+      2,
+      1,
+      0
+    ],
+    "Téléchargement de facture": [
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "Impression plan de salle": [
+      0,
+      0,
+      0,
+      3,
+      0
+    ],
+    "Réinitialisation mot de passe": [
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Lenteurs": [
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Ajout commentaire": [
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Affichage spectateur": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "Mise à jour coordonnées": [
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    "Filtre liste": [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "Problème paiement": [
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "Rattachement opérateur": [
+      0,
+      0,
+      2,
+      0,
+      0
+    ],
+    "Commande annulée, paiement valide": [
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    "Commande non présente": [
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    "Mauvais expéditeur": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Boucle de redirection": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Commande bloquée": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Séance passée : siège grisé": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Déplacement en salle": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Suppression manuelle billets": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Accès contingent": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "Billet annulé": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "Mise en avant spectacles": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "Affichage liste billets": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "Erreur 500": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "Interface qui saute": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "Problème affichage statut commande": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "Problème paiement facture": [
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "Problème scan billet": [
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "Vérification si scan billet": [
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "Mise à jour email": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "Gestion des vues": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "Mise à jour client": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "Droits rôles supprimés": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  }
+}

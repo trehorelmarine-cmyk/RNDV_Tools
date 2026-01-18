@@ -1,0 +1,993 @@
+DATE,URGENCE / IMPACT,CATÉGORIE,PROBLÈME,DESCRIPTION,COMMANDE,SIGNALÉ PAR,CANAL,STATUT,COMMENTAIRE
+01/09/2025,,,,,,,,,
+01/09/2025,Critique,Mail de confirmation,Mail de confirmation non reçu,"- Confirmation de réservation affichée sur le tunnel front
+- Pas de mail de confirmation reçu
+- Pas de billets sur Mon compte","Z7Y52
+LXY7C",Isabelle,Chat,Correction technique,
+01/09/2025,Critique,Mon compte,Billets non affichés,"- Les billets n'apparaissent pas dans Mon compte
+- La commande appararait dans Mon compte","AEJ8J
+ZRZYX",Léopold,Chat,Correction technique,
+01/09/2025,Mineur,Commandes,Non payée,- Régularisation commande non payée ,W.2508.H67H2,Fatima,Chat,Correction manuelle,
+01/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,- Régularisation commande trop perçu ,W.2502.VY8EH,Céline,Chat,Correction manuelle,
+01/09/2025,Mineur,Commandes,Non payée,- Régularisation commande non payée ,W.2507.J5XLY,Fatima,Chat,Correction manuelle,
+01/09/2025,Mineur,Commandes,Non payée,- Régularisation commande non payée ,W.2508.G8H45,Fatima,Chat,Correction manuelle,
+01/09/2025,Critique,Rapports,Génération rapport,- Problème génération rapport de caisse de Marie-Christine,,Léopold,Chat,Correction technique,
+01/09/2025,Majeur,Mon compte,Réinitialisation mot de passe,- Lien de réinitialisation de mot de passe non envoyé,,Léopold,Chat,Correction technique,
+01/09/2025,Mineur,Commandes,Non payée,- Régularisation commande non payée ,W.2508.WXCK,Fatima,Chat,Correction manuelle,
+01/09/2025,Mineur,Commandes,Non payée,- Régularisation commande non payée ,W.2507.ULU57,Fatima,Chat,Correction manuelle,
+01/09/2025,Critique,Rapports,Génération rapport,- Problème génération rapport de caisse Ibrahim,,Ibrahim,Chat,Correction technique,
+01/09/2025,Majeur,Plan de salle,Places bloquées opérateurs,"- Les places F11 et F13 pour les fourberies de scapin du 13 septembre sont ""bloquées par un opérateur""",RT.2506.YGJ7Q,Léopold,Chat,Correction manuelle,
+02/09/2025,,,,,,,,,
+02/09/2025,Critique,Plan de salle,Places non dispos en front,- Certaines places dispo n’apparaissaient pas en ligne,,Isabelle,Chat,Correction technique,
+02/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,,Isabelle,Chat,Correction technique,
+02/09/2025,Mineur,Commandes,Adresse de facturation,- L'adresse de facturation n'apparait pas sur la facture acquittée,RA.2506.YGJY3,Léopold,Chat,Correction manuelle,
+02/09/2025,Critique,Commandes,Création de commande,- Pas possible de créer de commande,,Léopold,Chat,Correction technique,
+02/09/2025,,Plan de salle,Places non dispos en front,- Certaines places dispo n’apparaissaient pas en ligne,,Mathieu,Chat,Correction technique,
+02/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,,Mathieu,Chat,Correction technique,
+02/09/2025,Mineur,Mail contact,Mauvais expéditeur,"- Message qui doivent possiblement venir du formulaire de contact qui se retrouvent dans nos spam
+- Expéditeur modifié pour comediefrancaise@arenamtrix.com",,Léopold,Chat,En cours d'investigation,
+03/09/2025,,,,,,,,,
+03/09/2025,Majeur,Commandes,Génération documents,"- Problème de génération de documents, factures",KJ86H,Pascale,Chat,Correction manuelle,
+03/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,W.2507.UAEQU,Léopold,Chat,Correction manuelle,
+04/09/2025,,,,,,,,,
+04/09/2025,Critique,Plan de salle,Place dispo liée à une commande,- 3 places de la commande XKV8U qui apparaissent encore en dispo dans le contingent collectivités,XKV8U,Marie-Christine,Chat,En cours de correction,
+04/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,RA.2509.QUCJA,Pascale,Chat,Correction manuelle,
+04/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,Q3EH2,Léopold,Chat,Correction manuelle,
+04/09/2025,Majeur,Mail de confirmation,Mail de confirmation non reçu,- Renvoi des mails de confirmation non reçus,W.2509.WJQ8J,Véronique,Chat,Correction manuelle,
+04/09/2025,Majeur,Plan de salle,Places bloquées opérateurs,- Les places 701-703 sur Les Fourberies le vendredi 29/10,,Pascale,Chat,Correction manuelle,
+04/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,W.2506.WRKAY,Léopold,Chat,Correction manuelle,
+05/09/2025,,,,,,,,,
+05/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,RT.2506.X5RUY,Eve,Chat,Correction manuelle,
+05/09/2025,Mineur,Commandes,Adresse de facturation,,W.2502.WZ9HV,Stephen,Chat,Correction manuelle,
+05/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- 3 places bloquées dans le tunnel web  sur le Mariage Forcé le samedi 1er novembre à 20h30 : E95 - F95 et G95,,Véronique,Chat,Correction technique,
+05/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,,Isabelle,Chat,Correction technique,
+06/09/2025,,,,,,,,,
+06/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- 3 places bloquées dans le tunnel web  sur le Mariage Forcé le samedi 1er novembre à 20h30 : E95 - F95 et G95,,Véronique,Chat,Correction technique,
+06/09/2025,Critique,Mon compte,Boucle de redirection,,w4wyj,Béatrice,Chat,Correction technique,
+08/09/2025,,,,,,,,,
+08/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,,Isabelle,Chat,Correction technique,
+08/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,,Pascale,Chat,Correction technique,
+08/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,,Eliane,Chat,Correction technique,
+08/09/2025,Majeur,Commandes,Génération documents,- Je ne peux plus créer de devis sur la commande,RC.2509.YZALG,Marie-Christine,Chat,Correction manuelle,
+08/09/2025,Critique,Plan de salle,Places bloquées tunnel web,"- J'ai libéré 3 places, cependant elles restent bloquées dans le tunnel web. 
+Il s'agit des places  nr 140, 196, 198",,Magdalena,Chat,Correction technique,
+08/09/2025,Critique,Plan de salle,Places bloquées tunnel web,"- 10 places bloquées sur Les Fourberies le jeudi 23/10, C9 à C13, D5 à D15",,Pascale,Chat,Correction technique,
+08/09/2025,Majeur,Admin,Lenteurs,,,Eve,Chat,Correction manuelle,
+08/09/2025,Majeur,Admin,Lenteurs,,,Marie,Chat,Correction manuelle,
+08/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- Les places 98 à 106  corbeille face sur l'Ecole de Danse du 3 janvier,,Marie-Christine,Chat,Correction technique,
+09/09/2025,,,,,,,,,
+09/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,Y75JL,Cynthia,Chat,Correction manuelle,
+09/09/2025,Majeur,Commandes,Doublons,- Le problème était du à une génération en double de la commande,W.2506.ARWJL,Stephen,Chat,Correction manuelle,
+09/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- Places bloquées  dans le tunnel Web le 23/11 10h30 pour la Visite adaptée et tactile,,Pascale,Chat,Correction technique,
+09/09/2025,Mineur,Commandes,Commande bloquée,"- Je suis bloqué, je ne peux interagir avec peu d'éléments",W.2509.Q3GXG,Léo V,Chat,Correction manuelle,
+10/09/2025,,,,,,,,,
+10/09/2025,Critique,Plan de salle,Place dispo liée à une commande,- Les places sur ce plan apparaissent en dispo dans le contingent collectivités alors qu'elles sont attribuées à la commande A4VK3,A4VK3,Marie-Christine,Chat,En cours de correction,
+10/09/2025,Majeur,Commandes,Génération documents,"- Je ne peux générer un devis sur la commande RA.2509.HX6VL, message d'erreur.",RA.2509.HX6VL,Pascale,Chat,Correction manuelle,
+10/09/2025,Critique,Commandes,Affichage panier,"- La section ""panier"" n'apparait pas","W.2506.R76U7
+W.2506.A45UL
+W.2506.Z27RV",Léopold,Chat,Correction technique,
+10/09/2025,Mineur,Clients,Fusion fiche,,,Léopold,Chat,Correction manuelle,
+10/09/2025,Critique,Commandes,Affichage panier,- Les spectacles n'apparaissent pas,W.2506.LGWZL,Cynthia,Chat,Correction technique,
+10/09/2025,Critique,Commandes,Affichage panier,- Les spectacles n'apparaissent pas,W.2506.EQYEG,Véronique,Chat,Correction technique,
+10/09/2025,Critique,Commandes,Affichage panier,- certaines commandes exW.2506.AR29U connaissent des problèmes d'affichage. Cdes sur lesquelles il est du coup impossible de faire des reports notamment pour une mouette et le misanthrope,W.2506.AR29U,Béatrice,Chat,Correction technique,
+10/09/2025,Mineur,Commandes,Non payée,,W2509Y4254,Cynthia,Chat,Correction manuelle,
+10/09/2025,Critique,Commandes,Affichage panier,- Problème sur commande J453L pas de spectacles,J453L,Cynthia,Chat,Correction technique,
+10/09/2025,Critique,Commandes,Affichage panier,"- Sur cette commande, la section ""panier"" n'apparait pas W.2506.AE65V",W.2506.AE65V,Véronique,Chat,Correction technique,
+10/09/2025,Critique,Commandes,Affichage panier,- Je n'ai pas accès au panier de la commande w.2506.GL27J  ,w.2506.GL27J,Mateo,Chat,Correction technique,
+11/09/2025,,,,,,,,,
+11/09/2025,Majeur,Plan de salle,Places bloquées opérateurs,"- En voulant reporter 6 places de la séance du 01/10/25 Fourberies de Scapin sur la date du 15/10/25, les nouvelles places sont restées bloquées",,Cécile,Chat,Correction manuelle,
+11/09/2025,Mineur,Commandes,Commande vide à 0€,- Cas de commande vide à 0€ mais confirmée (+mail de confirmation),W.2509.X2U74,Léopold,Chat,Correction technique,
+11/09/2025,Majeur,Plan de salle,Places bloquées opérateurs,"- il y'a des places bloquées par un opérateur depuis plusieurs jours sur la seance de l'école de danse du 03/01
+98 à 106 corbeille face 3e rangée",,Léopold,Chat,Correction manuelle,
+11/09/2025,Critique,Mon compte,Billets non affichés,"- Pas de séance à venir, ou vos billets sont en cours de création quand il veut récupérer ses places dans son espace personnel.",K4GLU,Véronique,Chat,Correction technique,
+11/09/2025,Critique,Mon compte,Billets non affichés,,W.2507.E3Q7H,Véronique,Chat,Correction technique,
+11/09/2025,Critique,Plan de salle,Places bloquées tunnel web,,RP.2509.UW39G,Ibrahim,Chat,Correction technique,
+11/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,W.2509.GQX8E,Stephen,Chat,Correction manuelle,
+11/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,W.2509.ZLQ5H,Léopold,Chat,Correction manuelle,
+11/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,ZLQ5H,Véronique,Chat,Correction manuelle,
+11/09/2025,Mineur,Clients,Fusion fiche,,,Hanna,Chat,Correction manuelle,
+11/09/2025,Majeur,Plan de salle,Places bloquées opérateurs,- Les 6 places de la séance du 15 octobre sont visiblement toujours bloquées! Merci de faire le necessaire...,,Cécile,Chat,Correction manuelle,
+11/09/2025,Majeur,Plan de salle,Sélection place,- Le protocole m'informe qu'il n'arrivent pas à ajouter des places à une commande sur la couturière de l'école de danse le 13 novembre,,Léopold,Chat,Correction manuelle,
+11/09/2025,Mineur,Clients,Fusion fiche,,,Stephen,Chat,Correction manuelle,
+12/09/2025,,,,,,,,,
+12/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- merci de me débloquer (tunnel web) les 2 places 204 et 205 de la couturière du Mariage le 16.09. merci à toi ,,Eliane,Chat,Correction technique,
+12/09/2025,Critique,Plan de salle,Place dispo liée à une commande,- Toujours cette cmd GZ7KX où des places scolaire sont en dispo,GZ7KX,Morgane,Chat,En cours de correction,
+12/09/2025,Critique,Rapports,Génération rapport,- on arrive pas à sortir nos caisses,,Léopold,Chat,Correction manuelle,
+12/09/2025,Critique,Rapports,Génération rapport,- merci parce que personne ne parvient à les sortir,,Eve,Chat,Correction manuelle,
+13/09/2025,,,,,,,,,
+13/09/2025,Mineur,Commandes,Ajout commentaire,- Sur la commande ZJCG je n'ai pas la possibilité de mettre un commentaire,ZJCG,Cynthia,Chat,Correction technique,
+13/09/2025,Mineur,Commandes,Paiement chèque-cadeau,- Le chèque-cadeau n'est pas pris en compte lorsque je souhaite faire régler le reste de le commande. ,WKVKR,Mateo,Chat,Correction manuelle,
+13/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"- commande L2L7Y les places apparaissent non payées, j'ai rajouté un produit puis enlever  mais maintenant le paiement apparait en trop perçu",L2L7Y,Cynthia,Chat,Correction manuelle,
+13/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,- Il apparait un trop perçu sur la Commande N°W.2508.KHQ3J à la suite d’un paiement par chèque cadeau,W.2508.KHQ3J,Carole,Chat,Correction manuelle,
+13/09/2025,Mineur,Commandes,Commande vide à 0€,- URGENT. Concernant la commande W.2509.L57R7 la spectatrice a reçu un mail de confirmation sans place !!! Pouvez-vous voir ce qu'il en est,W.2509.L57R7,Carole,Chat,Correction technique,
+13/09/2025,Mineur,Commandes,Commande vide à 0€,- Même problème qu'indiqué précédemment confirmation reçue pour la commande N°W.2509.C74H8 sans place !!! Merci de vos éclaircissements. ,W.2509.C74H8,Carole,Chat,Correction technique,
+13/09/2025,Mineur,Commandes,Ajout commentaire,- Pas de commentaire sur la commande RT.2509.ZJLCG,RT.2509.ZJLCG,Cynthia,Chat,Correction technique,
+14/09/2025,,,,,,,,,
+14/09/2025,Mineur,Clients,Fusion fiche,"- Serait-il possible de fusionner les deux comptes de ""Corinne Delpuech""",,Meryem,Chat,Correction manuelle,
+15/09/2025,,,,,,,,,
+15/09/2025,Critique,Rapports,Génération rapport,- apparemment il n'est pas possible aujourd'hui de générer le journal de caisse,,Marie-Christine,Chat,Correction manuelle,
+15/09/2025,Majeur,Plan de salle,Places bloquées opérateurs,"- J'ai deux places B1 et B3 sur Le Mariage forcé pour le 17/09 qui se sont bloquées, ce serait possible de les débloquer",,Léo V,Chat,Correction manuelle,
+15/09/2025,Critique,Plan de salle,Places bloquées tunnel web,"- B5 le 17/09 ""bloquée tunnel web""",,Mathieu,Chat,Correction technique,
+15/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- places 701-703 bloquées dans le tunnel web le 5/11.,,Pascale,Chat,Correction technique,
+15/09/2025,Mineur,Clients,Validation justificatif,"- L'équipe me remonte un point, il est impossible de refuser ou de valider ces justificatifs",,Léopold,Chat,En cours d'investigation,
+15/09/2025,Mineur,Clients,Validation justificatif,- M.bachelier-degras cdeW.2508.JHZ2L prétend que ses justifs sont en attente de validation mais quand je vais dans justifs et documents je ne les voie pas ,,Béatrice,Chat,En cours d'investigation,
+15/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- places J10-12-14 bloquées dans le tunnel web le 5/10 Mariage forcé.,,Pascale,Chat,Correction technique,
+16/09/2025,,,,,,,,,
+16/09/2025,Majeur,Commandes,Génération documents,"- Nous souhaitons éditer une facture pour la commande N°RM.2508.XJKHC
+Nous avons modifié l'adresse de facturation et sélectionné cette adresse pour sortir la facture acquittée. Toutefois, l'adresse de la facture ne correspond pas à celle que nous avons indiquée dans adresse de facturation.",XJKHC,Cécile,Chat,Correction manuelle,
+18/09/2025,,,,,,,,,
+18/09/2025,Mineur,Clients,Fusion fiche,,,Hanna,Chat,Correction manuelle,
+18/09/2025,Mineur,Clients,Fusion fiche,,,Léopold,Chat,Correction manuelle,
+18/09/2025,Mineur,Clients,Fusion fiche,,,Véronique,Chat,Correction manuelle,
+18/09/2025,Mineur,Mon compte,Réinitialisation mot de passe,"- Bonjour, la réinitialisation du mot de passe marco.cannone@univ-eiffel.fr reste toujours en chargement, merci de voir ce qu'il en retourne",,Carole,Chat,En cours d'investigation,
+18/09/2025,Mineur,Clients,Validation justificatif,- est-il possible de le corriger pour que l'on puisse valider le document,,Carole,Chat,En cours d'investigation,
+18/09/2025,Mineur,Clients,Fusion fiche,,,Hanna,Chat,Correction manuelle,
+18/09/2025,Majeur,Commandes,Doublons,- pas mal de doublons samedi sur des commandes passées récemment,,Léopold,Chat,En cours d'investigation,
+18/09/2025,Mineur,Clients,Fusion fiche,,,Clélia,Chat,Correction manuelle,
+18/09/2025,Majeur,Clients,Lien commande,"- Il semble y avoir un bug d'affichage dans l'onglet ""clients"" de la séance ""une mouette"" du 19/09. Je cherche en effet à exporter les spectateurs de demain sans y parvenir. ",,Mia,Mail,Correction technique,19.09 : fix déployé en prod
+19/09/2025,,,,,,,,,
+19/09/2025,Majeur,Commandes,Doublons,"- En plus des nouveaux doublons pour demain soir, je viens de trouver deux nouveaux doublons sur la date du 23/09. Doublons datant du 13 et 15 septembre.",,Eve,Mail,En cours d'investigation,
+19/09/2025,Critique,Plan de salle,Places bloquées tunnel web,- Places bloquées tunnel front,,Céline,Chat,Non lié au système,
+19/09/2025,Mineur,Clients,Lien commande,- je n'arrive pas à associer cette cde cvwlq à cette adresse mail m.nombel@protonmail.com,cvwlq,Béatrice,Chat,Correction manuelle,
+19/09/2025,Critique,Plan de salle,Place dispo liée à une commande,"- les places I1 et I2 de la représentation de ce soir se sont retrouvées en front alors qu'elles étaient dans une commande, j'ai pu les séléctionner",,Léopold,Chat,En cours de correction,
+19/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,RA.2509.HLUCY,Pascale,Chat,Correction manuelle,
+19/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,,W.2509.J85YK,Léo V,Chat,Correction manuelle,
+19/09/2025,N/A,Commandes,Places bloquées tunnel web,"- j'ai deux places bloquées pour les Fourberies le 28 sept. la 710 et la 708, pouvez-vous les débloquer ? Merci.",,Véronique,Chat,Non lié au système,
+20/09/2025,,,,,,,,,
+20/09/2025,Mineur,Clients,Fusion fiche,- madame Stephanie Muiron a deux comptes Stephanie Muiron - Clients - Clients - RNDV et Stéphanie Muiron - Clients - Clients - RNDV serait-il possible de les fusionner ?,,Léo V,Chat,Correction manuelle,
+20/09/2025,Mineur,Clients,Fusion fiche,"- et une dernière pour la journée, tu pourrais supprimer cette fiche client ? Florian Miousset - Clients - Clients - RNDV",,Léo V,Chat,Correction manuelle,
+21/09/2025,,,,,,,,,
+21/09/2025,Majeur,Plan de salle,Doublons,"- je suis tombé sur quelques doublons sur la séance du Misanthrope le 16/10, sur les places B11, B13 et I6. Par moment, je pouvais quand même les sélectionner sur le plan de salle, donc je les ai passé en sécu (également sur la I8). J'ai l'impression que le problème tourne autour de la commande W.2509.ZLQ5H, qui a pris initialement les quatre places. Je n'ai pas vérifié si elles apparaissaient en dispo sur le site de billetterie. ",,Léo V,Chat,En cours d'investigation,
+22/09/2025,,,,,,,,,
+22/09/2025,N/A,Rapports,Génération rapport,- La caisse de Faika M'Hamdi ne se génère pas pour la date du 19/09,,Eve,Chat,Non lié au système,Les paiements de Faika du 19/09 ont été passé sur le canal Colombier accessibilité. C'est pour ça qu'il ne remonte pas dans les bordereaux de caisse de Richelieu.
+22/09/2025,N/A,Clients,Validation justificatif,"- Bonjour, serait-il possible de valider les justifs de la cde W.2506.AQ2XV Mame Allain Christine car je ne les vois ni dans la cde ni dans  les doc merci",W.2506.AQ2XV,Béatrice,Chat,Non lié au système,
+22/09/2025,Majeur,Plan de salle,Doublons,"- Bonjour, Il y a un doublon de réservation pour les places 265 et 261 pour Les Fourberies du 23/12. Mme Tatiana Marcotti a réservé et payé ces deux places pour sa famille (Gabriel et Serena), mais les places sont aussi attribuée à Mme Isabelle Costard (commande: GV7YU) , alors que les deux clients ne se connaissent pas.
+De plus, la commande de Mme Marcotti n’apparaît pas dans RNDV, bien qu'elle soit visible sur son espace personnel et qu'elle ait bien payé. 
+N'hesitez pas à m'appeler si ce n'est pas clair... Merci
+ ",GV7YU,Meryem,Chat,En cours d'investigation,"Une cliente, Tatiana Marcotti, dit avoir acheté des places pour les Fourberies du 23/12, places 265 et 261. Cependant, aucune commande n'apparait à son nom pour cette date dans la base. Elle dit que ses places ont été attribué à ses deux enfants Gabriel et Serena Marcotti.
+ 
+Si je vais sur la salle, les 265 et 261 sont dans une commande au nom de Isabelle Costard
+ 
+ 
+Un des billets semble attribué à Gabriel Marcotti."
+23/09/2025,,,,,,,,,
+23/09/2025,Majeur,Plan de salle,Places non dispos en front,"on a un petit pb de synchro, par exemple pour la mouette 24/09 on a libéré des places et galerie face ou en orchestre coté et ces places n'apparaissent pas sur le front
+
+609, 610
+800, 802, 804, 806
+B21, B22",,Léopold,Chat,Correction manuelle,
+23/09/2025,Majeur,Plan de salle,Places non dispos en front,"idem pour les fourberies 1er octobre
+https://rndv.comedie-francaise.fr/tickets/seatingplan?session=6825b2a7c5f2f591819686e8 ",,Léopold,Chat,Correction manuelle,Séance non accessible en front : dernières minutes uniquement
+23/09/2025,Mineur,Clients,Fusion fiche,"- Est-il possible de fusionner deux comptes clients avec la même adresse mail? Compte à supprimer : François Blanc - Clients - Clients - RNDV , compte à garder : François Blanc - Clients - Clients - RNDV. Merci!",,Mateo,Chat,Correction manuelle,
+23/09/2025,Mineur,Plan de salle,Séance passée : siège grisé,"L'état du siège (grisé si occupé) n'apparait plus sur les séances passées c'est normal ?
+C'était pratique pour faire des vérifs a posteriori 
+(remonté par Isabelle David)
+
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/662a251a8dfaf78e953da4c1/seatingplan ",,Léopold,Chat,Nouveau,
+23/09/2025,N/A,Clients,Validation justificatif,"Le contrôle des billets et de moins en moins fluide avec des bugs à répétitions depuis la reprise le 11 septembre et encore plus depuis ce week-end. 
+ 
+J'ai également constater un nombre importants de justificatifs non validés en amont perturbant la vente de dernière minute, ainsi que le contrôle au protocole. J'ai du retarder le début de la représentation des Fourberies de scapin samedi soir... 
+ 
+Pouvez-vous solutionner ses dysfonctionnements ? ",,Ibrahim,Chat,En attente,"En attente retour suite à la réponse de Céline : 
+
+Bonjour Ibrahim, peux-tu être plus précis sur les bugs liés au contrôle des billets? Ils 'agit du contrôle d'accès? S'agissant des justificatifs, ce n'est pas un bug mais une volonté de notre part de bloquer l'impression des billets quand les justificatifs ne sont pas téléchargés dans les temps sur les espaces (les jeunes reçoivent un mail de confirmation de commande dans lequel il leur est demandé de téléverser leur justif dans les 48h après l'acahat). Nous réfléchissons à doubler cette alerte par un emailing hebdomadaire et te tenons au courant. "
+23/09/2025,Majeur,Commandes,Lien commande,"- Je vois que les places P14 et P16 du 18 novembre pour une Mouette ont été libéré, ces places font parties de la cde VR835 or vous les avez remises en dispo. Pouvez-vous les réintégrer dans cette commande car le spectateur attend que je les lui envoie. Merci.",VR835,Véronique,Chat,Correction manuelle,
+23/09/2025,Mineur,Clients,Fusion fiche,"pouvez fusionner les 3 fiches de ce client ? : 
+a écraser : 
+https://rndv.comedie-francaise.fr/customers/customers/edit/66d84939ee5187c3770abe33 
+https://rndv.comedie-francaise.fr/customers/customers/edit/68c7d3bf321737bcae06efb2 
+https://rndv.comedie-francaise.fr/customers/customers/edit/68c7de0dd9feaf80d50d46d2 
+a garder :
+https://rndv.comedie-francaise.fr/customers/customers/edit/68c96687bfbf93142b0309c0 ",,Hanna,Chat,Correction manuelle,
+23/09/2025,Mineur,Clients,Fusion fiche,"serait-il possible d'écraser ce compte là : 
+https://rndv.comedie-francaise.fr/customers/customers/edit/688345946ff583ab4f0ecc42 
+
+Conserver : 
+https://rndv.comedie-francaise.fr/customers/customers/edit/6659dccd459b716c7c11330f ",,Léo V,Chat,Correction manuelle,
+23/09/2025,Mineur,Clients,Fusion fiche,"À garder : 
+https://rndv.comedie-francaise.fr/customers/customers/edit/68bb11894de1f5a6b60814a8 
+À conserver : 
+https://rndv.comedie-francaise.fr/customers/customers/edit/6659dc39459b716c7c0cf5bf ",,Solene,Chat,Correction manuelle,
+23/09/2025,Critique,Rapports,Génération rapport,- Léo V : on arrive pas à générer sa caisse d'aujourd'hui vous pouvez regarder,,Léopold,Chat,Correction manuelle,délai de génération à réduire
+23/09/2025,N/A,Rapports,Génération rapport,- Léo :  on arrive pas à générer sa caisse d'aujourd'hui vous pouvez regarder,,Léopold,Chat,Non lié au système,pas de paiement le 23.09
+24/09/2025,,,,,,,,,
+24/09/2025,Majeur,Plan de salle,Vérification lock de place,"- je viens de procéder à un changement de place sur cette commande, peux-tu vérifier que les locks des sièges sont bien sur les places 107 Une Mouette du 24 septembre avec changement sur le 13 octobre place 107; Merci.",W.2508.JA929,Véronique,Chat,Vérification,"24.09 : Place mise au contingent ""Sécurité"" à bloquer"
+24/09/2025,Mineur,Clients,Vérification compte client,Cette personne n'arrive pas a se connecter peux tu verifier si elle a un compte : https://rndv.comedie-francaise.fr/customers/customers/edit/6659dce1459b716c7c11c65f ,,Léopold,Chat,Vérification,
+24/09/2025,Mineur,Clients,Déplacement en salle,peux tu vérifier  si la personne de la commande Z5W6Q pour la séance du 21/09 14H une mouette est venue?,Z5W6Q,Cynthia,Chat,Correction manuelle,
+24/09/2025,Mineur,Clients,Fusion fiche,"Fiche à écraser : https://rndv.comedie-francaise.fr/customers/customers/edit/668427034d9487f97774e6a7 
+Fiche à conserver : https://rndv.comedie-francaise.fr/customers/customers/edit/6659dc12459b716c7c0bdad3 ",,Léopold,Chat,Correction manuelle,
+24/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour Sylvain, peux-tu régulariser l'écart de paiement sur la place P10 commande RA.2506.RWUCW ?  ",RA.2506.RWUCW,Pascale,Chat,Correction manuelle,
+24/09/2025,Majeur,Commandes,Doublons,"Sur la séance du 23/12 des Fourberies de Scapin : https://rndv.comedie-francaise.fr/tickets/sessions/edit/6825b3aff96b6c26444b1f28 
+
+Une cliente, Tatiana Marcotti, dit avoir acheté des places pour les Fourberies du 23/12, places 265 et 261. Cependant, aucune commande n'apparait à son nom pour cette date dans la base. Elle dit que ses places ont été attribué à ses deux enfants Gabriel et Serena Marcotti.
+ 
+Si je vais sur la salle, les 265 et 261 sont dans une commande au nom de Isabelle Costard
+
+Un des billets semble attribué à Gabriel Marcotti.
+ 
+Ces deux clients ne se connaissent pas","Tatiana Marcotti - Commandes
+Commande Isabelle Costard N°W.2506.GV7YU - Commandes - Ventes - RNDV",Meryem,Chat,En cours d'investigation,
+24/09/2025,Critique,Rapports,Génération rapport,impossible de voir le montant de ma caisse sur le rapport et celui de meryem n'est pas à jour,,Léopold,Chat,Correction manuelle,
+25/09/2025,,,,,,,,,
+25/09/2025,N/A,Plan de salle,Places bloquées opérateurs,"Bonjour HELP j'ai des places bloquées sur les Fourberies de Scapin le mercredi 26/11  14h00  350 à 362 petit bureau merci 
+
+Ainsi que 276 à 288 et 76 à 90",,Marie-Christine,Chat,Non lié au système,
+25/09/2025,N/A,Plan de salle,Places bloquées opérateurs,"Pourriez-vous me débloquer la place 413 pour ce soir svp?
+merci c'est assez urgent c'est pour traiter un doublon",,Eve,Chat,Non lié au système,
+25/09/2025,Majeur,Plan de salle,Vérification lock de place,"j'ai replacé pas mal de doublon sur la date du 28/09 à 14h les fourberies de scapin.
+Pourrais tu vérifier les locks des siège 295,293,291 ainsi que G6, G8, G10 et G12
+ 
+https://rndv.comedie-francaise.fr/tickets/seatingplan",,Léopold,Chat,Vérification,
+25/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour, j'ai un restant dû de 2 euros sur la commande W.2509.RGJ2A que j'ai modifié et éditer aujourd'hui, ce sont les frais liés au canal de vente que je n'ai pas pu faire payer une seconde fois au spectateur, pouvez-vous rectifier cet écart qui n'est pas de mon fait ? Merci.", W.2509.RGJ2A,Véronique,Chat,Non lié au système,
+25/09/2025,Mineur,Clients,Fusion fiche,Serait-il possible de fusionner ces 2 comptes de Valérie Roques qui sont en doublon stp ? : 66d8493bee5187c3770ae677 et 67a4dfc82c1d91b09f01f80e,,Aurelle,Chat,Correction manuelle,
+26/09/2025,,,,,,,,,
+26/09/2025,Mineur,Clients,Fusion fiche,"À garder > Sophie Grivaud - Clients - Clients - RNDV 
+a écraser > SOPHIE GRIVAUD - Clients - Clients - RNDV / SOPHIE GRIVAUD - Clients - Clients - RNDV",,Hanna,Chat,Correction manuelle,
+26/09/2025,Majeur,Plan de salle,Vérification lock de place,"bonjour je viens de procéder à un changement de place sur cette commande Commande N°W.2506.W626A - Commandes - Ventes - RNDV, pouvez-vous vérifier que les locks des sièges sont bien sur les places 271 et 273 (sur les fourberies le 26/09). merci ",W.2506.W626A,Mateo,Chat,Vérification,
+26/09/2025,Mineur,Clients,Fusion fiche,"On a fusionné les deux comptes d'une personne en janvier dernier
+fiche conservée > https://rndv.comedie-francaise.fr/customers/customers/edit/6659dc4c459b716c7c0d79fd
+fiche archivée > https://rndv.comedie-francaise.fr/customers/customers/edit/66d84934ee5187c3770a6c39
+ 
+Mais la personne dit que c'est avec l'identifiant de la ficher archivée qu'elle arrive à se connecter et pas avec l'autre.
+ 
+Y'a-t-il un moyen de changer ça ?",,Léopold,Chat,Correction manuelle,
+26/09/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez-vous supprimer les frais liés au canal de vente sur cette commande ? W.2506.LY49Y,W.2506.LY49Y,Hanna,Chat,Non lié au système,
+26/09/2025,Mineur,Clients,Fusion fiche,"Voici la fiche à garder:
+JEAN LUC TARDIEU - Clients - Clients - RNDV  
+Supprimer 
+Jean Luc Tardieu - Clients - Clients - RNDV 
+JEAN-LUC TARDIEU - Clients - Clients - RNDV  ",,Steva,Chat,Correction manuelle,
+26/09/2025,Majeur,Plan de salle,Vérification lock de place,"bonjour je viens de procéder à un changement de place sur cette commande Commande N°W.2506.Y4QX9 - Commandes - Ventes - RNDV, pouvez-vous vérifier que les locks des sièges sont bien sur les places R8 et R10 (sur le mariage forcé le 29/10). merci
+
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/6825c057c5f2f5918196b59f/seatingplan ",,Mateo,Chat,Vérification,
+26/09/2025,Mineur,Clients,Fusion fiche,"Bonjour, j'ai une cliente qui a deux comptes sur RNDV et elle n'arrive plus à se connecter sur son compte me dit-t-elle. Voici les deux fiches clients : (1) ODILE QUINTIN - Clients - Clients - RNDV ; (2) Odile Quintin - Clients - Clients - RNDV. J'ai réussi à faire une commande sur le premier compte client donc je pense que le deuxième pose problème. Merci beaucoup pour votre aide !",,Clélia,Chat,Correction manuelle,
+26/09/2025,Mineur,Clients,Fusion fiche,"Bonjour, j'ai un client qui a deux comptes sur RNDV et sur l'un de ses comptes, son justificatif demandeur d'emploi a été validé. Mais il n'arrive pas à télécharger ses places. Je pense donc qu'il y a un bugg avec ses deux comptes. Voici les deux fiches clients : (1) Hugo Mottet - Clients - Clients - RNDV ; (2) HUGO MOTTET - Commandes - Clients - RNDV. C'est le premier compte sur lequel le justificatif est validé. Merci beaucoup pour votre aide !",,Clélia,Chat,Correction manuelle,
+26/09/2025,Mineur,Plan de salle,Vérification lock de place,"j'ai procédé à des reports de doublons sur la séances du 30/09 @ 20h30 des fourberies de scapin. Pourriez vous vérifier les locks des places j94, t3 et t7 ?
+
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/6825b2a7295b33e485c7cb1e/seatingplan",,Léopold,Chat,Vérification,
+26/09/2025,Mineur,Clients,Fusion fiche,"Bonjour, j'ai une cliente qui a deux comptes sur RNDV. Pouvez vous fusionner les fiches ? Voici les deux fiches (1) Eléna ISHOW - Clients - Clients - RNDV ; (2) Elena Ishow - Clients - Clients - RNDV. C'est sur le premier compte qu'il y a ses commandes, l'autre est vide. Merci beaucoup pour votre aide !",,Clélia,Chat,Correction manuelle,
+26/09/2025,Majeur,Plan de salle,Vérification lock de place,"Idem, je veux bien que vous vérifiiez les locks des places 299 et 616 sur le misanthrope le 10/10 20h30
+
+https://rndv.comedie-francaise.fr/sales/orders/edit/68acd61a9d88d9a8b1027967?session=685e5ed1456d64…",,Léopold,Chat,Correction manuelle,
+27/09/2025,,,,,,,,,
+27/09/2025,Mineur,Clients,Fusion fiche,serait il possible de changer les coordonnées de Martin Etienne cde eukvl car je n'y suis pas parvenue voici les nouveaux coordonnées tel 0682667007 et mail doc.mart@orange.fr merci beaucoup,eukvl,Béatrice,Chat,Correction manuelle,
+28/09/2025,,,,,,,,,
+28/09/2025,Majeur,Douchette,Connexion,"Les douchettes n’ont pas bien fonctionné cette matinée image figée,elles se déconnectent sans arrêt…..",,Isabelle P,Chat,Non lié au système,Problème de wifi
+29/09/2025,,,,,,,,,
+29/09/2025,Mineur,Clients,Fusion fiche,"Aurelle du mécénat m'informe que certaines fiches structures ont échappé au dédoublonnage auto.
+Pourriez-vous fusionner les fiches suivantes svp ?",,Léopold,Chat,Correction manuelle,
+29/09/2025,Majeur,Commandes,Suppression manuelle billets,Bonjour j'ai supprimé au lieu d'imprimer les billets de la cde Q3Q5H; j ai réussi à récupérer les places mais le spectateur conteste celles du misanthrope; avez-vous une visibilité sur les places originelles. pouvez-vous mettre la cde au propre notamment pour le paiement merci beaucoup,,Meryem,Chat,Correction manuelle,
+29/09/2025,Mineur,Clients,Lien commande,est-ce que tu peux associer cette commande RT.2509.EZ247 à ce compte-là : Pauline Ginestet - Clients - Clients - RNDV ? merci beaucoup !,RT.2509.EZ247,Léo V,Chat,Correction manuelle,
+30/09/2025,,,,,,,,,
+30/09/2025,Majeur,Douchette,Connexion,"ce soir les fourchettes-douchettes sont très lentes ,5 secondes entre chaque billet.......",,Steva,Chat,Nouveau,
+30/09/2025,Majeur,Douchette,Connexion,pareil au studio,,Isabelle,Chat,Nouveau,
+30/09/2025,N/A,Commandes,Création de commande,bonjour Mme Lefort  Claire ne reçoit pas le lien mail quand elle passe cde via le net fortune@pre-boulay.net; navigateur firefox merci,,Béatrice,Chat,Non lié au système,
+30/09/2025,Mineur,Clients,Vérification compte client,pouvez-vous me confirmer si Mme Brajer a bien un compte agnesbra@free.fr car il lui impossible de se connecter via cette adresse mail peu importe le navigateur et l 'appareil utilisé merci,,Béatrice,Chat,Non lié au système,
+30/09/2025,Mineur,Plan de salle,Vérification lock de place,"suite à un report, pourriez-vous vérifier que les places 48 et 46 (corbeille face) sont bien lockées afin que je puisse les remettre dans le contingent événement?",,Eve,Chat,Vérification,
+01/10/2025,,,,,,,,,
+01/10/2025,Mineur,Clients,Fusion fiche,"cette personne n'arrive pas à se connecter parce qu'elle a deux comptes (un créé en back par un opérateur et un créé en front par elle même) pourriez vous fusionner les fiches pour qu'elle puisse avoir accès à ses places ?
+ 
+fiche à conserver https://rndv.comedie-francaise.fr/customers/customers/edit/683ecb9655259103da060108
+ficher à supprimer https://rndv.comedie-francaise.fr/customers/customers/edit/683ec79f1eb168e749ddb587
+ ",,Léopold,Chat,Correction manuelle,
+01/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pourriez-vous mettre à jour cette commande payée,RA.2509.G25VX,Eve,Chat,Correction manuelle,
+01/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour, pourriez-vous corriger l'écart de paiement sur la commande RA.2509.K3VHQ ? ",,Pascale,Chat,Correction manuelle,
+02/10/2025,,,,,,,,,
+02/10/2025,N/A,Plan de salle,Vérification lock de place,j'ai deux places bloquées en tunnel web pour le misanthrope le 09/11 : 272 et 274. pouvez vous les libérer? merci ,,Mateo,Chat,Non lié au système,
+02/10/2025,Mineur,Plan de salle,Vérification lock de place,"en checkant la salle je suis tombé là dessus : https://rndv.comedie-francaise.fr/tickets/sessions/edit/682ae60bb533e12297a96f2c/seatingplan 
+Les places 108 à 114 sont bloquées depuis juin",,Léopold,Chat,Correction manuelle,
+02/10/2025,Mineur,Chèque cadeau,,"j'ai une spectatrice qui possède un chèque cadeau de 80 euros : K781 C623 J990 relié à cette cde Commande N°W.2412.6HU7U - Commandes - Ventes - RNDV, elle dit ne pas l'avoir utilisé mais il apparait comme périmé quand elle souhaite régler avec, pouvez-vous vérifiez ce qu'il en ait ?",,Véronique,Chat,Non lié au système,
+02/10/2025,Mineur,Plan de salle,Vérification lock de place,"bonjour je viens de procéder à un changement de place sur cette commande Commande N°W.2509.YZLC7 - Commandes - Ventes - RNDV, pouvez-vous vérifier que le lock du siège est bien sur la place 11 (sur les fourberies le 20/10). merci",,Mateo,Chat,Vérification,
+02/10/2025,Mineur,Plan de salle,Vérification lock de place,"bonjour je viens de procéder à un changement de places sur 2 commandes Commande N°W.2506.VCQGJ - Commandes - Ventes - RNDV et Commande N°RG.2509.YU9EW - Commandes - Ventes - RNDV, pouvez-vous vérifier que les locks des sièges sont bien sur les places H8 et H10 (sur le mariage forcé le 04/10). merci",,Mateo,Chat,Vérification,
+03/10/2025,,,,,,,,,
+03/10/2025,Mineur,Clients,Fusion fiche,"Bonjour ! Est-ce possible de fusionner 2 compte suite à une coquille dans le champ email ?
+Fiche à conserver Solene Mallengier - Clients - Clients - RNDV
+Fiche à supprimer Solene Mallengier - Clients - Clients - RNDV
+le mail correct est solenemallengier@orange.fr",,Stephen,Chat,Correction manuelle,
+03/10/2025,Mineur,Clients,Fusion fiche,Serait-il possible de fusionner les 2 comptes: Férielle Barbé - Clients - Clients - RNDV et Férielle Barbé - Clients - Clients - RNDV . le mail à garder: feri.barbe@gmail.com,,Meryem,Chat,Correction manuelle,
+03/10/2025,Mineur,Plan de salle,Vérification lock de place,"@help je viens de procéder à un changement de place sur cette commande https://rndv.comedie-francaise.fr/sales/orders/edit/683ec9f3cca8b714c4066bab, peux-tu vérifier que les locks du siège sont bien sur la place T1 (le Misanthrope 4/10)",,Stephen,Chat,Vérification,
+04/10/2025,,,,,,,,,
+04/10/2025,Mineur,Clients,Fusion fiche,Bonjour help est-il possible de fusionner ces 2 comptes qui ont la même adresse mail : undefined undefined - Clients - Clients - RNDV (à supprimer) Jacquit prudhomme - Clients - Clients - RNDV (à garder). Merci,,Mateo,Chat,Correction manuelle,
+04/10/2025,Majeur,Clients,Connexion,"Bonjour, j'ai un client Laurent Vilain, qui n'arrive plus à accéder à son compte. Quand il fait réinitialiser son mdp on lui envoie un lien et lorsqu'il clique dessus on lui dit que le lien n'est pas valide. Pouvez-vous faire quelque chose ? Voici sa fiche client : laurent vilain - Clients - Clients - RNDV Merci beaucoup !",,Clélia,Chat,Correction manuelle,
+04/10/2025,Mineur,Clients,Validation justificatif,"pouvez vous refuser ce justificatif qui a été validé par erreur ? merci
+Alexis-Lutherson Gateau-1759589446000 - Documents - Clients - RNDV",,Hanna,Chat,Correction manuelle,
+04/10/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez-vous fusionner les deux fiches correspondant à cette adresse mail :victoirephamvan@gmail.com - Merci.",,Véronique,Chat,Correction manuelle,
+05/10/2025,,,,,,,,,
+05/10/2025,Majeur,Clients,Fusion fiche,"Bonjour, j'ai un souci avec le spectateur suivant Frédéric Beaulieu (Frederic Beaulieu - Clients - Clients - RNDV): Quand il se connecte avec son adresse mail : frbeaulieu@aol.com, il tombe sur un compte relié au profil de sa fille Hermine avec son numéro de téléphone mais il n'a pas accès à ses places à lui (il a une carte tarif adulte pour ma saison 25-26). Moi en revanche sur RNDV, avec ce meme mail, j'ai bien son profil au nom de Frédéric avec son bon numéro de téléphone. Pouvez vous fusionner les comptes ? Merci !",,Clélia,Chat,Correction manuelle,
+06/10/2025,,,,,,,,,
+06/10/2025,Majeur,Clients,Connexion,"Cette spectatrice ne peut pas se connecter, le lien de réinitialisation ne fonctionne pas...Urgent ... annickinspektor@gmail.com",,Cynthia,Chat,Correction manuelle,
+06/10/2025,Mineur,Clients,Fusion fiche,"Urgent problème compte pouvez vous fusionner ces deux compte , en gardant thomas.viguier@ryoan.fr",,Cynthia,Chat,Correction manuelle,
+07/10/2025,,,,,,,,,
+07/10/2025,Mineur,Clients,Fusion fiche,"Bonjour, les commandes du spectateur nicolas fayol sont en clients anonyme, il ne peut pas les avoir dans son espace personnel, pouvez vous corriger cela ?",,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Cette spectatrice a une carte jeune dans sa commande mais elle n'est pas taggé comme adhèrent et ne peut reserver aujourdhui  Urgent merci,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Meme probleme pour cette autre spectatrice https://rndv.comedie-francaise.fr/sales/orders/edit/68b42a76a35feb60660ef50a,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Meme chose https://rndv.comedie-francaise.fr/sales/orders/edit/689e2850c1485d82b50e2ee4,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,meme chose https://rndv.comedie-francaise.fr/sales/orders/edit/68add212a7d1b9e258055b2f on dirai que toutes les cartes prises en juillet aout et septembre n'ont pas été ajoutés aux comptes des spectateurs ,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,ce client a bien une carte adhérent pour 25-26 mais ne possède pas les droits sur son compte Pierre Ballet - Commandes - Clients - RNDV,,Mateo,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,un spectateur qui n'est pas reconnu comme adhèrent https://rndv.comedie-francaise.fr/sales/orders/edit/683ebae35bd870f5450da701,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,"Merci, un autre avec meme probleme https://rndv.comedie-francaise.fr/sales/orders/edit/683ecf3f2d7c780d1806df77",,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Fusion fiche,"est-ce que vous pouvez fusionner les fiches de Fabienne Robert : Fabienne Robert - Commandes - Clients - RNDV / FABIENNE ROBERT - Commandes - Clients - RNDV et tout mettre sur la fiche en majuscule svp ? 
+Merci beaucoup ! ",,Farah,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,"une dame détient une carte d’adhérente adulte, mais n’est pas reconnue comme telle. Jeanne-Marie Boivin - Clients - Clients - RNDV",,Farah,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,"cet adhérent n'est pas reconnu mais il a deux compte et celui qui contient la carte a manifestement une coquille dans son mail
+ 
+A supprimer undefined undefined - Clients - Clients - RNDV
+A conserver Jean-Marie Branca - Clients - Clients - RNDV",,Léopold,Chat,Correction manuelle,
+07/10/2025,Majeur,Plan de salle,Sélection place,impossible de sélectionner des places sur la séance du bourgeois le 01/02 ,,Mateo,Chat,Corrigé,
+07/10/2025,Majeur,Mon compte,Billets non affichés,La commande HXUZG sur l'espace client la personne n'a pas ses billets pour LEs femmes savantes.,,Mathieu,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,cette dame a la carte adulte mais elle n'est pas reconnue (elle n'a pas le tag) : Corinne HENEMAN - Clients - Clients - RNDV,,Solene,Chat,Correction manuelle,
+07/10/2025,Majeur,Mon compte,Billets non affichés,"iL y a un probleme sur les femmes savantes, plusieurs spectateurs ne trouve pas les places et specialement pour les femmes savants dans leurs espace personnel",,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Un spectateur non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68e4f788736e93ea6e63baa5,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Mme bonpun https://rndv.comedie-francaise.fr/sales/orders/edit/668439f0bde6ce7b5f77dfa5 n'a pas pu acheter a tarif carte pas reconnu  ,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Ce spectateur BRANCA  est en anonyme et ne peut etre reconnu comme adhèrent ,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,encore un spectateur Sanko n'est pas reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/683ee9c2de67e1eeb90f7aac,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,"Lola Maniere, lolamaniere@gmail.com, elle a bien une carte famille dans sa commande mais elle est pas taggée, possible de faire la modif ?",,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez-vous fusionner ces deux fiches : Helene Ploix - Clients - Clients - RNDV et Helene Ploix - Clients - Clients - RNDV.",,Hanna,Chat,Correction manuelle,
+07/10/2025,Majeur,Plan de salle,Sélection place,"est ce normal, je vois des places disponbles sur le bourgeois le 22/02 15 h mais je ne peux en prendre aucune ?",,Cynthia,Chat,Corrigé,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur Arber non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/683ec6a84e990a7f7206a0f9,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur Cuelhe non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68a50058a5b57de3eb08e8db,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Majeur,Plan de salle,Sélection place,"je ne peux prendre aucune place sur la séance du 15/02 pour Le bourgeois, tout semble bloqué",,Léo V,Chat,Corrigé,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur lestienne non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/683ec7b0bca38e7ab30ccd5b,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur teillet toujours non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68add212a7d1b9e258055b2f,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Helene Laverne - Clients - Clients - RNDV cette personne n'est pas reconnue en tant qu'adhérente,,Léopold,Chat,Correction manuelle,
+07/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,Possible de réaligner cette commande ? j'ai fait un report de place : Commande N°W.2510.V93YV - Commandes - Ventes - RNDV,,Isabelle,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur plessis non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/683ebeb0a73e43e29107063f,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Fusion fiche,Pouvez vous fusionner ces deux fiches car le spectateurs ne peut pas réserver ,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,"la cliente Anne Dugros - Clients - Clients - RNDV n'arrive pas à se connecter aux ventes adhérents sur le site, bien qu'elle soit reconnue en tant que tel dans nos fichiers",,Mateo,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,"bonjour, Mme Marchi Brigitte n'a pas réussi à se connecter merci brigitte.marchi84@orange.fr",,Béatrice,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Antoine ANSARI - Clients - Clients - RNDV cette personne n'est pas reconnue comme adhérente,,Léopold,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur maniere non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68e50834736e93ea6e63bdf2,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Sabine zanoto - Clients - Clients - RNDV Spectateur non reconnu,,Léopold,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,spectateur le thenaff  non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68a302a95c6f33bae7085840,,Cynthia,Chat,Correction manuelle,
+07/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur non reconnu Jeannot https://rndv.comedie-francaise.fr/sales/orders/edit/683ee07a7acd2f9229048f01,,Cynthia,Chat,Correction manuelle,
+08/10/2025,,,,,,,,,
+08/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur Viguier non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68e4ec11b92aaea0fd0ec167,,Cynthia,Chat,Correction manuelle,
+08/10/2025,Mineur,Clients,Association groupe adhérent,Spectateur Van Deven Philippe non reconnu Commande N°W.2506.JCJ9J - Commandes - Ventes - RNDV,,Véronique,Chat,Correction manuelle,
+08/10/2025,Majeur,Mon compte,Billets non affichés,"Bonjour, le client Thomas VIGUIER - Clients - Clients - RNDV ne retrouve pas les commandes qu'il a passé en juin dans son espace personnel (celle du 7 octobre est OK). ",,Stephen,Chat,Nouveau,
+08/10/2025,Majeur,Mon compte,Affichage spectateur,"Bonjour, pourriez-vous fusionner ces deux profils : IRENE AUDOUIN - Clients - Clients - RNDV et IRENE AUDOUIN - Clients - Clients - RNDV? Par ailleurs, j'ai validé manuellement les justificatifs de la commande VCLCJ mais la personne ne voit pas les justificatifs validés dans son espace et ne peut pas télécharger ses billets (notamment pour Pinocchio), pouvez-vous regarder? Dernier point, elle a dû ajouter des noms spectateurs pour télécharger ses billets sur toutes ses places, elle a pu les télécharger mais ensuite quand elle revient dans son espace, tous les noms spectateurs ont été supprimé et elle ne pourrait plus accéder à ses billets. Pouvez-vous regarder ? Merci beaucoup pour votre aide !",,Clélia,Chat,Nouveau,
+08/10/2025,Mineur,Clients,Fusion fiche,"bonjour, help est ce que vous pouvez fusionner les fiches clients de Muriel LARDY : MURIEL LARVY - Clients - Clients - RNDV / Muriel Lardy - Clients - Clients - RNDV , tout mettre sur la fiche avec le bon nom : Muriel Lardy - Clients - Clients - RNDV Merci.",,Farah,Chat,Correction manuelle,
+08/10/2025,Mineur,Plan de salle,Accès contingent,"Nous ne pouvons pas réserver les places du contingent mécénat pour Hécube pas Hécube au 13e art. Elles apparaissent grisées et nous n'y avons pas accès. Comment pouvons-nous faire pour régler ce problème ? Merci beaucoup,",,Anne-Colombe,Chat,Correction manuelle,
+08/10/2025,Mineur,Clients,Association groupe adhérent,M.Jaillet Pierre n'est pas reconnu comme adhérent p.h.jaillet@gmail.com,,Béatrice,Chat,Correction manuelle,
+08/10/2025,Mineur,Clients,Association groupe adhérent,Mme Caillet baraniak est non reconnue https://rndv.comedie-francaise.fr/sales/orders/edit/68b2e8a6bb3077c0eb08de4d,,Cynthia,Chat,Correction manuelle,
+08/10/2025,Mineur,Clients,Association groupe adhérent,Mme Zaepffel non reconnue https://rndv.comedie-francaise.fr/sales/orders/edit/683ebb771eab40ea4803ee84,,Cynthia,Chat,Correction manuelle,
+08/10/2025,Mineur,Clients,Association groupe adhérent,M kehl non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/683eca495bd870f5450da8ca ,,Cynthia,Chat,Correction manuelle,
+08/10/2025,Mineur,Clients,Association groupe adhérent,Mme Godet non reconnue https://rndv.comedie-francaise.fr/sales/orders/edit/68e63be76a5699f94f65dac7,,Cynthia,Chat,Correction manuelle,
+08/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez vous associer le paiement aux places https://rndv.comedie-francaise.fr/sales/orders/edit/68e4d8a94ff7dc7f7d07a8a6  ,,Léopold,Chat,Correction manuelle,
+09/10/2025,,,,,,,,,
+09/10/2025,Mineur,Clients,Association groupe adhérent,"salut. Pourriez vous attribuer l'écart de paiement à la ligne correspondant à la carte CF ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/683ee8bde0db5771a20526e4",,Léopold,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,"Bonjour, Circé Mauger--Zaepffel - Clients - Clients - RNDV non reconnue comme adhérente sur le site",,Stephen,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,"bonjour, client non reconnu en tant qu'adherent : Marc Castro - Clients - Clients - RNDV",,Mateo,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Fusion fiche,"est-ce possible de fusionner ces deux fiches? les commandes n'apparaissent toujours pas sur le bon compte client. Compte à supprimer: MURIEL LARVY - Clients - Clients - RNDV , compte à garder: Muriel Lardy - Clients - Clients - RNDV Merci",,Farah,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,client non reconnu comme adhérent famille Magdalena Nelzy - Clients - Clients - RNDV,,Mateo,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,"Bonjour, David DARMON - Clients - Clients - RNDV non reconnu comme adhérent.",,Stephen,Chat,Correction manuelle,
+09/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,je dois rembourser les 40 euros en trop perçu de la commande https://rndv.comedie-francaise.fr/sales/orders/edit/68e4de0130ec384b2608a484,,Léopold,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Fusion fiche,"pouvez-vous fusionner ces deux fiches : a écraser > LILIANE SCHNEIDERT - Clients - Clients - RNDV / a garder > Liliane Schneider - Clients - Clients - RNDV,",,Hanna,Chat,Correction manuelle,
+09/10/2025,Mineur,Commandes,Adresse de facturation,je ne peux générer de devis sur cette commande Commande N°RT.2510.LRCG8 - Commandes - Ventes - RNDV bien que j'ai une adresse de facturation merci,,Marie-Christine,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,le client William Kehl - Clients - Clients - RNDV n'est pas reconnu comme adhérent.,,Stephen,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,ce client n'est pas reconnu en tant qu'adhérent: Pascal LABLANQUI - Clients - Clients - RNDV,,Mateo,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,cette cliente n'est pas reconnue comme adhérente https://rndv.comedie-francaise.fr/customers/customers/edit/6659dc80459b716c7c0ee7fd,,Léopold,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,Client non reconnu comme adhérent. Merci. Commande N°RT.2510.W3VL3 - Commandes - Ventes - RNDV,,Véronique,Chat,Correction manuelle,
+09/10/2025,Mineur,Plan de salle,Vérification lock de place,"je viens de procéder à un changement de places sur une commande, Commande N°W.2506.GCJVW - Commandes - Ventes - RNDV pouvez-vous vérifier que les locks des sièges sont bien sur les places 40, 42, 44 et 944 (sur les fourberies le 11/10). merci",,Mateo,Chat,Vérification,
+09/10/2025,Mineur,Clients,Fusion fiche,"pouvez-vous fusionner ces deux fiches avec la même adresse mail : undefined undefined - Clients - Clients - RNDV / Candice Thibault - Clients - Clients - RNDV, elle ne trouve pas ses places sur son compte donc j'imagine que c'est lié a cela. Aussi, elle a bien acheté une carte adhérent adulte mais elle n'est pas reconnue, je n'arrive pas a faire la modif.",,Hanna,Chat,Correction manuelle,
+09/10/2025,Mineur,Clients,Association groupe adhérent,Client non reconnu comme adhérent. Merci. Commande N°RT.2510.W3VL3 - Commandes - Ventes - RNDV,,Véronique,Chat,Correction manuelle,
+09/10/2025,Mineur,Plan de salle,Vérification lock de place,"je viens de procéder à un changement de places sur une commande, https://rndv.comedie-francaise.fr/sales/orders/edit/683fe7ad5b4065d0b70fc773 pouvez-vous vérifier que les locks des sièges sont bien sur les places 46, 47, 49 et 51 (sur l'école de danse du 25/12 à 14h",,Stephen,Chat,Vérification,
+10/10/2025,,,,,,,,,
+10/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,Pourrais-tu mettre le panier de cette commande à jour? RG.2509.CYU6W commande payé mais qui apparait comme à payer. Merci,,Eve,Chat,Non lié au système,
+10/10/2025,Mineur,Clients,Association groupe adhérent,"David DARMON - Clients - Clients - RNDV me dit qu'en se connectant, il n'est toujours pas reconnu comme adhérent, tu peux regarder ? merci beaucoup !",,Léo V,Chat,Correction manuelle,
+10/10/2025,Mineur,Clients,Association groupe adhérent,"également le cas pour SOUNE WADE - Clients - Clients - RNDV, merci !",,Léo V,Chat,Correction manuelle,
+10/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,est ce que vous pouvez attribuer le paiement sur les places https://rndv.comedie-francaise.fr/sales/orders/edit/68e4e9ffa762ad9d5a06ba7f,,Léopold,Chat,Correction manuelle,
+10/10/2025,Mineur,Clients,Association groupe adhérent,et pour cette spectatrice là ? Solène De Montmollin - Clients - Clients - RNDV,,Léo V,Chat,Correction manuelle,
+10/10/2025,Mineur,Clients,Association groupe adhérent,"bonjour, Nicolas Pasternak - Clients - Clients - RNDV me remonte le même problème, est-ce le cas ?",,Léo V,Chat,Correction manuelle,
+10/10/2025,Mineur,Clients,Fusion fiche,"pourriez-vous fusionner Nathalie Larue - Clients - Clients - RNDV, Nathalie LARUE - Clients - Clients - RNDV, Nathalie Larue - Clients - Clients - RNDV afin que sa commande soit visible sur son espace perso",,Meryem,Chat,Correction manuelle,
+11/10/2025,,,,,,,,,
+11/10/2025,Mineur,Clients,Association groupe adhérent,"Katia Cheron - Clients - Clients - RNDV cette spectatrice n'est pas reconnue comme adhérente adulte, j'ai fait la rectification",,Hanna,Chat,Correction manuelle,
+11/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"j'ai un souci sur cette commande : Commande N°RG.2510.GWC7J - Commandes - Ventes - RNDV, il a bien réglé 75 euros en chèque vacance et 13 euros en TPE mais rndv indique un écart de paiement",,Hanna,Chat,Correction manuelle,
+11/10/2025,Mineur,Clients,Association groupe adhérent,Commande N°W.2506.XC69U - Commandes - Ventes - RNDV la cliente n'est pas reconnue comme adhérente.,,Stephen,Chat,Correction manuelle,
+11/10/2025,Mineur,Clients,Fusion fiche,pouvez-vous fusionner les 2 comptes à l'adresse gabrielle.adjerad@gmail.com,,Carole,Chat,Correction manuelle,
+11/10/2025,Majeur,Plan de salle,Places bloquées opérateurs,j'ai toutes les places du contingent scolaire bloquées sur la représentation du 5 mars d'Hamlet à l'Odéon... est-ce que vous pouvez me les débloquer svp ?,,Marie,Chat,Non lié au système,
+11/10/2025,N/A,Plan de salle,Accès tarif,"Et j'ai un autre problème help sur Hamlet et Tartuffe lorsque je sélectionne le tarif ""formation enseignement"" c'est le tarif ""carte adulte"" qui apparait à la place...",,Marie,Chat,Non lié au système,
+12/10/2025,,,,,,,,,
+12/10/2025,Majeur,Mon compte,Billets non affichés,"Bonjour, cette cliente n'arrive pas à télécharger ses billets dans son espace : Sabine Veron - Clients - Clients - RNDV notamment la commande L8VWQ. Pouvez-vous regarder si c'est un problème général sur son compte ? Merci beaucoup !",,Clélia,Chat,Correction manuelle,
+12/10/2025,Majeur,Plan de salle,Création de commande,"depuis hier j'essaye de réserver des places pour un groupe scolaire pour Hamlet le 5 mars, j'arrive à sélectionner mes places et à appliquer les tarifs souhaités mais quand je clique sur ""ajouter à la commande"" ça mouline totalement... Là ça fait vraiment 10min que j'attends et si j'actualise la page, ça me fait revenir au panier, qui est vide, et les places sont bloquées sur le plan (et elles le restent pendant un temps très long mais finissent par se débloquer toutes seules - pb que j'avais hier d'ailleurs et que vous n'avez pas eu le temps de voir). Bref, c'est hyper étrange je laisse la cde ""en préparation"" si vous voulez faire des tests, RS.2510.RVE46
+ 
+Pour info, j'ai fait une autre cde pour un autre spectacle avec encore plus de places et je n'ai pas eu de pb.
+Merci à vous ! ",,Marie,Chat,Nouveau,
+12/10/2025,Majeur,Douchette,Connexion,"pour info, les douchettes n'ont pas fonctionnées hier soir (scann abandonné à 20h15). bien à vous,",,Dominique,Chat,Nouveau,
+12/10/2025,Majeur,Commandes,Doublons,"on avait un doublon sur la F93, on vient de faire le changeemnt, tu peux vérifier que la place est bien lock, stp merci",,Léo V,Chat,Vérification,
+12/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,et est-ce que vous pouvez atrribuer le paiement sur la place de cette commande ? W.2510.LJRAE,,Léo V,Chat,Correction manuelle,
+13/10/2025,,,,,,,,,
+13/10/2025,Mineur,Plan de salle,Places bloquées opérateurs,"possible de débloquer les places C6 et C8 sur la réprésentation du 16/10 ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/68cfb7b7b4017565a402c607 ",,Léopold,Chat,Correction manuelle,
+13/10/2025,Mineur,Clients,Association groupe adhérent,"Bonjour, Mme Debreu non reconnu https://rndv.comedie-francaise.fr/sales/orders/edit/68b02a98bbc13a7c82037166 carte jeune
+RNDV
+ ",,Cynthia,Chat,Correction manuelle,
+13/10/2025,Mineur,Clients,Association groupe adhérent,Mme teillet toujours non reconnue https://rndv.comedie-francaise.fr/sales/orders/edit/68add212a7d1b9e258055b2f,,Cynthia,Chat,Nouveau,
+13/10/2025,Mineur,Clients,Association groupe adhérent,Francois Rosenfeld - Clients - Clients - RNDV me dit également qu'il n'est pas reconnu,,Léo V,Chat,Nouveau,
+13/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"est-ce que vous pouvez attribuer le paiement sur la place de cette commande svp W.2509.JUZV2, elle est actuellement noté comme statut payé. merci",,Fatima,Chat,Correction manuelle,
+13/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,coucou @Help même chose pour cette commande svp W.2510.QUCKE. merci,,Fatima,Chat,Correction manuelle,
+13/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,@Help même chose svp RT.2506.Y6LZU. merci,,Fatima,Chat,Correction manuelle,
+13/10/2025,Mineur,Commandes,Non payée,"Commande  YKY7Y 3 essai de lien paiement, sur monext j'ai un paiement validé, mais pas sur la commande ...Pouvez vous m'aider? ",,Cynthia,Chat,Correction manuelle,
+13/10/2025,Mineur,Clients,Mise à jour coordonnées,"Pour un changement d'adresse mail, le logiciel m'indique ""erreur"", Bernard Ech - Clients - Clients - RNDV la nouvelle adresse mail est : bernard.ech@hotmail.com. Merci ",,Farah,Chat,Correction manuelle,
+13/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"@Help cette commande apparaît non payée, pourrais-tu stp régulariser ce panier W.2509.W6QZV. Merci",,Fatima,Chat,Correction manuelle,
+13/10/2025,Mineur,Commandes,Paiement chèque-cadeau,"commande Mme CHARIF a voulu payer en chèque cadeaux , bug mais maintenant son chèque cadeaux n'est plus utilisable 
+
+Le code est K151-H759-Q764. Et le numéro de commande est W.2413.22Y48.pouvez recréditer ce chèque merci",,Cynthia,Chat,Correction manuelle,
+14/10/2025,,,,,,,,,
+14/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"peux tu associer le paiement au places stp ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/68ee17518e3cc8d663099d1e ",,Léopold,Chat,Correction manuelle,
+14/10/2025,Mineur,Clients,Lien commande,Pouvez vous rattacher la commande Y8WKJ au client Isabelle Le borgne - Clients - Clients - RNDV,,Farah,Chat,Correction manuelle,
+14/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Il faudrait juste mettre l'écart de paiemet sur les places
+Commande N°W.2510.EHCUE - Commandes - Ventes - RNDV
+Commande N°W.2510.Q34QE - Commandes - Ventes - RNDV",,Léopold,Chat,Correction manuelle,
+14/10/2025,Mineur,Clients,Lien commande,J'ai la même demande pour la commande K26WX pour le client Maïa Koubi - Clients - Clients - RNDV Merci !,,Farah,Chat,Correction manuelle,
+14/10/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces deux comptes : Marc Benedetti - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV en gardant l'adresse mail renseigné sur cette fiche client : Marc Benedetti - Clients - Clients - RNDV Merci !,,Farah,Chat,Correction manuelle,
+14/10/2025,Mineur,Clients,Fusion fiche,"pouvez vous fusionner ces deux fiches : Virginie Gesmier - Clients - Clients - RNDV et VIRGINIE GESMIER - Clients - Clients - RNDV , Merci beaucoup !",,Clélia,Chat,Correction manuelle,
+15/10/2025,,,,,,,,,
+15/10/2025,Mineur,Commandes,Billet à payer,la commande ULU5U est payée mais pas quand on va dans les billets cela semble non payer pouvez vous m'aider?,,Cynthia,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"possible de fusionner ces deux comptes ? la personne ne trouve pas ses billets dans son espace perso et donc se connecte surement au mauvais.
+Ficher à conserver : https://rndv.comedie-francaise.fr/customers/customers/edit/68cdbd540ad8dd6b1c0a1374
+Fiche à écraser : https://rndv.comedie-francaise.fr/customers/customers/edit/6659dc40459b716c7c0d267f",,Léopold,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces deux fiches svp : Ines Souron - Clients - Clients - RNDV et Inès Fouron - Clients - Clients - RNDV en gardant le nom et l'adresse mail de cette fiche client : Inès Fouron - Clients - Clients - RNDV . Merci beaucoup.,,Farah,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"j'ai un doublon de compte client, est-il possible d'en supprimer un des deux. Compte à conserver: Hélène Miscopein - Clients - Clients - RNDV , compte à supprimer: undefined undefined - Clients - Clients - RNDV .",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"cette cliente possède 3 comptes, est-il possible de les fusionner? Compte à garder: Jacqueline Sabbah - Clients - Clients - RNDV , comptes à supprimer: JACQUELINE SABBAH - Clients - Clients - RNDV et jacqueline sabbah - Clients - Clients - RNDV",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garde: ALAIN FEBRER - Clients - Clients - RNDV , compte à supprimer: Alain FRBRER - Clients - Clients - RNDV . Merci",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder: marc szuszkin - Clients - Clients - RNDV , compte à supprimer: Marc Szuszkin - Clients - Clients - RNDV . Merci",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder: JEAN LUC MAHE - Clients - Clients - RNDV , compte à supprimer: Jean-Luc Mahé - Clients - Clients - RNDV . Merci",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Billet à payer,"Bonjour, j'ai un spectateur qui a pris 3 places pour le Misanthrope le 10-11. Il a eu un bugg au niveau du paiement où on lui a dit que ça n'était pas passé et après il a quand même reçu ses places. Donc il les a. Mais sur la séance dans RNDV de billetterie, il n'y a qu'un billet à son nom qui est marqué à payer et pas de trace des deux autres billets. Quand on va sur un plan de salle en revanche on voit bien que les places sont à son nom. Pouvez-vous regarder ? Commande N°W.2510.JK272 - Commandes - Ventes - RNDV",,Clélia,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder : Victoria Rojat - Clients - Clients - RNDV / compte à supprimer : Victoria Rojat - Clients - Clients - RNDV.",,Farah,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,", ce client possède deux comptes, est-il possible de les fusionner. Compte à garder : Victoria Rojat - Clients - Clients - RNDV / compte à supprimer : Victoria Rojat - Clients - Clients - RNDV. Merci !",,Farah,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder:BERNARD ELGHOZI - Clients - Clients - RNDV , compte à supprimer:undefined undefined - Clients - Clients - RNDV . Merci",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Billet à payer,"Spectatrice Ghttps://rndv.comedie-francaise.fr/sales/orders/edit/68ee83b0b522d17d8401071baudin les billets semblent non payer, j'ai ajouté un produit et annuler pour voir si cela changer quelque chose et en fait cela a récréer un trop perçu. Pouvez vous régulariser cette commande pour que je puisse envoyer les billets à la spectatrice",,Cynthia,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces deux comptes svp Louis-Marie Kapeluche - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV Merci !,,Farah,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,peux-tu régulariser cette commande stp W.2510.LW374.,,Fatima,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez-vous mettre l'écart de paiement de la commande W.2510.CWHLY sur les billets svp. Merci !,,Farah,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder: PHILIPPE EVAIN - Clients - Clients - RNDV , compte à supprimer:PHILIPPE EVAIN - Clients - Clients - RNDV . Merci",,Mateo,Chat,Correction manuelle,
+15/10/2025,Mineur,Clients,Lien commande,"après avoir effectué le paiement de cette commande Commande N°RT.2510.CJ5Z3 - Commandes - Ventes - RNDV, le client que j'avais ajouté à sauté et la fiche est maintenant anonyme. Est-ce possible de rajouter le client Olivia Castillon - Clients - Clients - RNDV à la commande ? Merci",,Stephen,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"possible de réattribuer le paiement aux places de cette commande ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/68ee1796e4cd52dc6806f7b7 ",,Léopold,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"en voulant rembourser les femmes savantes de la commande https://rndv.comedie-francaise.fr/sales/orders/edit/68e4dbc986e8d256a70a1250 j'ai rajouté un produit et supprimer comme cela ne m'a pas donner accès au remboursement j'ai recommencé , je n'ai toujours pas accès au remboursement mais des trop perçu pouvez vous m'aider ?",,Cynthia,Chat,Correction manuelle,
+15/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,https://rndv.comedie-francaise.fr/sales/orders/edit/68e4dbc986e8d256a70a1250 Il reste un trop perçu sur la commande .,,Cynthia,Chat,Nouveau,
+16/10/2025,,,,,,,,,
+16/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"petit pb sur cette commande : W.2510.YREVY / elle a visiblement bien réglé sa commande mais les billets sont indiqués ""a payer""",,Hanna,Chat,Correction manuelle,
+16/10/2025,Mineur,Clients,Mise à jour coordonnées,"Bonjour, je souhaite éditer une facture pour la commande Commande N°RT.2510.KAZEA - Commandes - Ventes - RNDV mais quand j'ajoute l'adresse de facturation elle ne se sauvegarde pas (disparait après rafraichissement de la page). L'adresse à ajouter est 28 rue Danielle Casanova , 75002 Paris. Merci",,Stephen,Chat,Correction manuelle,
+16/10/2025,Mineur,Clients,Association groupe adhérent,Cliente Martine Tessieres - Clients - Clients - RNDV non reconnue comme adhérente,,Stephen,Chat,Correction manuelle,
+16/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,Pouvez vous attribuer l'écart de paiement sur les places de la commande Commande N°RG.2510.Y3AX2 - Commandes - Ventes - RNDV ? Merci,,Stephen,Chat,Correction manuelle,
+16/10/2025,Majeur,Clients,Billets non affichés,"quelque pb récurrent sur les espaces perso des clients: les places acheté par web ou téléphone n'apparaisse pas (donc ils ne peuvent pas y mettre les justificatifs), pas de preuve de paiement après achat, d'autre n'arrive pas a se connecter la plus part du temps ni même bénéficier de leur avantage adhérent. C'est le cas de Candice Thibault - Clients - Clients - RNDV qui cumule.",,Meryem,Chat,Correction manuelle,
+16/10/2025,Mineur,Clients,Fusion fiche,Serait-il possible de dédoublonner les fiches de Patricia Benchenna :,,Aurelle,Chat,Correction manuelle,
+16/10/2025,Mineur,Clients,Fusion fiche,"idem pour la fiche ""Individuel"" de Brice Delome svp",,Aurelle,Chat,Correction manuelle,
+16/10/2025,Mineur,Clients,Fusion fiche,"à nouveau, serait-il possible de fusionner les fiches ""Individuel"" de Sandrine Bellet-Bellanger svp ? (et garder bien entendu la fiche DME - Mécénat)",,Aurelle,Chat,Correction manuelle,
+16/10/2025,Mineur,Clients,Fusion fiche,idem pour la fiche individuel de Thomas Leve,,Aurelle,Chat,Correction manuelle,
+16/10/2025,N/A,Plan de salle,Places bloquées opérateurs,ai 5 places pour Hamlet à l'Odéon le 7/2/26 de G28 à G36 bloquées dans le contingent champ social que je ne peux pas récupérer pour ma commande merci Commande N°RICCS.2510.REGVK - Commandes - Ventes - RNDV,,Marie-Christine,Chat,Non lié au système,
+17/10/2025,,,,,,,,,
+17/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder: Marine Grosmaitre - Clients - Clients - RNDV , compte à supprimer: undefined undefined - Clients - Clients - RNDV . Merci",,Mateo,Chat,Correction manuelle,
+17/10/2025,Mineur,Clients,Association groupe adhérent,la cliente Romane Cologni - Clients - Clients - RNDV n'est pas reconnue comme adhérente jeune,,Stephen,Chat,Correction manuelle,
+17/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,est-ce que vous pouvez mettre l'écart de paiement sur les places de la commande Commande N°W.2510.UWC4A - Commandes - Ventes - RNDV,,Stephen,Chat,Correction manuelle,
+17/10/2025,Majeur,Plan de salle,Places non dispos en front,"salut, on a mis à la vente des places pour Etincelles ce soir (vers 15h), elles n'apparaissent toujours pas en ligne...",,Isabelle,Chat,Vérification,
+18/10/2025,,,,,,,,,
+18/10/2025,Mineur,Clients,Fusion fiche,"cette personne n'arrive pas a se connecter et générer un nouveau mdp, c'est surement lié au fait qu'elle a 2 fiches client : a garder > Marie-Anne GRACIEUX - Clients - Clients - RNDV / a écraser : undefined undefined - Clients - Clients - RNDV , merci !",,Hanna,Chat,Correction manuelle,
+18/10/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces deux fiches clients svp : Delphine Rouvillois - Clients - Clients - RNDV et Delphine Rouvillois - Clients - Clients - RNDV Merci !,,Farah,Chat,Correction manuelle,
+18/10/2025,Mineur,Clients,Association groupe adhérent,Clémence Marie Bracq - Clients - Clients - RNDV cette cliente n'est pas reconnu comme adhérente. merci !,,Farah,Chat,Correction manuelle,
+18/10/2025,Mineur,Clients,Association groupe adhérent,ce client n'est pas reconnu comme adhérent: Marius Dosé - Clients - Clients - RNDV carte achetée sur cette commande: Commande N°W.2508.QWLA8 - Commandes - Ventes - RNDV merci!,,Mateo,Chat,Correction manuelle,
+18/10/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces deux fiches clients svp : Berangere Launay - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV Merci !,,Farah,Chat,Correction manuelle,
+18/10/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces deux fiches ? en gardant l'adresse gmail.com d'actif ? Lelita ROTH-BELSON - Clients - Clients - RNDV et Lelita Roth-Belson - Clients - Clients - RNDV ?,,Léo V,Chat,Correction manuelle,
+19/10/2025,,,,,,,,,
+19/10/2025,Majeur,Douchette,Billet annulé,"hier sur la représentation du Mariage Forcé au Theatre du Vieux Colombier à 20h30, nous avons eu un soucis avec la place C95. Le code barre une fois flashé par nos ouvreurs indiquait ""Billet annulé"". Pourrez-vous regarder pourquoi ? Merci beaucoup !",,Clélia,Chat,Vérification,
+20/10/2025,,,,,,,,,
+20/10/2025,Mineur,Billetterie,Mise en avant spectacles,"Bonjour, est-ce que vous pourriez changer Lumières pour Bestioles dans les spectacles mis en avant sur le site de billetterie ? merci !",,Isabelle,Chat,Correction manuelle,
+20/10/2025,Mineur,Commandes,Billet à payer,bonjour la cde Amelie Piecoup - Clients - Clients - RNDV x3zeh apparait comme à payer dans l'onglert billets alors qu' elle est payée; pouvez la corriger merci,,Béatrice,Chat,Correction manuelle,
+20/10/2025,Mineur,Plan de salle,Places bloquées opérateurs,"Bonjour Help, sur Hamlet le samedi 14 février à 20h00 les places M1 à M19 sont bloquées  merci
+ ",,Marie-Christine,Chat,Correction manuelle,
+21/10/2025,,,,,,,,,
+21/10/2025,Mineur,Plan de salle,Places bloquées,2 places bloquées B8-B10 sur l'Ordre du jour le mercredi 15/4,,Pascale,Chat,Non lié au système,
+21/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez vous relier le paiement de cette commande : W.2510.UJ2UK aux billets svp,,Farah,Chat,Correction manuelle,
+21/10/2025,Mineur,Clients,Vérification compte client,"ce compte client n'est pas valide, pouvez vous le supprimer? thomas schmitt-grassee - Clients - Clients - RNDV",,Mateo,Chat,Nouveau,
+21/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez vous relier le paiement de cette commande aux billets svp : W.2510.KXZAY,,Farah,Chat,Correction manuelle,
+21/10/2025,Mineur,Clients,Création de commande,"Isabelle Foltete - Clients - Clients - RNDV me signale que depuis un an elle n'arrive plus à finaliser ses achats en ligne d'elle même, sans passer par nous. Le site bloque lors du paiement.",,Meryem,Chat,Vérification,
+21/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Cette commande est annulée mais débité, pouvez vous réactiver la commande pour que je puisse rembourser le client ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/68f697744679dbda220138d2",,Léopold,Chat,Correction manuelle,
+21/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez vous mettre l'écart de paiement de cette commande Commande N°W.2510.UWC4A - Commandes - Ventes - RNDV sur les places ,,Stephen,Chat,Correction manuelle,
+22/10/2025,,,,,,,,,
+22/10/2025,Mineur,Commandes,Mauvais statut commande,"Bonjour, je viens de modifier une commande Commande N°W.2506.Q3EH2 - Commandes - Ventes - RNDV la personne à régler la différence mais le statut reste sur partiellement payée, pouvez-vous le modifier ?",,Véronique,Chat,Correction manuelle,
+22/10/2025,N/A,Plan de salle,Places bloquées,le 18 décembre sur Casse Noisette les places de M13 à M3 sont bloquées sur le plan. Pourriez-vous les débloquer que je puisse faire une réservation scolaire ? Merci,,Morgane,Chat,Non lié au système,
+22/10/2025,Mineur,Commandes,Billet à payer,"j'ai un spectateur qui à le statut : à payer lorsque l'on va sur les billets dans sa commande, pouvez-vous faire le nécessaire afin qu'il puisse les récupérer ? Commande N°W.2510.XG82X - Commandes - Ventes - RNDV ,",,Véronique,Chat,Correction manuelle,
+22/10/2025,Mineur,Commandes,Billet à payer,pouvez vous relier le paiement de cette commande aux billets svp : W.2510.ZK36J,,Farah,Chat,Correction manuelle,
+22/10/2025,Mineur,Commandes,Mauvais statut commande,"JE VIENS DE REGLER UNE COMMANDE PAR CHEQUE CADEAU ET D'UN SEUL COUP J'AI ETE DE LA PAGE, LA COMMANDE APPARAIT ANNULE ALORS QU'ELLE EST PAYE POUVEZ-VOUS REMETTRE TOUT CELA EN ORDRE , MERCI",,Véronique,Chat,Correction manuelle,
+23/10/2025,,,,,,,,,
+23/10/2025,Mineur,Clients,Fusion fiche,"ce client possède deux comptes, est-il possible de les fusionner. Compte à garder: CHRISTELLE SIMON - Commandes - Clients - RNDV , compte à supprimer: CHRISTELLE SIMON - Commandes - Clients - RNDV",,Mateo,Chat,Correction manuelle,
+23/10/2025,Mineur,Clients,Fusion fiche,"peut-on fusionner les deux fiches suivantes en gardant la première ?
+https://rndv.comedie-francaise.fr/customers/customers/edit/6660e031953304a9ce058a3b 
+https://rndv.comedie-francaise.fr/customers/customers/edit/66d84935ee5187c3770a8446",,Théa,Chat,Correction manuelle,
+23/10/2025,Mineur,Clients,Fusion fiche,"pourriez vous fusionner les comptes suivants : France Léveillé Gallo - Clients - Clients - RNDV , France Leveille Gallo - Clients - Clients - RNDV, FRANCE LEVEILLE GALLO - Clients - Clients - RNDV et enfin France Leveille Gallo - Clients - Clients - RNDV en gardant ce mail: fleveillegallo@gmail.com",,Meryem,Chat,Correction manuelle,
+23/10/2025,Mineur,Clients,Fusion fiche," Peut-on fusionner ces 3 fiches en gardant la première ? Merci bcp
+https://rndv.comedie-francaise.fr/customers/customers/edit/6660e032953304a9ce05904e 
+https://rndv.comedie-francaise.fr/customers/customers/edit/6660e031953304a9ce058a40 
+https://rndv.comedie-francaise.fr/customers/customers/edit/6660e030953304a9ce0587cf",,Théa,Chat,Correction manuelle,
+23/10/2025,Mineur,Clients,Vérification compte client,La spectatrice delphine rouvillois n arrive pas a se connecter...,,Cynthia,Chat,Correction manuelle,
+23/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,Possible d'associer le paiement aux places ? https://rndv.comedie-francaise.fr/sales/orders/edit/68f0106a8fa00a1cda0791e9,,Léopold,Chat,Non lié au système,
+24/10/2025,,,,,,,,,
+24/10/2025,Majeur,Commandes,Remboursement,spectatrice Mme Bureau clotilde commande RT 2510 WZK4Q https://rndv.comedie-francaise.fr/sales/orders/edit/68ef6a4d5f22069db30a0df8 a été débitée quand meme.,,Cynthia,Chat,Correction manuelle,
+24/10/2025,Majeur,Commandes,Remboursement,"Commande W.2510.R3V3C commande annulée mais débitée , le spectateur a reçu une confirmation mais n'a pas de place",,Cynthia,Chat,Correction manuelle,
+24/10/2025,Mineur,Clients,Fusion fiche,"Pourriez vous fusionner ces deux comptes , merci
+À garder : https://rndv.comedie-francaise.fr/customers/customers/edit/68fb46f184ccf78d87025f4a 
+À supprimer : https://rndv.comedie-francaise.fr/customers/customers/edit/68fa3e9e7558ab196b01b062 ",,Cynthia,Chat,Correction manuelle,
+25/10/2025,,,,,,,,,
+24/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour, je viens de faire une vente au guichet avec paiement multiple et je me retrouve avec un trop perçu de 4 euros, pouvez-vous réctifier le problème ? Merci. Commande N°RG.2510.QLRXQ - Commandes - Ventes - RNDV",,Véronique,Chat,Correction manuelle,
+24/10/2025,Mineur,Commandes,Remboursement,"Bonjour il s'agit de la commande  N°W.2510.EW56Y en brouillon sur laquelle apparait un paiement de 58 euros que nous devons rembourser, pouvez-vous intervenir? Merci.",,Carole,Chat,Correction manuelle,
+27/10/2025,,,,,,,,,
+27/10/2025,Mineur,Admin,Filtre liste,"depuis 10 jours ma page commandes est bloquée sur ce filtre, je suis obligée de réinitialiser à chaque recherche ... possible de résoudre cette problèmatique ?",,Morgane,Chat,Vérification,
+27/10/2025,Mineur,Commandes,Adresse de facturation,"Bonjour Help je n'arrive pas à générer de devis sur cette commande, bien qu'il y ait une adresse de facturation Commande N°RC.2510.QR8E9 - Commandes - Ventes - RNDV",RC.2510.QR8E9,Marie-Christine,Chat,Correction manuelle,
+27/10/2025,Mineur,Commandes,Billet à payer,"Pourriez-vous associer le paiement aux places SVP, merci ?Commande N°RA.2510.JZ29Q - Commandes - Ventes - RNDV",,Fatima,Chat,Correction manuelle,
+27/10/2025,Mineur,Commandes,Remboursement,bonjour il faudrait procéder au remboursement de ces cdes uj9vq et wzk4q; elles sont indiquées comme annulées  mais Léopold m'a confirmé qu'elles avait bien été encaissées merci bonne journée,,Béatrice,Chat,Correction manuelle,
+27/10/2025,Mineur,Commandes,Billet à payer,"Pourriez-vous associer le paiement aux places SVP, merci ?Commande N°RG.2510.GWC7J - Commandes - Ventes - RNDV. Par ailleurs, il y a peut-être un bug d'affichage car le statut n'appaît pas .",,Fatima,Chat,Correction manuelle,
+27/10/2025,Mineur,Commandes,Remboursement,"bonjour le spectateur affirme avoir été débité alors que, sa cdeRT.2509.H42LQ est annulée; en cas de débit il faudrait le rembourser aussi merci
+ ",RT.2509.H42LQ,Béatrice,Chat,Correction manuelle,
+27/10/2025,Majeur,Admin,Affichage liste billets,"il ya peut-être un bug d'affichage sur la séance du Misanthrope LE DIMANCHE 02 /11/25 à 20h30, quand je veux faire le filtre de toutes les commandes en passant par les onglets suivants""BILLETTERIE"", ""SEANCE"", ""BILLETS"", il n'y a rien...Et c'est pour toute l'équipe idem. Merci",,Fatima,Chat,Correction manuelle,
+27/10/2025,Mineur,Commandes,Adresse de facturation,"Commande N°RC.2510.KX746 - Commandes - Ventes - RNDV  @help je ne peux éditer le devis bien qu'il y ait une adresse de facturation, j'avais bien annulé les 2 précédents  merci",RC.2510.KX746,Marie-Christine,Chat,Correction manuelle,
+27/10/2025,Mineur,Plan de salle,Places bloquées opérateurs,"j'ai les places T9, T7, T5 et T4 qui sont bloqués sur la représentation de Six personnages le 14/02, serait-il possible de les débloquer ? Merci beaucoup ! ",,Léo V,Chat,Correction manuelle,
+28/10/2025,,,,,,,,,
+28/10/2025,Mineur,Clients,Fusion fiche,"ce client à deux comptes, est-il possible de les fusionner? NICOLAS VIEILLE - Clients - Clients - RNDV Nicolas Vieille - Clients - Clients - RNDV merci",,Mateo,Chat,Correction manuelle,
+28/10/2025,Majeur,Mon compte,Téléchargement billets,"Cette spectatrice Emile BERTHELOT a pris des places sur le WEB et n'arrive pas à télécharger ses billets. 
+Il s'agit de la commande suivante :
+Commande N°W.2506.V9J4H - Commandes - Ventes - RNDV
+pour information, cette spectatrice est également mécène et prends des places par le canal Mécénat Richelieu, que je lui réserve.",N°W.2506.V9J4H,Cécile,Chat,Non lié au système,
+28/10/2025,Mineur,Commandes,Adresse de facturation,Je ne peux générer de devis sur cette commande RA.2510.HR4LQ,RA.2510.HR4LQ,Pascale,Chat,Non lié au système,
+29/10/2025,,,,,,,,,
+29/10/2025,Mineur,Clients,Fusion fiche,"fiche à écraser : https://rndv.comedie-francaise.fr/customers/customers/edit/6900972196cc8f65514930d7
+fiche à conserver : https://rndv.comedie-francaise.fr/customers/customers/edit/690098031afb849aec01e655",,Léopold,Chat,Correction manuelle,
+29/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"pouvez vous mettre l'écart de paiement sur les places ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/68ee2223057d81763102f458?session=68c69d42bca07e2b2a5b2a58 ",,Léopold,Chat,Correction manuelle,
+30/10/2025,,,,,,,,,
+30/10/2025,Mineur,Clients,Fusion fiche,"Bonjour, c'est possible de supprimer la fiche undefined undefined - Clients - Clients - RNDV ? (email en doublon), si pas possible fusionner avec Marine Grosmaitre - Clients - Clients - RNDV (fiche à garder). Merci ",,Stephen,Chat,Correction manuelle,
+30/10/2025,Mineur,Clients,Fusion fiche,"Bonjour, possible de supprimer ces trois fiches ? : 
+Pierrick Barolin Jean-Charles - Clients - Clients - RNDV 
+Pierrick BAROLIN - Clients - Clients - RNDV 
+Pierrick Pierrick Barolin Jean-Charles - Clients - Clients - RNDV",,Isabelle,Chat,Correction manuelle,
+30/10/2025,Mineur,Clients,Fusion fiche,"vous pouvez fusionner les fiches d'Arthur Le Stanc svp ? Arthur Le Stanc - Clients - Clients - RNDV / Arthur Le Stanc - Clients - Clients - RNDV 
+Merci beaucoup !",,Marie,Chat,Correction manuelle,
+30/10/2025,Mineur,Clients,Fusion fiche,"serait il possible de fusionner ces deux fiches Melanie LAVOREL - Clients - Clients - RNDV et Melanie Lavorel - Clients - Clients - RNDV
+ 
+et gardant bien  la fiche Melanie LAVOREL - Clients - Clients - RNDV",,Magdalena,Chat,Correction manuelle,
+30/10/2025,Mineur,Clients,Fusion fiche,"Fondation pour la recherche sur Alzheimer 
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034e6a
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0bdfbf8092314031e67
+Maison Villaret
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c1fbf8092314033adf
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034ebe
+Bernardaud
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034dfc
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c1fbf8092314033b32
+Potel et Chabot
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034ef2
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0befbf80923140323bc
+Agence Derby
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034dce
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c0fbf8092314033819
+Revaia
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034f06
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c2fbf8092314034451
+BCD Travel
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034df4
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c2fbf80923140345ec
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c2fbf809231403452b
+Publicis
+A conserver : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c3fbf8092314034ef6
+A fusionner : https://rndv.comedie-francaise.fr/customers/structures/edit/665fb0c0fbf80923140338e7
+Merci beaucoup ! ",,Anaïs,Chat,Correction manuelle,
+31/10/2025,,,,,,,,,
+31/10/2025,Mineur,Clients,Fusion fiche,"bonjour, pouvez vous fusionner les fiches suivantes :
+fiche à conserver https://rndv.comedie-francaise.fr/customers/customers/edit/67c3617cb0afdb905f0f3d8d
+fiche à écraser INES FAVEREAU - Clients - Clients - RNDV",,Céline,Chat,Correction manuelle,
+31/10/2025,Mineur,Clients,Fusion fiche,"bonjour,
+ 
+Pouvez vous fusioner les fiches suivantes : 
+fiche à conserver : elsa Fardet - Clients - Clients - RNDV
+ 
+fiche à écraser :  Elsa Fardet - Clients - Clients - RNDV",,Magdalena,Chat,Correction manuelle,
+31/10/2025,Mineur,Clients,Fusion fiche,c'est possible de fusionner ces 2 fiches ? claudine clavez - Clients - Clients - RNDV (fiche a garder et a corriger en claudine calvez) et undefined undefined - Clients - Clients - RNDV . Merci !,,Stephen,Chat,Correction manuelle,
+31/10/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"pouvez vous régulariser cette commande W.2510.ZWCWU ? (la commande a bien été réglée mais les billets sont indiqués comme ""à payer"")",,Hanna,Chat,Correction manuelle,
+01/11/2025,,,,,,,,,
+1/11/2025,Majeur,Mon compte,Affichage mauvaise date billet,"bonjour, une de nos cliente vois une mauvaise date s'afficher sur le slider de ses billets",,Léopold,Chat,En cours d'investigation,
+1/11/2025,Mineur,Clients,Fusion fiche,"pouvez vous fusionner ces fiches :
+fiche à conserver : STEPHANIE ALAMI - Clients - Clients - RNDV
+fiche à écraser : STEPHANIE OUALI ALAMI - Clients - Clients - RNDV",,Magdalena,Chat,Correction manuelle,
+03/11/2025,,,,,,,,,
+3/11/2025,Mineur,Admin,Erreur 500,Je veux ouvrir RNDV et voici la page qui s'ouvre : erreur 500,,Céline,Chat,Non lié au système,
+3/11/2025,Mineur,Clients,Fusion fiche,serait-il possible de fusionner ses deux fiches ? Annie Pouilhes - Clients - Clients - RNDV et annie pouilhes - Clients - Clients - RNDV ? merci beaucoup !,,Léo V,Chat,Correction manuelle,
+3/11/2025,Mineur,Commandes,Accès tarif,"Bonjour,  Pourriez-vous regarder la commande suivante: W.2511.LGAVU
+C'est une commande web, les personnes n'ont pas réussi à régler sur le Web et ils se sont présentés aux guichets. Hannah a pu retrouver la commande en brouillon et les faire payer. Une question? comment ont-ils pu prendre des tarifs - 28 ans pour Les Fourberies de Scapin? Pourriez-vous nous confirmer que les tarifs - 28 ans sur Internet pour ce spectacle sont bien bloqués.
+Merci",,Eve,Chat,En cours d'investigation,
+3/11/2025,Mineur,Commandes,Adresse de facturation,serait-il possible de corriger l'adresse mail la cde RT.2511.HU5LQ voici le bon mail sebastien.corlay-questel@wanadoo.fr merci et bonne journée,,Béatrice,Chat,Correction manuelle,
+3/11/2025,Mineur,Commandes,Adresse de facturation,il faudrait changer l'adresse mail de la cde ju3lz voici la bonne adresse mail elisabeth.dahan@gmail.net,,Béatrice,Chat,Correction manuelle,
+3/11/2025,Majeur,Commandes,Problème paiement,"bonjour, pour information au téléphone vendredi et ce matin au guichet j'ai eu plusieurs personnes qui sont venus prendre des places ou finaliser leur commande car il n'avaient pas réussi a payer sur le site, même avec plusieurs cartes différentes",,Hanna,Chat,En cours d'investigation,
+3/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,serait-il possible d'associer le paiement et les billets Commande N°W.2511.Y5C4A - Commandes - Ventes - RNDV,,Meryem,Chat,Correction manuelle,
+04/11/2025,,,,,,,,,
+4/11/2025,Mineur,Commandes,Adresse de facturation,pouvez vous changer l'adresse mail de cette spectatrice ? Charlotte Guy - Clients - Clients - RNDV - La bonne adresse mail : charlottguy@gmail.com,,Hanna,Chat,Correction manuelle,
+4/11/2025,Mineur,Commandes,Paiement chèque-cadeau,"Comment se fait-il qu'un chèque cadeau se soit retrouvé validé le 15/10 sur une commande qui date du 29/01 ? il faudrait recréditer le chèque cadeau car la séance est passée
+https://rndv.comedie-francaise.fr/sales/orders/edit/67991e530ca221865c03f08f ",,Léopold,Chat,Correction manuelle,
+4/11/2025,Majeur,Commandes,Paiement chèque-cadeau,"Bonjour , je voulais attirer votre attention que des doublons sont possibles avec les chèque-cadeaux ex wlr49 (prise sur le net payé avec des chèques cadeaux mais dont les billlets sont marqués à payer) et cette cde RG.2511.RUWEX que j'aib refaite pour la spectatrice et où j'ai pu reprendreles places initiales 564 et 566)
+il faudrait régularise la cde wlr49 merci",,Béatrice,Chat,Correction manuelle,
+05/11/2025,,,,,,,,,
+5/11/2025,Mineur,Clients,Fusion fiche,"ce client à deux comptes, est-il possible de les fusionner? undefined undefined - Clients - Clients - RNDV leopold charvillat - Clients - Clients - RNDV merci",,Mateo,Chat,Correction manuelle,
+06/11/2025,,,,,,,,,
+6/11/2025,Majeur,Mon compte,Connexion,"Cette cliente Sabrina Nahal - Clients - Clients - RNDV n’arrive pas à accéder à son compte. Lorsqu’elle essaie de réinitialiser son mot de passe oublié, un message d’erreur s’affiche indiquant qu’une erreur est survenue et qu’elle doit contacter la billetterie. merci",,Meryem,Chat,Non lié au système,
+6/11/2025,Majeur,Plan de salle,Place dispo liée à une commande,"En nettoyant les salles, j'ai remarqué que certaines places prises dans des commandes apparaissent non grisées comme si elles étaient encore disponibles. Il est possible que soit le cas sur d'autres dates pouvez vous vérifier svp ? merci.",,Fatima,Chat,Correction manuelle,
+6/11/2025,Mineur,Clients,Fusion fiche,"on a un grand nombre de fiches individuels qui correspondent en réalité au même client. Pouvez vous les fusionner ?
+Fiche à conserver : https://rndv.comedie-francaise.fr/customers/customers/edit/685e572c5718b0bb53dae857
+ 
+Fiches à écraser :
+https://rndv.comedie-francaise.fr/customers/customers/edit/68615868be8dae144472eccf
+https://rndv.comedie-francaise.fr/customers/customers/edit/6853dc215718b0bb53daaff1
+https://rndv.comedie-francaise.fr/customers/customers/edit/68405c1c9e9e76e387b9a2ef
+https://rndv.comedie-francaise.fr/customers/customers/edit/68405b6f1eb168e749dde258
+https://rndv.comedie-francaise.fr/customers/customers/edit/68405b5f9e9e76e387b9a2d8
+https://rndv.comedie-francaise.fr/customers/customers/edit/683b18ece94b993465bb643d
+https://rndv.comedie-francaise.fr/customers/customers/edit/683b188025368129a79c42c3
+https://rndv.comedie-francaise.fr/customers/customers/edit/6838a2927eda753c55a3dc82",,Léopold,Chat,Correction manuelle,
+07/11/2025,,,,,,,,,
+7/11/2025,Mineur,Clients,Fusion fiche,serait-il possible de fusionner ses deux fiches clients ? STEPHANE COUDERC - Clients - Clients - RNDV (en gardant celui-là actif) et Stephane Couderc - Clients - Clients - RNDV ? Merci beaucoup !,,Léo V,Chat,Correction manuelle,
+7/11/2025,Majeur,Commandes,Mail de confirmation non reçu,La cliente Commande N°W.2511.R7GJ9 - Commandes - Ventes - RNDV m'a contacté car elle a été débitée sans recevoir de confirmation. Le paiement est passé mais la commande a été annulée. Elle souhaite conserver sa commande et les places sélectionnées. Merci,,Meryem,Chat,Correction manuelle,
+7/11/2025,Mineur,Clients,Fusion fiche,"ce client à deux comptes, est-il possible de les fusionner? undefined undefined - Clients - Clients - RNDV JEAN YVES SALAUN - Clients - Clients - RNDV merci",,Mateo,Chat,Correction manuelle,
+7/11/2025,Mineur,Clients,Fusion fiche,"est-il possible de fusionner ces comptes là :
+fiche à conserver : Sandra Millot - Clients - Clients - RNDV
+fiche à écraser :    Sandra Millot - Clients - Clients - RNDV
+ ",,Magdalena,Chat,Correction manuelle,
+7/11/2025,Mineur,Clients,Fusion fiche,"à garder : SOLANGE JAMBON - Clients - Clients - RNDV
+à écraser : Solange Jambon - Clients - Clients - RNDV
+merci",,Magdalena,Chat,Correction manuelle,
+7/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez-vous régulariser cette commande ? La spectatrice a un billet tarif demandeur d'emploi mais visiblement on lui demande de charger un justificatif minima sociaux : W.2509.AXJL8,,Hanna,Chat,Correction manuelle,
+7/11/2025,Mineur,Clients,Fusion fiche,"est-ce possible de fusionner ces 2 fiches ? Damienne BAUTMANS - Clients - Clients - RNDV fiche à garder, et Damienne Bautmans - Clients - Clients - RNDV fiche à écraser",,Stephen,Chat,Correction manuelle,
+08/11/2025,,,,,,,,,
+8/11/2025,N/A,Mon compte,Billets non affichés,"ce client n'arrive à voir qu'un billet sur deux dans son espace personnel.Commande N°W.2509.LVK79 - Commandes - Ventes - RNDV , merci",,Meryem,Chat,Non lié au système,
+8/11/2025,N/A,Mon compte,Billets non affichés,Même problème ici il ne voit que 4 places sur 5 : Commande N°W.2507.QYKCL - Commandes - Ventes - RNDV,,Meryem,Chat,Non lié au système,
+8/11/2025,N/A,Billetterie,Places bloquées tunnel web,"Julien Charles - Clients - Clients - RNDV a selectionné des places qui se sont bien bloquées, mais elles n'apparaissent pas dans son panier pour finaliser la commande. Je ne trouve pas non plus de brouillon.",,Meryem,Chat,En attente,
+10/11/2025,,,,,,,,,
+10/11/2025,Mineur,Commandes,Billet à payer,la commande LX2A7 est payer mais les billets ne paraissent pas payer...,,Cynthia,Chat,Correction manuelle,
+10/11/2025,Mineur,Commandes,Remboursement,"J'ai besoin de rembourser ce client de 8€ par cb mais j'ai un sales_refund_status_refused
+https://rndv.comedie-francaise.fr/sales/orders/edit/68584539d665ffccd9001285?session=6825b2a7fc5221ceed948685",,Léopold,Chat,Correction manuelle,
+10/11/2025,Mineur,Clients,Fusion fiche,est-ce que vous pouvez fusionner les fiches d'Angélique Guillerot Malick svp ? angelique.guillerotmalick@gmail.com ,,Marie,Chat,Correction manuelle,
+10/11/2025,Mineur,Clients,Billets non affichés,"Bonjour, M.Baisez Mathieu affirme avoir commandé 1 place pour l'ordre du jour le 1er avril et 1 place pour le 2 avril mais ces places ne sont visibles sur aucune des ses commandes .Pouvez-vous me dire ce qu'il en est?merci",,Béatrice,Chat,Non lié au système,
+10/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez-vous corriger la cde RS.2506.XY7XY ? Il y a un écart de paiement de 8€ qu'il faudrait remettre sur la place 576 svp. Merci beaucoup ! ,,Marie,Chat,Correction manuelle,
+10/11/2025,Mineur,Clients,Fusion fiche,possible de fusionner Anne Marie SOL - Clients - Clients - RNDV et Anne-Marie Sol - Clients - Clients - RNDV ? merci !,,Léo V,Chat,Correction manuelle,
+10/11/2025,Mineur,Clients,Fusion fiche,"@Help, il faudrait archiver cette fiche client vide florence aubry - Clients - Clients - RNDV Merci par avance",,Marie-Christine,Chat,Correction manuelle,
+11/11/2025,,,,,,,,,
+11/11/2025,Mineur,Clients,Archivage fiche,"Merci d'archiver ces fiches client Rodrigo Ribeiro - Clients - Clients - RNDV, Guillaume Bonifas - Clients - Clients - RNDV, Philippe LONC - Clients - Clients - RNDV Merci beaucoup",,Marie-Christine,Chat,Correction manuelle,
+11/11/2025,Mineur,Clients,Fusion fiche,"merci de fusionner ces deux fiches:
+à conserver : Agathe Faucourt - Clients - Clients - RNDV
+à écraser : Agathe Faucourt - Clients - Clients - RNDV",,Magdalena,Chat,Correction manuelle,
+12/11/2025,,,,,,,,,
+12/11/2025,Mineur,Clients,Archivage fiche,"merci d'archiver cette fiche Isabelle Dasque - Clients - Clients - RNDV, bonne journée",,Marie-Christine,Chat,Correction manuelle,
+12/11/2025,Mineur,Clients,Fusion fiche,"ce client à trois comptes, est-il possible de les fusionner? Marine Grosmaitre - Clients - Clients - RNDV , Marine Grosmaitre - Clients - Clients - RNDV , Marine Grosmaitre - Clients - Clients - RNDV merci",,Mateo,Chat,Correction manuelle,
+12/11/2025,Mineur,Clients,Archivage fiche,égalemen archiver cette fiche Herve Kauffmann - Clients - Clients - RNDV,,Marie-Christine,Chat,Correction manuelle,
+12/11/2025,Mineur,Clients,Association groupe adhérent,commande mme Astier dans sa commande il y a sa carte adulte mais pas taggé adhérent,,Cynthia,Chat,En attente,
+13/11/2025,,,,,,,,,
+13/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour, est-ce que vous pouvez associer le trop perçu de 10€ aux places du bureau des lectures du samedi 13 décembre ?
+CDE : W.2506.HK5Y2
+Merci",,Solene,Chat,Correction manuelle,
+14/11/2025,,,,,,,,,
+14/11/2025,Mineur,Plan de salle,Interface qui saute,Je crois que mon interface a besoin de magnésium,,Morgane,Chat,En cours d'investigation,
+14/11/2025,Mineur,Clients,Fusion fiche,"merci de fusionner ces deux fiches :
+à conserver : Corinne FER - Clients - Clients - RNDV
+à écraser : Corinne Fer - Clients - Clients - RNDV",,Magdalena,Chat,Correction manuelle,
+15/11/2025,,,,,,,,,
+15/11/2025,Mineur,Clients,Fusion fiche,"Bonjour, help pouvez vous fusionner ces deux comptes : Vanessa Bourcy - Clients - Clients - RNDV et Vanessa BOURCY - Clients - Clients - RNDV en gardant l'adresse mail suivante : vanessa.bourcy@gmail.com",,Farah,Chat,Correction manuelle,
+15/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"le paiement de cette commande (Commande N°W.2511.WE4LV - Commandes - Ventes - RNDV) a bien été effectué mais le billet apparait quand même comme ""à payer"" est-ce possible de régulariser cela. merci",,Mateo,Chat,Correction manuelle,
+17/11/2025,,,,,,,,,
+17/11/2025,Mineur,Commandes,Rattachement opérateur,"Bonjour help ces commandes ne sont rattachées à aucun opérateur , ni statut  N°RT.2510.LUJXV - Commandes - Ventes - RNDV; RT.2511.WG3E7; RG.2511.YW3AQ. Merci",,Fatima,Chat,Correction manuelle,
+17/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour à tous, suite à un paiement multiple sur cette cde ZX3RZ un trop perçu est apparu; merci",,Béatrice,Chat,Correction manuelle,
+17/11/2025,Majeur,Mon compte,Billets non affichés,"bonjour, la spectatrice claire.belaubre@gmail.com cdeW.2511.ZQ5G9 ne voit ses billets sur son espace, quand elle va sur son espace, il est écrit pas de cde pas de billets",,Béatrice,Chat,Non lié au système,
+17/11/2025,Mineur,Clients,Fusion fiche,"Bonjour, pourriez vous fusionner les deux fiches de Madame Claire Belaubre adresse mail claire.belaubre@gmail.com? Merci",,Cynthia,Chat,Correction manuelle,
+17/11/2025,Mineur,Clients,Fusion fiche,"Pour Monsieur BADOY patrick, il s'est trompé sur son adresse mail en marquant patrickbadoy@wanadoo.fr  alors que son mail est patrick.badoy@wanadoo.fr
+ 
+et ce mail patrick.badoy  est un compte sans titre il faudrait fusionner de façon a garder ce mail patrick.badoy@wanadoo.fr est ce possible ?",,Cynthia,Chat,Correction manuelle,
+18/11/2025,,,,,,,,,
+18/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,merci de mettre l'écart de paiement de 8 euros de la commande Commande N°RS.2506.RUQV9 - Commandes - Ventes - RNDV sur la place n° 621,,Magdalena,Chat,Correction manuelle,
+18/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,help sur cette commande : Commande N°W.2506.GRUHJ - Commandes - Ventes - RNDV pouvez vous mettre l'écart de paiement sur la place 802 svp. Merci !,,Farah,Chat,Correction manuelle,
+18/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"lors de ma soirée d’hier, sur une vente de dernière minute, la commande Commande N°RG.2511.RZWEY - Commandes - Ventes - RNDV a mal comptabilisé le paiement. Il s’agissait de trois places avec trois paiements TPE de 16 €, 16 € et 22 €, que j’ai bien encaissés. Pourtant, le site considère qu’il y a un trop-perçu de 6 €, une place partiellement payée, mais un total de 54 € payé complètement... Cependant, lors du report de caisse du soir, tout était correct.",,Meryem,Chat,Correction manuelle,
+19/11/2025,,,,,,,,,
+19/11/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner les deux fiches en laissant l'adresse mail paul.maksud@gmail.com ?,,Cynthia,Chat,Correction manuelle,
+19/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,ous ne m'oubliez pas pour la régul de1 euro sur la résa LXVAH ?,,Véronique,Chat,Non lié au système,
+20/11/2025,,,,,,,,,
+20/11/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez vous fusionner les deux fiches de madame auclaire hélene , en ne gardant que ",,Cynthia,Chat,Correction manuelle,
+20/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour, nous n'arrivons pas à comprendre ce qui s'est passé dans cette commande Commande N°W.2509.ZHLJZ - Commandes - Ventes - RNDV , pourriez-vous svp nous envoyer une capture d'écran de la commande initiale. On suppose qu'il y a eu un changement de date, de places",,Fatima,Chat,Non lié au système,
+20/11/2025,Mineur,Clients,Archivage fiche,"pourrions-nous supprimer ce compte FABRICE PATAUT - Clients - Clients - RNDV, le client en a un autre. Merci",,Meryem,Chat,Correction manuelle,
+20/11/2025,Mineur,Mon compte,Connexion,Marine Grosmaitre - Clients - Clients - RNDV me signal qu'elle n'arrive pas à voir ses billets sur son espace et que le problème est récurrent. Merci!,,Meryem,Chat,Nouveau,
+20/11/2025,Mineur,Clients,Fusion fiche,"pouvez-vous fusionner : Mathieu Chalvidal - Clients - Clients - RNDV et Mathieu Chalvidal - Clients - Clients - RNDV en conservant le  mail : mathieu.chalvidal@gmail.com
+RNDV
+ ",,Meryem,Chat,Correction manuelle,
+21/11/2025,,,,,,,,,
+21/11/2025,N/A,Billetterie,Places non dispos en front,"juste pour info, combien de temps mettent les places mises en dispo sur un plan de salle pour être visibles en ligne ? j'ai libéré une place il y a plus de 30min pour la séance de ce soir, mais la date de pinocchio est toujours grisée en ligne. merci !",,Isabelle,Chat,Non lié au système,
+22/11/2025,,,,,,,,,
+22/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,même problème ici: Commande N°RG.2511.ZK6XE - Commandes - Ventes - RNDV. Merci!,,Meryem,Chat,Correction manuelle,
+22/11/2025,Mineur,Commandes,Adresse de facturation,je n'arrive pas à ajouter l'adresse déjà rentrée pour générer une facture pour la commande YLHCU. Pouvez-vous m'aider ?,,Clélia,Chat,Correction manuelle,
+22/11/2025,Majeur,Plan de salle,Places bloquées tunnel web,"pour Casse-Noisette il y a des places bloquées en tunnel web depuis le 11/06, je n'ai pas fait le tour de toutes les salles mais il y en a :
+- le 28/11 : I94 ; N7 ; N12 ; V3
+- le 29/11 : E94 ; V6 ; W2 ; W4
+- le 02/12  : V7 ; V5
+Est-ce que vous pouvez les libérer ? 
+Merci beaucoup",,Solene,Chat,Correction technique,
+22/11/2025,Majeur,Rapports,Rattachement opérateur,"notre nouvelle personne en charge du protocole au Studio, Frédéric Lambert-Dudeffand, n’apparaît pas dans le générateur de rapports comme opérateur afin d’imprimer son bordereau de caisse
+Pourtant, il arrive bien à se connecter sur son compte RNDV…
+Merci de votre réponse !",,Charlotte,Chat,Non lié au système,
+22/11/2025,Majeur,Commandes,Affichage mauvaise date billet,"j'ai cette commande Commande N°W.2510.GU6ZQ - Commandes - Ventes - RNDV au nom de Michel Benarrous, qui était pour demain (Pinocchio 23/11), mais dans l'espace personnel de ce monsieur, les billets étaient affichés pour aujourd'hui. Or, lorsque je regarde dans les commandes et dans son fichier client, la commande était pour demain... Apparemment il y a eu un bug d'affichage de la date des billets. J'ai pu reporter les deux billets pour aujourd'hui, mais c'est la première fois que ce cas m'arrivait, donc au cas où je le signale ici. Merci et belle soirée !",,Charlotte,Chat,Correction technique,
+24/11/2025,,,,,,,,,
+24/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,peux-tu régulariser ces commandes stp Commande N°W.2506.QHA5H - Commandes - Ventes - RNDV; Commande N°RT.2510.E3RKW - Commandes - Ventes - RNDV Merci,,Fatima,Chat,Non lié au système,
+24/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement, j'ai besoin d'avoir l'historique de cette commande svp Commande N°RA.2506.A73VC - Commandes - Ventes - RNDV,,Fatima,Chat,Vérification,
+24/11/2025,Mineur,Commandes,Non payée,Commande N°W.2506.QHA5H - Commandes - Ventes - RNDV ( commande qui apparaît comme non payée),,Fatima,Chat,Non lié au système,
+24/11/2025,Mineur,Clients,Fusion fiche,il faudrait fusionner ces 2 fiches: louise leveque - Clients - Clients - RNDV (fiche à garder) et Louise Leveque - Clients - Clients - RNDV (fiche à supprimer).,,Stephen,Chat,Correction manuelle,
+24/11/2025,Mineur,Commandes,Trop perçu / Écart de paiement,Commande N°W.2511.YWVKL - Commandes - Ventes - RNDV pouvez vous supprimer le trop perçu de cette commande svp.,,Farah,Chat,Correction manuelle,
+25/11/2025,,,,,,,,,
+25/11/2025,Mineur,Clients,Fusion fiche,"je vous envoie la copie d'écran de deux fiches je souhaiterais conserver celle qui concerne l'asso Guillaume Budé, est-ce possible ? Je vois que dans la première fiche il y a eu des imports aparté merci par avance bonne journée",,Marie-Christine,Chat,Correction manuelle,
+25/11/2025,Mineur,Commandes,Billet à payer,possible de mettre le paiement aux places : Commande N°W.2511.YL7LE - Commandes - Ventes - RNDV,,Mathieu,Chat,Correction manuelle,
+25/11/2025,Mineur,Structure,Fusion fiche,je souhaite garder la structure no 1 ,,Marie-Christine,Chat,Correction manuelle,
+25/11/2025,Mineur,Structure,Fusion fiche,si possible aussi de fusionner ces deux structures,,Marie-Christine,Chat,Correction manuelle,
+25/11/2025,Mineur,Commandes,Mauvais statut commande,"cette commande est au statut ""payée"" mais elle est vide et sans paiement
+Commande N°W.2510.LWJYR - Commandes - Ventes - RNDV",,Léopold,Chat,En cours d'investigation,
+26/11/2025,,,,,,,,,
+26/11/2025,Mineur,Clients,Fusion fiche,est-il possible de fusionner ces deux fiches : Dorah Phal - Clients - Clients - RNDV et Dorah Phal - Clients - Clients - RNDV,,Mateo,Chat,Correction manuelle,
+26/11/2025,Mineur,Clients,Fusion fiche,"ce client possède aussi 2 comptes, s'il est possible de les fusionner. Franck Saint Cast - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV",,Mateo,Chat,Correction manuelle,
+26/11/2025,Mineur,Clients,Fusion fiche,pourriez fusionner ces deux comptes ? Il y a des commandes sur les deux je souhaite garder le 2e,,Marie-Christine,Chat,Correction manuelle,
+27/11/2025,,,,,,,,,
+27/11/2025,Majeur,Plan de salle,Doublons,Je n'arrive pas à ajouter ces places au panier sur la visite LSF du 6/12,,Léopold,Chat,Correction manuelle,
+27/11/2025,Majeur,Plan de salle,Places bloquées,"Bonjour, pouvez-vous libérez 2 places bloquées pour l'Ecole de Danse le samedi 29 novembre, la 286 et la 288 ? Est-il possible de les rattacher à la cde LR5Z8 au nom de Maes Didier et de me prévenir afin que je rappelle le spectateur ? Merci.",,Véronique,Chat,Correction manuelle,
+27/11/2025,Majeur,Remboursement de masse,Problème affichage statut commande,"je pense qu'il y'a un petit problème d'affichage sur la page séance de Une mouette du 18/09 (annulée), onglet remboursement
+
+Côté client cela semble bon car le billet est remboursé, c'est pourquoi on comprend pas pourquoi il y'a 4 lignes dont deux avec des montants négatifs.
+ 
+Pourriez vous regarder ? Fatima Kendri doit faire un retour à la compta, c'est assez urgent.",,Léopold,Chat,En cours de correction,
+27/11/2025,Majeur,Commandes,Téléchargement de facture,"on a un ""not found"" quand on essaye de télécharger des factures ",,Léopold,Chat,Correction manuelle,
+27/11/2025,Mineur,Commandes,Billet à payer,serait-il possible d'associer le paiement sur cette commande Commande N°W.2511.GCZLK - Commandes - Ventes - RNDV,,Meryem,Chat,Correction manuelle,
+27/11/2025,N/A,Plan de salle,Places bloquées tunnel web,"pourrais-tu, s'il te plaît, débloquer ce soir sur Casse Noisette la place D9 bloquée sur tunnel web ? merci à toi .",,Eliane,Chat,Non lié au système,
+27/11/2025,Mineur,Clients,Fusion fiche,pouvez-vous fusionner les fiches alexvonbom@yahoo.fr svp ? Et bien transférer toutes les cdes scolaires sur la fiche du compte web !,,Marie,Chat,Correction manuelle,
+28/11/2025,,,,,,,,,
+28/11/2025,Mineur,Clients,Fusion fiche,"pouvez-vous corrigez cette adresse mail ( quand j'essaie RNDV me met en erreur): irenehiissin28@gmail.com, la bonne est irenehoussin28@gmail.com sur la cde W.2506.HWQ36 et la cde W.2506.G89LH",,Véronique,Chat,Correction manuelle,
+29/11/2025,,,,,,,,,
+29/11/2025,Mineur,Clients,Fusion fiche,possible de fusionner ses deux fiches ? Patrick Lautrefin - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV,,Léo V,Chat,Correction manuelle,
+01/12/2025,,,,,,,,,
+1/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"sur la Commande N°RG.2512.VARJX - Commandes - Ventes - RNDV, j'ai un trop perçu qui apparaît, est-ce que ce serait possible de régulariser la commande ?",,Léo V,Chat,Correction manuelle,
+1/12/2025,Mineur,Clients,Fusion fiche,vous pourriez fusionner ces fiches ? et supprimer le mail protocole.richelieu (qui n'est pas celui de ce monsieur),,Pauline,Chat,Correction manuelle,
+1/12/2025,Mineur,Clients,Fusion fiche,pourriez vous pour la spectatrice Lavigne anne marie ne garder que l'adresse mail gmail.com l'autre n'est plus valable,,Cynthia,Chat,Correction manuelle,
+04/12/2025,,,,,,,,,
+4/12/2025,Mineur,Clients,Fusion fiche,pourriez vous fusionner ces fiches ? Mireille Icard - Clients - Clients - RNDV fiche à garder et undefined undefined - Clients - Clients - RNDV fiche à supprimer,,Stephen,Chat,Correction manuelle,
+04/12/2025,,,,,,,,,
+4/12/2025,Mineur,Clients,Fusion fiche,pouvez-vous fusionner ces fiches : raisonetplaisir@gmail.com kimsefton@hotmail.com soleneacidini@gmail.com famille.acker@gmail.com acquierédeyriséfree.fr et acquier-deyris@free.fr acunavid@gmail.com et acunavid@gmai.com marieadad@gmail.com raphael.adamczak@free.fr pauline.adamenko@gmail.com adamicarla@yahoo.fr vincent.adams-aumeregie@orange.fr adancarine@yahoo.fr added.sylvie@gmail.com jamesaddison@hotmail.de hakim.addoum@gmail.com laurie.adellach@gmail.com coletteadida@yahoo.com yac.adil24@hotmail.com x.adrien@outlook.com,,Véronique,Chat,Correction manuelle,
+4/12/2025,Mineur,Clients,Fusion fiche,pouvez fusionner les fiches delphine dietrich - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV ? Merci beaucoup!,,Mateo,Chat,Correction manuelle,
+4/12/2025,Mineur,Commandes,Paiement chèque-cadeau,"pouvez regarder cette commande ? le montant des chèques cadeaux n'est pas bon ( 320€ au lieu de 160€ pour deux chèques) ce qui fait que la commande apparait partiellement payée
+ 
+https://rndv.comedie-francaise.fr/sales/orders/edit/6931768ef84aefa25d028a84 
+ ",,Léopold,Chat,Correction manuelle,
+4/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,est-ce que vous pouvez mettre l'écart de paiement sur les billets Commande N°RG.2512.UC5Z9 - Commandes - Ventes - RNDV ? Merci ,,Stephen,Chat,Correction manuelle,
+4/12/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner : CHRISTIANE NADAL - Clients - Clients - RNDV et Christiane Nadal - Clients - Clients - RNDV,,Meryem,Chat,Correction manuelle,
+4/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"est-ce que vous pouvez associer le trop perçu de 10€ à la place H4 ?
+CDE : VCS.2507.A76Z6",,Solene,Chat,Correction manuelle,
+05/12/2025,,,,,,,,,
+5/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,pouvez-vous mettre l'écart de paiement de 32 euros sur la place E8 cde VZXEK du 27/12 à 14h.,,Véronique,Chat,Correction manuelle,
+5/12/2025,Majeur,Plan de salle,Places bloquées tunnel web,"je viens de liberer 10 places en catégorie B sur la représentation du 13 décembre à 14h Une mouette, il reste une places bloquée dans le tunnel web, il s'agit de la place 321",,Magdalena,Chat,Correction manuelle,
+06/12/2025,,,,,,,,,
+6/12/2025,Majeur,Mon compte,Téléchargement billets,nous recevons de nombreux messages nous indiquant une erreur 404 lors des tentatives de téléchargement des billets.,,Carole,Chat,Correction technique,
+6/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"sur la Commande N°TVCG.2512.L943A - Commandes - Ventes - RNDVj'ai un trop perçu qui apparaît, est-ce que vous pouvez régulariser la commande ?",,Solene,Chat,Correction manuelle,
+07/12/2025,,,,,,,,,
+7/12/2025,Mineur,Clients,Fusion fiche,pouvez-vous fusionner les fiches de Denis Ferrand svp ? d.ferrand24@wanadoo.fr,,Marie,Chat,Correction manuelle,
+08/12/2025,,,,,,,,,
+8/12/2025,Majeur,Commandes,"Commande annulée, paiement valide",commande https://rndv.comedie-francaise.fr/sales/orders/edit/69355a8b6301eb10080239e8 annulée mais paiement encaissé pouvez vous corriger de façon a ce que je puisse rembourser la spectatrice,,Cynthia,Chat,Correction manuelle,
+8/12/2025,Majeur,Plan de salle,Doublons,"J'ai des doublon à corriger sur la séance de la Cerisaie du 31 mars 2025 à 20h30,
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/676d55b1b93195d80038e80b/seatingplan
+ 
+J'ai des places notées comme dispos (F15, F17, 27, 29 et 31) Par contre quand je les sélectionne pour les ajouter a ma commandes les places sortent immédiatement de la sélection.
+ 
+Je précise que pour faire cette manipulation j'ai passé la séance en dispo à la vente alors qu'elle est passée (juste le temps de corriger le doublon)
+ 
+Pouvez vous regarder ? 
+ 
+EDIT : C'est aussi le cas pour les séances suivantes
+ 
+21/04/2025 La Cerisaie
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/676d56c3b93195d80038ec2d
+ 
+27/04/2025 La Cerisaie
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/676d565d25462bc5293df061",,Léopold,Chat,Correction technique,
+09/12/2025,,,,,,,,,
+9/12/2025,Mineur,Commandes,Billet à payer,"commande https://rndv.comedie-francaise.fr/sales/orders/edit/6937120256cc6524420f795a J5C3H paiement non relié a la commande, pourriez vous la corriger pour que je puisse envoyer la billet à la spectatrice. Merci",,Cynthia,Chat,Correction manuelle,
+9/12/2025,Mineur,Commandes,Billet à payer,COMMANDE https://rndv.comedie-francaise.fr/sales/orders/edit/6938299a265919e84c093ba8 Subhi paiement pas rattachée à la commande merci de la corriger,,Cynthia,Chat,Correction manuelle,
+9/12/2025,Mineur,Clients,Archivage fiche,On a des fiches archivées qui remontent dans le menu de selection de la commande,,Léopold,Chat,En cours d'investigation,
+10/12/2025,,,,,,,,,
+10/12/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner ces fiches ? a écraser > undefined undefined - Commandes - Clients - RNDV / a garder > aline bouletreau - Clients - Clients - RNDV,,Hanna,Chat,Correction manuelle,
+10/12/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez vous fusionner Mme desmoineaux merci",,Cynthia,Chat,Correction manuelle,
+10/12/2025,Majeur,Plan de salle,Sélection place,"on me remonte un petit bug, nous n'arrivons à sélectionner certaines places (elles sortent immédiatement de la sélection) pour la puce au théatre des amandiers (C30, C28, C26,C24, J36, J34, J30 etc) et ce sur plusieurs dates (1/04, 5/04, 8/04). Désolé c'est difficile d'être exhaustif car cela semble le cas pour pas mal de places et pas mal de dates.",,Léopold,Chat,Correction technique,
+10/12/2025,Mineur,Clients,Fusion fiche,pouvez-vous fusionner ces 2 adresses mail : e_dragonfly@yahoo.fr ?,,Véronique,Chat,Correction manuelle,
+10/12/2025,Mineur,Clients,Fusion fiche,pouvez vous fusionner les deux fiches liées à cette adresse : flobresson@yahoo.fr,,Hanna,Chat,Correction manuelle,
+10/12/2025,Mineur,Clients,Fusion fiche,fusionner également les deux fiches liées a cette adresse : colinebres@gmail.com,,Hanna,Chat,Correction manuelle,
+10/12/2025,Majeur,Commandes,Problème paiement facture,"Sur la commande Commande N°RM.2512.YGYX4 - Commandes - Ventes - RNDV, je souhaite générer un lien de paiement. Après deux tentatives, il m'est impossible de valider l'adresser mail d'envoi du lien.",,Cécile,Chat,Correction technique,
+11/12/2025,,,,,,,,,
+11/12/2025,Mineur,Clients,Fusion fiche,est-ce que vous pouvez fusionner 2 fiches ? Christine Doumont - Clients - Clients - RNDV à garder et CHRISTINE DOUMONT - Clients - Clients - RNDV à supprimer.,,Stephen,Chat,Correction manuelle,
+11/12/2025,Majeur,Commandes,Accès tarif,"Impossible de mettre le tarif sur des places pour le petit st martin ""contre"" le 11 février.",,Isabelle P,Chat,Correction manuelle,
+12/12/2025,,,,,,,,,
+12/12/2025,Majeur,Commandes,Affichage spectateur,"Petit bug de holder de billet 
+La cliente Marianne Purru ne connait pas Nassera Gormi, or elle se retrouve comme spectatrice de son billet ",,Léopold,Chat,En cours d'investigation,
+12/12/2025,Mineur,Commandes,Impression plan de salle,je ne parviens pas à imprimer le plan lié à la commande suivante: RT.2512.AJC35,,Eve,Chat,Correction manuelle,
+12/12/2025,Majeur,Plan de salle,Accès tarif,impossible de mettre un tarif c'est bloqué,,Isabelle P,Chat,Correction manuelle,
+14/12/2025,,,,,,,,,
+14/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,est-ce que vous pouvez corriger cette commande ? Commande N°W.2512.YKG4C - Commandes - Ventes - RNDV merci beaucoup !!,,Léo V,Chat,Correction manuelle,
+14/12/2025,Mineur,Commandes,Billet à payer,"Hello, help paiement non relié à la commande Commande N°W.2512.RXE6W - Commandes - Ventes - RNDV",,Fatima,Chat,Correction manuelle,
+15/12/2025,,,,,,,,,
+15/12/2025,Mineur,Clients,Fusion fiche,est-ce qu'il est possible de fusionner les deux fiches suivantes ? Eric PAPIN - Clients - Clients - RNDV et Eric Papin - Clients - Clients - RNDV,,Léo V,Chat,Correction manuelle,
+15/12/2025,Mineur,Commandes,Mauvais statut commande,help paiement non relié à la Commande N°RM.2502.XUR3Q - Commandes - Ventes - RNDV sur une séance passé . merci!,,Fatima,Chat,Correction manuelle,
+15/12/2025,Majeur,Commandes,Paiement chèque-cadeau,"Sur la commande ci-jointe Commande N°RT.2512.YAQKH - Commandes - Ventes - RNDV, plusieurs dysfonctionnements ont été constatés lors du paiement par chèques cadeaux.
+Le client dispose de 4 chèques cadeaux de 50 € (200 € au total) et devait régler 16 € par carte.
+– Après la saisie de deux chèques, une troisième ligne est apparue sans saisie de code.
+– Après annulation et nouvelle tentative, un chèque est apparu à 100 € au lieu de 50 €.
+– Lors d’un nouvel essai, un autre chèque s’est affiché à 100 €, puis une ligne supplémentaire de 66 € est apparue.
+– Enfin, avec seulement deux chèques, le montant de la commande est passé à 0 €.",,Meryem,Chat,Non lié au système,
+16/12/2025,,,,,,,,,
+16/12/2025,Majeur,Mon compte,Téléchargement billets,un client n'a pas accès au téléchargement de l'un de ses billets sur la commande Commande N°W.2509.KY9EU - Commandes - Ventes - RNDV. Le billet 256 apparait bien dans son espace personnel mais à la page suivante lorsqu'il clique sur télécharger la place. Ce n'est pas le premier depuis une semaine à me rapporter ce problème.,,Stephen,Chat,Correction manuelle,
+16/12/2025,Mineur,Clients,Fusion fiche,"pouvez-vous fusionner deux adresses mail : rokessler@hotmail.com en gardant celle de la commande QCR28, merci.",,Véronique,Chat,Correction manuelle,
+17/12/2025,,,,,,,,,
+17/12/2025,Mineur,Clients,Fusion fiche,"pouvez-vous fusionner ces deux fiches : mail à garder > undefined undefined - Clients - Clients - RNDV / mail à écraser : Elisabeth Chaussabel - Clients - Clients - RNDV,",,Hanna,Chat,Correction manuelle,
+17/12/2025,Mineur,Commandes,Mauvais statut commande,"la Commande N°RM.2507.L3G3A - Commandes - Ventes - RNDV sur (séance passée), apparaît encore en statut commande à payer dans RNDV. Après vérification auprès du service Mécénat, les spectateurs ont bien assisté à la représentation. Il s’agit d’un oubli de qualification, les billets auraient dû être passés en Invitation Mécénat. Serait-il possible de mettre la commande en conformité (passage en invitation / solde à 0), afin d'avoir ""une commande propre"" et qui reflète la réalité.",,Fatima,Chat,Correction manuelle,
+18/12/2025,,,,,,,,,
+18/12/2025,Mineur,Clients,Fusion fiche,"Sur RNDV je trouve quatre fiches au même nom. Serait-il possible de fusionner cette fiche Jean-Marc Mansvelt - Clients - Clients - RNDV et cette fiche Jean-Marc MANSVELT - Clients - Clients - RNDV, et d'écraser cette fiche : JEAN-MARC MANSVELT - Clients - Clients - RNDV et celle-ci JEAN-MARC MANSVELT - Clients - Clients - RNDV",,Anne-Colombe,Chat,Correction manuelle,
+18/12/2025,Mineur,Clients,Fusion fiche,"pouvez-vous fusionner les fiches de Sophie Parey svp ? sophieparey@laposte.net et bien mettre ses cdes scolaires sur son compte web, ainsi que la structure à laquelle elle est rattachée (ou est-ce que je dois le faire moi-même ?)",,Marie,Chat,Correction manuelle,
+18/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"paiement non relié à la commande Commande N°RP.2502.UV6ZZ - Commandes - Ventes - RNDV, Merci!",,Fatima,Chat,Non lié au système,
+19/12/2025,,,,,,,,,
+19/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Cette Commande N°W.2510.EG7CJ - Commandes - Ventes - RNDV était totalement réglé. La cliente souhaitait changer un tarif « demandeur d’emploi » pour un tarif plein, mais le montant affiché était plus élevé que ce qu’elle devait. J’ai donc remis le tarif réduit initial (qui est à modifier), et un trop-perçu apparaît. Merci",,Meryem,Chat,Non lié au système,
+19/12/2025,Mineur,Clients,Fusion fiche,bonjour fusion demandée pour cazaux annie . garder le mail annie.cazaux1@gmail.com et supprimer celle-ci ann.cazaux@free.fr,,Béatrice,Chat,Correction manuelle,
+19/12/2025,Mineur,Commandes,Paiement chèque-cadeau,"Bonjour il y a une erreur sur la commande N°W.2512.YZXEV. Elle apparait en un paiement partiel alors qu'il s'agit bien de 2 chèques cadeaux de 80€ soit 160 € et non 320 €. Par ailleurs, les chèques-cadeau ont disparu des billets. Pouvez-vous réguler cette commande afin que nous puissions envoyer les chèques-cadeau? Merci.",,Carole,Chat,Correction manuelle,
+20/12/2025,,,,,,,,,
+20/12/2025,Majeur,Mon compte,Affichage mauvaise date billet,Bonjour. Nous recevons un message d'un client concernant sa commande HEHE9K indiquée pour la représentation de samedi 20 décembre. Le client nous indique que sa réservation était pour le vendredi 19 décembre ,,Carole,Chat,En cours d'investigation,
+20/12/2025,Majeur,Commandes,"Commande annulée, paiement valide","Bonjour help, ces deux commandes ont été annulées mais visiblement payées, la personne est allée jusqu'au bout du processus de paiement et a reçu une confirmation de commande : W.2512.VYRQG / W.2512.W5KJ3. Avez-vous une idée de ce qui s'est passé et si il y a moyen de récupérer ses places ? Merci !",,Hanna,Chat,Correction manuelle,
+20/12/2025,Mineur,Commandes,Téléchargement de facture,"Bonjour, help nous n'arrivons pas à générer la facture de cette commande CP.2512.WA5ZL, est-ce que vous pouvez voir ce qu'il se passe ? Merci !",,Solene,Chat,Correction technique,
+20/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,Comment ce fait-il que des frais restent à payer dans une commande web N°W.2512.X7HLW ? ,,Carole,Chat,Correction manuelle,
+21/12/2025,,,,,,,,,
+21/12/2025,Majeur,Douchette,Problème scan billet,"bonjour help,tous les billets scannés passent en vert même s'il ne sont pas valables ou passés plusieurs fois cela fait 2 jours que c'est comme cela",,Isabelle P,Chat,En cours d'investigation,
+22/12/2025,,,,,,,,,
+22/12/2025,Mineur,Commandes,Billet à payer,"Bonjour help le paiement n'ai pas rattaché à la commande, Merci Commande N°W.2510.A59WA - Commandes - Ventes - RNDV",,Fatima,Chat,Non lié au système,
+22/12/2025,Mineur,Commandes,Mauvais statut commande,"Hello help cette commande est en statut ""A payer"" or cette commande est déjà réglée, Merci Commande N°RG.2509.VZXEK - Commandes - Ventes - RNDV",,Fatima,Chat,Correction manuelle,
+22/12/2025,Mineur,Commandes,Mauvais statut commande,"Hello help cette commande est en statut ""A payer"" or cette commande est déjà réglée, Merci Commande N°W.2512.AVAY6 - Commandes - Ventes - RNDV",,Fatima,Chat,Correction manuelle,
+22/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"salut help, j'ai un trop perçu qui est apparu sur cette commande, est-ce que c'est possible de le corriger ? merci Commande N°RG.2512.A5684 - Commandes - Ventes - RNDV",,Léo V,Chat,Correction manuelle,
+23/12/2025,,,,,,,,,
+23/12/2025,Mineur,Douchette,Vérification si scan billet,"Bonjour help stp est-ce que le billet n°78 a t'il été scanné?, Merci Commande N°RP.2504.KH52X - Commandes - Ventes - RNDV  ",,Fatima,Chat,Vérification,
+23/12/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez vous fusionner ces fiches ? undefined undefined - Clients - Clients - RNDV (fiche compte web) et https://rndv.comedie-francaise.fr/customers/customers/edit/694a6a49de67ffe35f0225f3. Merci.",,Stephen,Chat,Correction manuelle,
+23/12/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez vous fusionner ces fiches ? Meziane Rezki - Clients - Clients - RNDV (fiche compte web) et meziane rezki - Clients - Clients - RNDV. Merci.",,Stephen,Chat,Correction manuelle,
+23/12/2025,Mineur,Clients,Fusion fiche,"Salut help, pouvez-vous fusionner ces fiches ? undefined undefined - Clients - Clients - RNDV et laetitia levisse - Clients - Clients - RNDV ? Merci
+RNDV",,Léo V,Chat,Correction manuelle,
+23/12/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez vous fusionner ces fiches ? florence Michard - Clients - Clients - RNDV (compte web) et Florence Michard Meza - Clients - Clients - RNDV. Merci.",,Stephen,Chat,Correction manuelle,
+24/12/2025,,,,,,,,,
+24/12/2025,Mineur,Clients,Fusion fiche,Bonjour help est-ce que vous pouvez fusionner les fiches de sophie.lemercier-goddard@ens-lyon.fr ? Merci beaucoup !,,Marie,Chat,Correction manuelle,
+24/12/2025,Mineur,Clients,Fusion fiche,bonjour help est-il possible de fusionner les comptes JOFFREY MONGIN - Commandes - Clients - RNDV et JOFFREY MONGIN - Commandes - Clients - RNDV vers Joffrey MONGIN - Commandes - Clients - RNDV merci beaucoup,,Mateo,Chat,Correction manuelle,
+24/12/2025,Mineur,Clients,Fusion fiche,"help Bonjour, pouvez-vous fusionner ces deux fiches et garder celle où il y a le nom, merci :Commande N°W.2512.WJ5KL - Commandes - Ventes - RNDV , Marie Authouart - Clients -undefined undefined - Clients - Clients - RNDV",,Véronique,Chat,Correction manuelle,
+25/12/2025,,,,,,,,,
+25/12/2025,Mineur,Clients,Fusion fiche,"Bonjour help, pouvez-vous fusionner ces deux fiches et garder celle où il y a le nom: Oceane Auriol - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV. Merci
+RNDV
+ ",,Meryem,Chat,Correction manuelle,
+26/12/2025,,,,,,,,,
+26/12/2025,Mineur,Clients,Fusion fiche,"bonjour help, pouvez-vous fusionner ces deux fiches ? Cécile Rambaud - Clients - Clients - RNDV et Cécile RAMBAUD - Clients - Clients - RNDV merci ! ",,Léo V,Chat,Correction manuelle,
+26/12/2025,Mineur,Clients,Fusion fiche,"Bonjour, pouvez vous fusionner ces 2 fiches ? Maryse Fiche - Clients - Clients - RNDV (compte web) et MARYSE FICHE - Clients - Clients - RNDV (fiche à supprimer) . Merci.",,Stephen,Chat,Correction manuelle,
+27/12/2025,,,,,,,,,
+27/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"Bonjour, suite à une double commande, la cliente nous demande l'annulation et le remboursement de la commande UCRUA. Celle-ci indiquait un écart de paiement, que j'ai annulé par un remboursement. Peut-être me suis-je trompée dans la transaction, car cherchant à annuler à présent les places et la commande, le remboursement ne m'est pas proposé. Je remarque que dans les transactions un seul paiement n'est indiqué. Pouvez-vous régulariser cette commande pour que je puisse annuler les places? Avec mes remerciements.",,Carole,Chat,Correction manuelle,
+27/12/2025,Majeur,Commandes,Paiement chèque-cadeau,"Bonjour, help j'ai effectué un paiement par cheque cadeau sur la commande Commande N°RT.2512.G2L5R - Commandes - Ventes - RNDV après avoir entré un numéro de cheque cadeau de 50 et 30 euros, il me restait donc 8 euros à faire régler au client par carte bancaire or après la validation du cheque cadeau de 30 euros le logiciel affiche un paiement de 38 euros.  Merci !",,Farah,Chat,Correction technique,
+29/12/2025,,,,,,,,,
+29/12/2025,Majeur,Commandes,Génération chèque cadeau,"Bonjour, commande UE273  mme Pasquet W.2512.UE273 commande des chèques cadeaux qui n'apparaissent pas, merci de votre aide
+ ",,Cynthia,Chat,Correction technique,
+29/12/2025,Majeur,Commandes,Génération chèque cadeau,"bonjour, cette spectatrice a acheté 2 billets kdo qui n' apparaissent pas dans sa cde ej4c5 Mme Judet de la combe merci",,Béatrice,Chat,Correction technique,
+29/12/2025,Majeur,Commandes,Génération chèque cadeau,Urgence les chèques kdo n'apparaissent pas sur les cdes autres ex uyheg Mme Aubert,,Béatrice,Chat,Correction technique,
+29/12/2025,Majeur,Commandes,Génération chèque cadeau,URGENCE idem pour la cde jleyc M. Bourely Matthieu  qui doit offrir son billet KDO aujourd'hui,,Béatrice,Chat,Correction technique,
+29/12/2025,Majeur,Commandes,Génération chèque cadeau,"Monsieur Prince alain ces chèques cadeaux ne fonctionnent plus et ses commandes ont été annulés, je viens de réserver ces places les numéro des chèques cadeaux sontQ917Y142C841 et X043Z320W365.  merci pour votre aide",,Cynthia,Chat,Correction technique,
+29/12/2025,Mineur,Commandes,Impression plan de salle,"Bonjour, le plan de salle ne s'ouvre pas dans la commande RA.2512.A7QJQ. Je vous remercie par avance.",,Pascale,Chat,Correction technique,
+30/12/2025,,,,,,,,,
+30/12/2025,Mineur,Commandes,Mauvais statut commande,"Bonjour, j'ai la cde GRYX8 qui est en statut annulé mais le spectateur a été débité, pouvez-vous intervenir dessus afin que Cynthia puisse le rembourser ? Merci Commande N°W.2512.GRYX8 - Commandes - Ventes - RNDV",,Véronique,Chat,Correction manuelle,
+31/12/2025,,,,,,,,,
+31/12/2025,Mineur,Clients,Fusion fiche,"pourriez vous fusionner les 3 comptes : undefined undefined - Clients - Clients - RNDV et Gwenaelle Labbe - Clients - Clients - RNDV en conservant cette fiche de renseignement (mail , telephone.. ) Gwenaëlle LABBÉ - Clients - Clients - RNDV. Merci!",,Meryem,Chat,Correction manuelle,
+31/12/2025,Mineur,Commandes,Billets non affichés,"Bonjour, la commande W.2507.V7EZ4 n'apparaît pas dans la liste Client Extras pour mon export.
+Je vous remercie par avance, Pascale.",,Pascale,Chat,Correction manuelle,
+31/12/2025,Mineur,Commandes,Impression plan de salle,"Bonjour, il manque la place A1 sur le plan de salle de la commande RA.2512.W2W5K. Merci par avance Pascale",,Pascale,Chat,En cours de correction,
+31/12/2025,Mineur,Commandes,Paiement chèque-cadeau,bonjour suite à une cde non aboutie QUAG4 où le spectateur a voulu utiliser ses chèques   kdo  pour régler il est impossible de reprendre les chèques Kdo  pour régler  la cde Q68wk merci,,Béatrice,Chat,En attente,
+31/12/2025,Mineur,Clients,Fusion fiche,est-il possible de déplacer cette commande Commande N°RG.2512.Z8R4W - Commandes - Ventes - RNDV sur ce compte : Frederic Verdier - Clients - Clients - RNDV,,Farah,Chat,Correction manuelle,
+31/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,par ailleurs pouvez vous mettre l'écart de paiement de cette commande sur les places svp Commande N°RG.2512.ZQ8K8 - Commandes - Ventes - RNDV Merci beaucoup !,,Farah,Chat,Correction manuelle,
+31/12/2025,Mineur,Commandes,Trop perçu / Écart de paiement,"je rencontre un problème avec la commande suivante d'Anne-Laure-Hélène des Ylouses : 
+Commande N°W.2506.AUY97 - Commandes - Ventes - RNDV
+ Voici l'historique de cette commande :
+ 
+1/ Le 4 décembre, sur la commande https://rndv.comedie-francaise.fr/sales/orders/edit/684011f34ccf2266110eb9f3
+Elle a pris 1 place pour Pinocchio et 1 place pour Casse Noisette les 26 et 27 décembre avec la carte -28 ans.
+Elle demande un report de ces 2 places et une place supplémentaire pour Pinocchio et 1 place supplémentaire pour Casse-Noisette.
+Voici la nouvelle commande :
+2 places Pinocchio sur la date du dimanche 4 janvier
+2 places Casse-Noisette sur la date du vendredi 2 janvier.
+Les places supplémentaires et les places reportées seront en plein tarif (pas de tarif - de 28 ans) catégorie A ; madame des Ylouses devra régler la différence.
+ 
+2/ Finalement, madame des Ylouses annule les deux places de Pinocchio du dimanche 4 janvier. 
+Il reste donc à payer à Madame des Ylouses la deuxième place de Casse-Noisette.
+Sur la commande RNDV, il reste à payer 35€. 
+ 
+ 
+Elle vient de régler les 35€ par carte bancaire mais j'ai un écart de paiement de 33€ et un des billets n'est pas payé !",,Cécile,Chat,Correction manuelle,
+02/01/2026,,,,,,,,,
+2/1/2026,Mineur,Clients,Mise à jour email,souhaite utiliser l'adresse arcane_hammer.75@icloud.com. Il n'arrive pas à s'y connecter. Merci de procéder à la correction nécessaire.,,Carole,Chat,Correction manuelle,
+2/1/2026,Majeur,Commandes,Doublons,"Bonjour Help, comment se fait-il que nous ayons deux commandes enregistrées pour la même place (G7 ) pour la représentation du jeudi 1er janvier à 14h ? Commandes LHWLQ et U5CG7. ",,Carole,Chat,Correction manuelle,
+03/01/2026,,,,,,,,,
+3/1/2026,Mineur,Clients,Fusion fiche,Bonjour pourriez vous fusionner les deux fiches de Madame barre berenice   Merci,,Cynthia,Chat,Correction manuelle,
+3/1/2026,Mineur,Commandes,Billet à payer,pouvez-vous me réattribuer les lignes de paiement sur cette commende Commande N°RP.2512.J7H4G - Commandes - Ventes - RNDV ?,,Ibrahim,Chat,Correction manuelle,
+05/01/2026,,,,,,,,,
+5/1/2026,Mineur,Commandes,Trop perçu / Écart de paiement,"Pourriez vous associer l'écart de paiement aux places du panier svp ?
+https://rndv.comedie-francaise.fr/sales/orders/edit/695a49c72618e9dfe8014286",,Fatima,Chat,Correction manuelle,
+5/1/2026,Mineur,Clients,Fusion fiche,"Bonjour, pouvez fusionner la fiche sans titre laurent.lirzin@sfr.fr avec celle de lorent lirzin et ne garder que la fiche laurent.lirzin@sfr.fr  merci",,Cynthia,Chat,Correction manuelle,
+5/1/2026,Mineur,Commandes,Téléchargement de facture,"Re, j'essai de sortir une facture pour une place de cette commande : Commande N°CP.2511.C7VKE - Commandes - Ventes - RNDV je tenet de mettre une adresse de facturation mais en vains...",,Mathieu,Chat,Correction manuelle,
+06/01/2026,,,,,,,,,
+6/1/2026,Mineur,Admin,Gestion des vues,La gestion des vues ne semble pas marcher sur l'onglet extra des séances,,Léopold,Chat,En cours de correction,
+6/1/2026,Mineur,Admin,Filtre liste,"Bonjour, avec le nouveau filtre ""statut du justificatif"" manquant je tombe quand même sur des commandes qui ont leur justificatifs en ""success"" et quand je vais dans cette commande Commande N°W.2509.WJ2J6 - Commandes - Ventes - RNDV",,Stephen,Chat,Correction technique,
+6/1/2026,Majeur,Rapports,Génération rapport,je n'ai aucun résultat quand j'essaye de sortir ma caisse alors que j'ai au moins un remboursement aujourdh'ui,,Léopold,Chat,Non lié au système,
+07/01/2026,,,,,,,,,
+7/1/2026,Majeur,Commandes,Trop perçu / Écart de paiement,pourriez-vous mettre à jour le panier de cette commande: W.2601.HQZXU,,Eve,Chat,Correction manuelle,
+7/1/2026,Critique,Commandes,Création de commande,"Je n'arrive pas à créer une nouvelle commande!
+J'ai un message d'erreur qui apparait après avoir sélectionné le canal richelieu mécénat",,Cécile,Chat,Correction technique,
+7/1/2026,Critique,Admin,Commande non présente,"bonjour, j'ai plusieurs mails de spectateurs qui ont effectués des commandes hier mais je ne les trouve pas",,Cynthia,Chat,Correction technique,
+7/1/2026,Mineur,Commandes,Trop perçu / Écart de paiement,"pourrais-tu remettre l'écart de paiement de la cde RA.2512.KZ86L sur la place J15 ?
+C'est pour ce soir et je dois lui faire régler la différence. Je te remercie par avance ! Belle journée, Pascale",,Pascale,Chat,Correction manuelle,
+7/1/2026,Mineur,Clients,Fusion fiche,"pouvez vous fusionner ces 3 fiches ? : Erwan Le Petitcorps - Clients - Clients - RNDV / Erwan Le Petitcorps - Clients - Clients - RNDV / Erwan Le Petitcorps - Clients - Clients - RNDV, Merci !",,Hanna,Chat,Correction manuelle,
+7/1/2026,Mineur,Clients,Fusion fiche,pouvez vous fusionner les 2 fiches en gardant le mdp du 1er et le mail du 2em? Merci! : Anne Regnier - Clients - Clients - RNDV et anne regnier - Clients - Clients - RNDV, ,Meryem,Chat,Correction manuelle,
+7/1/2026,Mineur,Clients,Fusion fiche,"merci de fusionner ces 2 fiches :
+Olivia Millioz - Clients - Clients - RNDV  et Olivia Millioz - Clients - Clients - RNDV",,Magdalena,Chat,Correction manuelle,
+7/1/2026,Mineur,Clients,Fusion fiche,"Peux-tu fusionner les 3 fiches ci-dessous en gardant celle avec le mail en hotmail.com
+Merci et bonne année !",,Faïka,Chat,Correction manuelle,
+7/1/2026,Mineur,Clients,Fusion fiche,Pouvez vous fusionner les comptes de M Dubois david,,Cynthia,Chat,Correction manuelle,
+7/1/2026,Mineur,Clients,Fusion fiche,"pouvez vous supprimer cette fiche c'est un doublon , merci : Anne Polgar - Clients - Clients - RNDV",,Meryem,Chat,Correction manuelle,
+08/01/2026,,,,,,,,,
+8/1/2026,Majeur,Commandes,Doublons,"on vient de se rendre compte qu'on a 13 doublons pour ce soir, c'est beaucoup et ce n'est pas du à la réaffectation des commandes dû au bug d'hier
+ 
+https://rndv.comedie-francaise.fr/tickets/sessions/edit/6825bd28fc5221ceed94b695/tickets?page=1&perPage=25&columns=order%2Bcustomer%2Bspectator%2BorderDate%2BseatName%2Bcost%2Bprice%2Bcategory%2Bstatus%2Bsale_channel%2Bnumber%2Bsession%2Bcontingent
+ 
+Vous pourriez regarder ce qu'il s'est passé pour produire autant de doublons sur une séance ?",,Léopold,Chat,En cours d'investigation,
+8/1/2026,Mineur,Commandes,Trop perçu / Écart de paiement,"la Commande N°RG.2601.L6CYX - Commandes - Ventes - RNDV j'ai un trop perçu qui apparaît, est-ce que vous pouvez régulariser la commande ? séance passée d'hier .Merci !",,Fatima,Chat,Correction manuelle,
+8/1/2026,Mineur,Clients,Fusion fiche,il faudrait fusionner ces fiches svp: François Rosenfeld - Clients - Clients - RNDV (fiche compte web à garder) et Francois Rosenfeld - Clients - Clients - RNDV. Merci !,,Stephen,Chat,Correction manuelle,
+8/1/2026,Mineur,Clients,Fusion fiche,"Bonjour, le client s'était trompé en créant son compte à l'adresse mail alexis.aubert70@gmail.fr au lieu de alexis.aubert70@gmail.com. Nous avons procédé à la correction. Dans le fichier client à présent est bien enregistré l'adresse alexis.aubert70@gmail.com. Pourtant, lorsque l'on procède à une recherche par adresse mail, la commande apparait uniquement avec l'adresse alexis.aubert70@gmail.fr",,Carole,Chat,Correction manuelle,
+8/1/2026,Mineur,Commandes,Trop perçu / Écart de paiement,"pourrais-tu remettre l'écart de paiement de la cde RA.2510.RX2A7 sur la place 10 de Bestioles ? 
+Je te remercie par avance, Pascale",,Pascale,Chat,Correction manuelle,
+8/1/2026,Mineur,Commandes,Trop perçu / Écart de paiement,Peux tu mettre l'écart de paiement sur les billets de cette commande stp https://rndv.comedie-francaise.fr/sales/orders/edit/695e961ef0490d113b061594,,Léopold,Chat,Correction manuelle,
+8/1/2026,Mineur,Commandes,Trop perçu / Écart de paiement,"Peux tu mettre l'écart de paiement sur 6 personnages stp ?
+Commande N°W.2510.R463U - Commandes - Ventes - RNDV",,Léopold,Chat,Correction manuelle,
+09/01/2026,,,,,,,,,
+9/1/2026,Mineur,Commandes,Mise à jour client,"Bonjour, est-ce possible de mettre le client Isabelle Hermann - Clients - Clients - RNDV sur la commande Commande N°RT.2601.C9CVH - Commandes - Ventes - RNDV svp ? Merci !",,Stephen,Chat,Correction manuelle,
+9/1/2026,Mineur,Commandes,Problème paiement,"on a un paiement lien mail annulé prématurément sur cette commande
+https://rndv.comedie-francaise.fr/sales/orders/edit/695b99645332d069d71fff10
+ 
+Peux tu aligner la donnée monext et RNDV pour que nous procédions au remboursement stp ?",,Léopold,Chat,Correction manuelle,
+9/1/2026,Mineur,Clients,Fusion fiche,"peux-tu fusionner ces 2 fiches stp ? 
+Fiche à garder
+https://rndv.comedie-francaise.fr/customers/customers/edit/6659dc96459b716c7c0f8b04
+ 
+Fiche à supprimer
+https://rndv.comedie-francaise.fr/customers/customers/edit/69611d7bac28a0911b8bbe9b
+ 
+(gardez bien les tags etc)
+ 
+Merci",,Pascale,Chat,Correction manuelle,
+9/1/2026,Mineur,Clients,Fusion fiche,"pouvez vous fusionner les 3 fiches. Merci! : Arnaud Boniatzis - Clients - Clients - RNDV , Arnaud Boniatzis - Clients - Clients - RNDV,Arnaud Boniatzis - Clients - Clients - RNDV",,Meryem,Chat,Correction manuelle,
+10/01/2026,,,,,,,,,
+10/1/2026,Mineur,Clients,Fusion fiche,"Bonjour, il faudrait fusionner ces 2 fiches undefined undefined - Clients - Clients - RNDV et Aurelie Pesant - Clients - Clients - RNDV.",,Stephen,Chat,Correction manuelle,
+10/1/2026,Mineur,Clients,Fusion fiche,il faudrait fusionner ces 2 fiches Cécile Backès - Clients - Clients - RNDV et Cécile Backès - Clients - Clients - RNDV merci beaucoup !!,,Léo V,Chat,Correction manuelle,
+11/01/2026,,,,,,,,,
+11/1/2026,Mineur,Commandes,Adresse de facturation,"Bonjour, je souhaiterais renseigner cette cde anonyme RG.2601.JY2Z2 au nom de Enis  MR ABET 48 bis rue des belles feuilles 75016 paris mail: secrtariat@emlarv-paris.com tél: 0627858841  pour faire ensuite une facture aquitée merci",,Béatrice,Chat,Non lié au système,
+12/01/2026,,,,,,,,,
+12/1/2026,Mineur,Commandes,Billet à payer,"Pouvez-vous rattacher le paiement à cette Commande N°W.2601.A3RQK - Commandes - Ventes - RNDV SVP, MERCI!",,Fatima,Chat,Correction manuelle,
+12/1/2026,Mineur,Commandes,Paiement chèque-cadeau,"Sur la  Viste Historique du 11/01/26, Commande N°W.2510.A9R4E - Commandes - Ventes - RNDV, partiellement payé avec chèques-cadeaux, à régulariser SVP, MERCI
+RNDV",,Fatima,Chat,Correction manuelle,
+12/1/2026,Mineur,Clients,Fusion fiche,est-ce que vous pouvez fusionner ses deux fiches Lazare Levy - Clients - Clients - RNDV et Lazare Lévy - Clients - Clients - RNDV ? merci !,,Léo V,Chat,Correction manuelle,
+13/01/2026,,,,,,,,,
+13/1/2026,Mineur,Commandes,Billet à payer,"hello, pouvez vous mettre l'écart de paiement sur les places svp 
+Commande N°W.2601.VEWG9 - Commandes - Ventes - RNDV",,Léopold,Chat,Correction manuelle,
+13/1/2026,Mineur,Clients,Fusion fiche,il faudrait fusionner ces fiches Thierry Vignal - Clients - Clients - RNDV et undefined undefined - Clients - Clients - RNDV.,,Stephen,Chat,Correction manuelle,
+14/01/2026,,,,,,,,,
+14/1/2026,Mineur,Clients,Fusion fiche,il faudrait fusionner les fiches d;hélène latour et garder le mailhelene.de-latour@laposte.net,,Béatrice,Chat,Correction manuelle,
+14/1/2026,Majeur,Commandes,Paiement chèque-cadeau,"j'ai un problème URGENT avec un chèque kdo valable jusqu'à ce soir : le spectateur a réglé la cde V54CG et son chèque qui avait 44 euros de crédit s'est bloqué sur une autre cde qu'il a essayé de passer ensuite : N° de chèque cadeau L721Y206W224, merci de faire le nécessaire avant 17h30 si vous pouvez ?",,Véronique,Chat,Correction manuelle,
+15/01/2026,,,,,,,,,
+15/1/2026,Mineur,Commandes,Paiement chèque-cadeau,"Bonjour, problèmes sur une commande C2H86 payé en chque cadeau en partie mais la spectatrice veut l'annuler, elle a une autre commande en brouillon GHVKQ payer en partie en chèque cadeau qu'elle veut garder commande pour le 25/01 Chèque Z695-W701-U815 : 5€
+Chèque H941-V648-U164 : 50€",,Léopold,Chat,Correction manuelle,
+15/1/2026,Mineur,Commandes,Commande non présente,"Je ne retrouve aucune trace de la commande numéro RM.20210.XZCZK. Pourtant les deux places pour Les Femmes savantes au vendredi 23 janvier sont bien réservées sur le plan de salle et sont associées à ce numéro de commande. 
+Pourriez-vous résoudre ce mystère ? Merci beaucoup !",,Anne-Colombe,Chat,Non lié au système,
+16/01/2026,,,,,,,,,
+16/1/2026,Critique,Admin,Droits rôles supprimés,"bonjour help nous n'avons plus accès a aucune salle ,tout est grisé merci de nous donner l'acces pour que l'on puisse traiter la salle du 20 janvier Merci",,Isabelle P,Chat,En cours d'investigation,
+16/1/2026,Mineur,Commandes,Adresse de facturation,"Bonjour help, pouvez-vous modifier l'adresse mail erronée de la Commande N°W.2601.K6CGC la bonne adresse (déjà enregistrée) étant freferiquedesercey19@gmail.com ? Avec mes remerciements.",,Carole,Chat,Non lié au système,
+16/1/2026,Mineur,Clients,Fusion fiche,il faudrait fusionner ces 2 fiches: Alexandrine Dougnac - Clients - Clients - RNDV et Alexandrine Dougnac - Clients - Clients - RNDV,,Stephen,Chat,Correction manuelle,
+16/1/2026,Mineur,Clients,Fusion fiche,"Pareil pour Colin Prudhomme - Clients - Clients - RNDV et Colin Prudhomme - Clients - Clients - RNDV merci !
+RNDV",,Stephen,Chat,Correction manuelle,
+16/1/2026,Mineur,Clients,Fusion fiche,pouvez vous fusionner Danièle Gonnet - Clients - Clients - RNDV et DANIELE GONNET - Clients - Clients - RNDV ? Merci,,Stephen,Chat,Correction manuelle,
