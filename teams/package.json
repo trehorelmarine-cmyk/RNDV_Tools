@@ -1,0 +1,19 @@
+{
+  "name": "teams-messages",
+  "version": "1.0.0",
+  "description": "Script pour récupérer des messages Teams via Microsoft Graph API",
+  "main": "get-teams-messages.ts",
+  "scripts": {
+    "start": "npx ts-node get-teams-messages.ts",
+    "list-chats": "npx ts-node get-teams-messages.ts"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.2.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
