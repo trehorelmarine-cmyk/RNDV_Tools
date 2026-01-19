@@ -41,10 +41,10 @@ function setupConfig() {
   const props = PropertiesService.getScriptProperties();
 
   props.setProperties({
-    'SPREADSHEET_ID': '1awbevdaGMHIhPtW8p1Zx6uLEQyTmUNCBS28Omn_YEpc',
-    'OPENAI_API_KEY': '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',
-    'CLICKUP_API_KEY': 'pk_150608283_RQ29MFCYFQR9B7UGXKSEUTZTLQG332W0',
-    'CLICKUP_LIST_ID': '901215324535'
+    'SPREADSHEET_ID': 'YOUR_SPREADSHEET_ID',
+    'OPENAI_API_KEY': 'YOUR_OPENAI_API_KEY',
+    'CLICKUP_API_KEY': 'YOUR_CLICKUP_API_KEY',
+    'CLICKUP_LIST_ID': 'YOUR_CLICKUP_LIST_ID'
   });
 
   Logger.log('✅ Configuration sauvegardée!');
@@ -1094,7 +1094,6 @@ function createClickUpTask(data, rowNumber) {
       name: title,
       description: description,
       priority: priority,
-      status: 'not started',
       tags: [categorie, 'RNDV', 'Teams'].filter(t => t)
     };
 
