@@ -18,6 +18,12 @@
   margin-bottom: 16px;
 }
 
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .roadmap-title {
   font-size: 16px;
   font-weight: 600;
@@ -25,9 +31,39 @@
   margin: 0;
 }
 
+.sync-status {
+  font-size: 11px;
+  color: var(--rndv-gray-500);
+  background: var(--rndv-gray-100);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
 .toolbar-actions {
   display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-actions-primary {
+  display: flex;
   gap: 8px;
+}
+
+.btn--link {
+  background: none;
+  border: none;
+  color: var(--rndv-gray-600);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: color 0.2s ease;
+}
+
+.btn--link:hover {
+  color: var(--rndv-primary);
+  text-decoration: underline;
 }
 
 .roadmap-container {
@@ -44,7 +80,7 @@
   display: flex;
   overflow-x: auto;
   overflow-y: auto;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 140px);
 }
 
 /* Categories Sidebar */
@@ -59,10 +95,13 @@
 .category-header-space {
   height: 158px;
   border-bottom: 1px solid var(--rndv-gray-200);
+  position: sticky;
+  top: 0;
+  background: var(--rndv-gray-50);
+  z-index: 201;
 }
 
 .category {
-  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,6 +114,7 @@
   color: var(--rndv-gray-600);
   background: var(--rndv-white);
   border-bottom: 1px solid var(--rndv-gray-200);
+  min-height: 60px;
 }
 
 .category--pac { border-right: 2px solid #9CA3AF; }
@@ -86,11 +126,9 @@
 
 /* Gantt Area */
 .gantt-area {
-  flex: 1;
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 1400px;
 }
 
 /* Gantt Header - Sticky */
@@ -125,16 +163,25 @@
 .milestone-label--level-2 { top: 30px; }
 .milestone-label--level-3 { top: 54px; }
 
-.milestone-label--blue {
-  background: #EFF6FF;
-  color: #1D4ED8;
-  border: 1px solid #93C5FD;
+/* Temps forts - Rouge vif */
+.milestone-label--temps-fort {
+  background: #EF4444;
+  color: white;
+  border: none;
 }
 
-.milestone-label--red {
-  background: #FEF2F2;
-  color: #DC2626;
-  border: 1px solid #FECACA;
+/* Événements - Couleur commercialisation (violet) */
+.milestone-label--evenement {
+  background: #E0E7FF;
+  color: #3730A3;
+  border: 1px solid #A5B4FC;
+}
+
+/* Default */
+.milestone-label--default {
+  background: #F3F4F6;
+  color: #374151;
+  border: 1px solid #D1D5DB;
 }
 
 /* Years Row */
@@ -164,8 +211,8 @@
 }
 
 .month {
-  width: 100px;
-  min-width: 100px;
+  width: 150px;
+  min-width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,6 +229,48 @@
   flex: 1;
   position: relative;
 }
+
+/* Today Indicator */
+.today-indicator {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(239, 68, 68, 0.25);
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.today-indicator-label {
+  position: absolute;
+  transform: translateX(-50%);
+  background: #FEF2F2;
+  color: #DC2626;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #FECACA;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.today-indicator-label--level-1 { top: 4px; }
+.today-indicator-label--level-2 { top: 30px; }
+.today-indicator-label--level-3 { top: 54px; }
+
+.today-indicator-connector {
+  position: absolute;
+  width: 2px;
+  background: rgba(239, 68, 68, 0.25);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.today-indicator-connector--level-1 { top: 24px; height: 134px; }
+.today-indicator-connector--level-2 { top: 50px; height: 108px; }
+.today-indicator-connector--level-3 { top: 74px; height: 84px; }
 
 /* Milestone Lines */
 .milestones-lines {
@@ -202,16 +291,31 @@
   transform: translateX(-50%);
 }
 
-.milestone-line--blue { background: rgba(37, 99, 235, 0.25); }
-.milestone-line--red { background: rgba(220, 38, 38, 0.25); }
+/* Temps forts - Rouge vif */
+.milestone-line--temps-fort { background: #EF4444; width: 2px; }
+
+/* Événements - Violet (commercialisation) hachuré */
+.milestone-line--evenement {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(165, 180, 252, 0.4),
+    rgba(165, 180, 252, 0.4) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  width: 4px;
+}
+
+/* Default */
+.milestone-line--default { background: rgba(156, 163, 175, 0.25); }
 
 /* Gantt Rows */
 .gantt-row {
-  height: 160px;
   display: flex;
   position: relative;
   background: var(--rndv-white);
   border-bottom: 1px solid var(--rndv-gray-200);
+  min-height: 60px;
 }
 
 .gantt-row:nth-child(even) {
@@ -219,28 +323,25 @@
 }
 
 .gantt-cell {
-  width: 100px;
-  min-width: 100px;
+  width: 150px;
+  min-width: 150px;
   border-right: 1px solid var(--rndv-gray-100);
 }
 
 /* Tasks */
 .task {
   position: absolute;
-  min-height: 28px;
-  max-height: 32px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
-  padding: 3px 8px;
+  padding: 4px 6px;
   cursor: pointer;
   z-index: 10;
   overflow: hidden;
   user-select: none;
-  min-width: 50px;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -252,12 +353,51 @@
 }
 
 .task__name {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.3;
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  word-break: break-word;
+}
+
+.task__tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--rndv-black);
+  color: var(--rndv-white);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: normal;
+  max-width: 280px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.task__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--rndv-black);
+}
+
+.task:hover .task__tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Task Types */
@@ -288,23 +428,15 @@
 /* Legend */
 .roadmap-legend {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 40px;
+  justify-content: flex-end;
+  padding: 16px 40px;
   border-top: 1px solid var(--rndv-gray-200);
   background: var(--rndv-white);
 }
 
-.legend-help {
-  color: var(--rndv-gray-600);
-  font-size: 12px;
-}
-
 .legend-items {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  gap: 32px;
 }
 
 .legend-item {
@@ -332,9 +464,14 @@
   border: 2px solid #DC2626;
 }
 
-.legend-box--light {
-  background: var(--rndv-gray-100);
-  border: 2px dashed #9CA3AF;
+.legend-box--temps-fort {
+  background: #EF4444;
+  border: none;
+}
+
+.legend-star {
+  font-size: 16px;
+  color: #A5B4FC;
 }
 
 /* Milestone Connectors */
@@ -361,9 +498,23 @@
   height: 84px;
 }
 
-.milestone-connector--blue { background: rgba(37, 99, 235, 0.25); }
-.milestone-connector--green { background: rgba(0, 217, 165, 0.25); }
-.milestone-connector--red { background: rgba(220, 38, 38, 0.25); }
+/* Temps forts - Rouge vif */
+.milestone-connector--temps-fort { background: #EF4444; width: 2px; }
+
+/* Événements - Violet (commercialisation) hachuré */
+.milestone-connector--evenement {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(165, 180, 252, 0.5),
+    rgba(165, 180, 252, 0.5) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  width: 4px;
+}
+
+/* Default */
+.milestone-connector--default { background: rgba(156, 163, 175, 0.25); }
 
 /* Delivery Summary */
 .delivery-summary {
@@ -439,4 +590,26 @@
   color: var(--rndv-gray-600);
   font-weight: 500;
   white-space: nowrap;
+}
+
+/* Événements (étoiles) */
+.evenement {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.evenement__star {
+  font-size: 18px;
+  color: #A5B4FC;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.evenement__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #3730A3;
 }

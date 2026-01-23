@@ -1,7 +1,9 @@
+import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import fetch from 'node-fetch'
 import { parse } from 'csv-parse/sync'
+import { fetchAllTasks, testConnection } from './services/clickup.js'
 
 const app = express()
 const PORT = 3001
@@ -219,6 +221,45 @@ app.get('/api/dashboard', async (req, res) => {
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' })
+})
+
+// ============================================
+// ClickUp API Routes
+// ============================================
+
+// GET /api/clickup/tasks - Récupère toutes les tâches ClickUp pour la roadmap
+app.get('/api/clickup/tasks', async (req, res) => {
+  try {
+    const { tasks, milestones, evenements, categoryHeights, taskHeight, todayPosition, todayLevel, months } = await fetchAllTasks()
+    res.json({
+      tasks,
+      milestones,
+      evenements,
+      categoryHeights,
+      taskHeight,
+      todayPosition,
+      todayLevel,
+      months,
+      lastSync: new Date().toISOString(),
+      count: tasks.length,
+      milestonesCount: milestones.length,
+      evenementsCount: evenements.length
+    })
+  } catch (error) {
+    console.error('Erreur ClickUp:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// GET /api/clickup/test - Teste la connexion ClickUp
+app.get('/api/clickup/test', async (req, res) => {
+  try {
+    const result = await testConnection()
+    res.json(result)
+  } catch (error) {
+    console.error('Erreur test ClickUp:', error)
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.listen(PORT, () => {

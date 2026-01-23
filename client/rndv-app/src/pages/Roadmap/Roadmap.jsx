@@ -4,54 +4,15 @@ import './Roadmap.css'
 
 // Configuration
 const CONFIG = {
-  MONTH_WIDTH: 100,
+  MONTH_WIDTH: 150,
   SNAP_GRID: 20,
   MIN_TASK_WIDTH: 40,
-  STORAGE_KEY: 'roadmap-tasks',
-  MONTHS: [
-    { name: 'DEC', year: 2025 },
-    { name: 'JAN', year: 2026 },
-    { name: 'FEV', year: 2026 },
-    { name: 'MAR', year: 2026 },
-    { name: 'AVR', year: 2026 },
-    { name: 'MAI', year: 2026 },
-    { name: 'JUIN', year: 2026 },
-    { name: 'JUIL', year: 2026 },
-    { name: 'AOUT', year: 2026 },
-    { name: 'SEP', year: 2026 },
-    { name: 'OCT', year: 2026 },
-    { name: 'NOV', year: 2026 },
-    { name: 'DEC', year: 2026 },
-    { name: 'JAN', year: 2027 }
-  ]
+  STORAGE_KEY: 'roadmap-tasks'
 }
 
-const INITIAL_TASKS = [
-  // PAC
-  { id: 'task-1', row: 'pac', name: 'Preparation HLM', type: 'pac', left: 10, top: 45, width: 140 },
-  { id: 'task-2', row: 'pac', name: 'Accompagnement HLM', type: 'pac', left: 151, top: 45, width: 584 },
-  // RAPPORTS
-  { id: 'task-4', row: 'rapports', name: 'Rapports lot 3', type: 'rapports', left: 5, top: 45, width: 95, delivered: true },
-  { id: 'task-5', row: 'rapports', name: 'Ventilation recettes', type: 'rapports', left: 280, top: 45, width: 120, priority: true },
-  // VENTE
-  { id: 'task-9', row: 'vente', name: 'Exports PDF', type: 'vente', left: 5, top: 5, width: 95, delivered: true },
-  { id: 'task-12', row: 'vente', name: 'Optimisation BOCA', type: 'vente', left: 5, top: 45, width: 252 },
-  // BILLETTERIE
-  { id: 'task-17', row: 'billetterie', name: 'Ecran client caisse', type: 'billetterie-light', left: 700, top: 5, width: 150 },
-  // PMO
-  { id: 'task-22', row: 'pmo', name: 'Prepa ateliers', type: 'pmo', left: 10, top: 25, width: 110 },
-  { id: 'task-23', row: 'pmo', name: 'Ateliers specif.', type: 'pmo', left: 130, top: 25, width: 120 },
-  // COMMERCIALISATION
-  { id: 'task-27', row: 'commercialisation', name: 'Cadrage PITCH', type: 'commercialisation', left: 10, top: 25, width: 120 },
-  { id: 'task-28', row: 'commercialisation', name: 'Redaction PITCH', type: 'commercialisation', left: 140, top: 25, width: 130 }
-]
-
-const MILESTONES = [
-  { date: '21/01', label: 'BIS Nantes', position: 170, color: 'blue', level: 1, category: 'commercialisation' },
-  { date: '21/03', label: 'PUBLICS XP Marseille', position: 420, color: 'blue', level: 3, category: 'commercialisation' },
-  { date: '26/03', label: 'SITEM', position: 530, color: 'blue', level: 1, category: 'commercialisation' },
-  { date: '27/02', label: 'Go Prod', position: 290, color: 'red', level: 2, category: 'billetterie' },
-  { date: '23-30/06', label: 'MEV 26-27', position: 680, color: 'red', level: 1, category: 'billetterie' }
+// Mois par défaut (sera remplacé par les données de l'API)
+const DEFAULT_MONTHS = [
+  { name: 'DEC', year: 2025 }
 ]
 
 const CATEGORIES = [
@@ -63,60 +24,113 @@ const CATEGORIES = [
   { id: 'commercialisation', name: 'COMMERCIALISATION' }
 ]
 
+// Fonction utilitaire pour obtenir la position du jour actuel
+function getTodayPosition() {
+  const baseDate = new Date(2025, 11, 1) // 1er décembre 2025
+  const today = new Date()
+  const diffDays = (today - baseDate) / (1000 * 60 * 60 * 24)
+  return Math.max(0, Math.round(diffDays * (100 / 30)))
+}
+
 // Fonction utilitaire pour convertir une position en date
 function positionToDate(position) {
-  const monthIndex = Math.floor(position / CONFIG.MONTH_WIDTH)
-  const dayInMonth = Math.round((position % CONFIG.MONTH_WIDTH) / CONFIG.MONTH_WIDTH * 30)
+  const MONTH_NAMES = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc']
 
-  const months = [
-    { month: 12, year: 2025, name: 'Déc' },
-    { month: 1, year: 2026, name: 'Jan' },
-    { month: 2, year: 2026, name: 'Fév' },
-    { month: 3, year: 2026, name: 'Mar' },
-    { month: 4, year: 2026, name: 'Avr' },
-    { month: 5, year: 2026, name: 'Mai' },
-    { month: 6, year: 2026, name: 'Juin' },
-    { month: 7, year: 2026, name: 'Juil' },
-    { month: 8, year: 2026, name: 'Août' },
-    { month: 9, year: 2026, name: 'Sep' },
-    { month: 10, year: 2026, name: 'Oct' },
-    { month: 11, year: 2026, name: 'Nov' },
-    { month: 12, year: 2026, name: 'Déc' },
-    { month: 1, year: 2027, name: 'Jan' }
-  ]
+  // Position 0 = 1er décembre 2025
+  const baseDate = new Date(2025, 11, 1)
+  const daysFromBase = Math.round(position / CONFIG.MONTH_WIDTH * 30)
+  const targetDate = new Date(baseDate)
+  targetDate.setDate(targetDate.getDate() + daysFromBase)
 
-  const monthData = months[Math.min(monthIndex, months.length - 1)]
-  const day = Math.max(1, Math.min(dayInMonth + 1, 30))
+  const day = targetDate.getDate()
+  const monthName = MONTH_NAMES[targetDate.getMonth()]
+  const year = targetDate.getFullYear()
 
-  return `${day} ${monthData.name} ${monthData.year}`
+  return `${day} ${monthName} ${year}`
+}
+
+// Hauteurs par défaut des catégories
+const DEFAULT_CATEGORY_HEIGHTS = {
+  pac: 100,
+  rapports: 100,
+  vente: 100,
+  billetterie: 100,
+  pmo: 100,
+  commercialisation: 100
 }
 
 function Roadmap() {
   const [tasks, setTasks] = useState([])
+  const [milestones, setMilestones] = useState([])
+  const [evenements, setEvenements] = useState([])
+  const [categoryHeights, setCategoryHeights] = useState(DEFAULT_CATEGORY_HEIGHTS)
+  const [taskHeight, setTaskHeight] = useState(32)
+  const [todayPosition, setTodayPosition] = useState(getTodayPosition())
+  const [todayLevel, setTodayLevel] = useState(3)
+  const [months, setMonths] = useState(DEFAULT_MONTHS)
   const [selectedTask, setSelectedTask] = useState(null)
   const [dragging, setDragging] = useState(null)
+  const [lastSync, setLastSync] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const containerRef = useRef(null)
 
-  useEffect(() => {
-    // Charger depuis localStorage ou utiliser les donnees initiales
-    const saved = localStorage.getItem(CONFIG.STORAGE_KEY)
-    if (saved) {
-      setTasks(JSON.parse(saved))
-    } else {
-      setTasks(INITIAL_TASKS)
+  // Fonction pour synchroniser avec ClickUp
+  const syncWithClickUp = async () => {
+    setIsLoading(true)
+    try {
+      const response = await fetch('http://localhost:3001/api/clickup/tasks')
+      if (!response.ok) throw new Error('Erreur API')
+      const data = await response.json()
+
+      // Récupérer les ajustements de position sauvegardés
+      const savedPositions = localStorage.getItem(CONFIG.STORAGE_KEY + '-positions')
+      const positions = savedPositions ? JSON.parse(savedPositions) : {}
+
+      // Merger les données ClickUp avec les positions sauvegardées
+      const mergedTasks = data.tasks.map(task => {
+        if (positions[task.id]) {
+          return { ...task, ...positions[task.id] }
+        }
+        return task
+      })
+
+      setTasks(mergedTasks)
+      setMilestones(data.milestones || [])
+      setEvenements(data.evenements || [])
+      setCategoryHeights(data.categoryHeights || DEFAULT_CATEGORY_HEIGHTS)
+      setTaskHeight(data.taskHeight || 32)
+      setTodayPosition(data.todayPosition || getTodayPosition())
+      setTodayLevel(data.todayLevel || 3)
+      setMonths(data.months || DEFAULT_MONTHS)
+      setLastSync(data.lastSync)
+    } catch (error) {
+      console.error('Erreur sync ClickUp:', error)
+      // Fallback: charger depuis localStorage
+      const saved = localStorage.getItem(CONFIG.STORAGE_KEY)
+      setTasks(saved ? JSON.parse(saved) : [])
+      setMilestones([])
+      setEvenements([])
+      setCategoryHeights(DEFAULT_CATEGORY_HEIGHTS)
+    } finally {
+      setIsLoading(false)
     }
+  }
+
+  useEffect(() => {
+    // Charger depuis ClickUp au démarrage
+    syncWithClickUp()
   }, [])
 
   const handleSave = () => {
+    // Sauvegarder les tâches complètes
     localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(tasks))
+    // Sauvegarder aussi les positions séparément pour le merge avec ClickUp
+    const positions = {}
+    tasks.forEach(task => {
+      positions[task.id] = { left: task.left, top: task.top, width: task.width }
+    })
+    localStorage.setItem(CONFIG.STORAGE_KEY + '-positions', JSON.stringify(positions))
     alert('Sauvegarde reussie !')
-  }
-
-  const handleReset = () => {
-    if (confirm('Reinitialiser toutes les positions ?')) {
-      setTasks(INITIAL_TASKS)
-      localStorage.removeItem(CONFIG.STORAGE_KEY)
-    }
   }
 
   const handleExportPNG = async () => {
@@ -144,16 +158,29 @@ function Roadmap() {
     <div className="roadmap-page">
       {/* Toolbar sticky */}
       <div className="roadmap-toolbar">
-        <h2 className="roadmap-title">Roadmap Comédie-Française</h2>
+        <div className="toolbar-left">
+          <h2 className="roadmap-title">Roadmap Comédie-Française</h2>
+          {lastSync && (
+            <span className="sync-status">
+              Dernière sync: {new Date(lastSync).toLocaleString('fr-FR')}
+            </span>
+          )}
+        </div>
         <div className="toolbar-actions">
-          <button className="btn btn--secondary" onClick={handleExportPNG}>
-            📷 Exporter PNG
-          </button>
-          <button className="btn btn--primary" onClick={handleSave}>
-            💾 Sauvegarder
-          </button>
-          <button className="btn btn--danger" onClick={handleReset}>
-            🔄 Réinitialiser
+          <div className="toolbar-actions-primary">
+            <button
+              className="btn btn--primary"
+              onClick={syncWithClickUp}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Sync...' : 'Sync ClickUp'}
+            </button>
+            <button className="btn btn--primary" onClick={handleSave}>
+              Sauvegarder
+            </button>
+          </div>
+          <button className="btn btn--link" onClick={handleExportPNG}>
+            Exporter PNG
           </button>
         </div>
       </div>
@@ -166,29 +193,44 @@ function Roadmap() {
           <aside className="categories-sidebar">
             <div className="category-header-space"></div>
             {CATEGORIES.map(cat => (
-              <div key={cat.id} className={`category category--${cat.id}`}>
+              <div
+                key={cat.id}
+                className={`category category--${cat.id}`}
+                style={{ height: categoryHeights[cat.id] || 100 }}
+              >
                 {cat.name}
               </div>
             ))}
           </aside>
 
           {/* Gantt Area */}
-          <div className="gantt-area">
+          <div className="gantt-area" style={{ width: months.length * CONFIG.MONTH_WIDTH }}>
             {/* Gantt Header - Sticky */}
             <div className="gantt-header">
               {/* Milestones Row */}
               <div className="milestones-row">
-                {MILESTONES.map((milestone, index) => (
-                  <div key={index}>
+                {/* Today Indicator Label */}
+                <div
+                  className={`today-indicator-label today-indicator-label--level-${todayLevel}`}
+                  style={{ left: todayPosition }}
+                >
+                  Aujourd'hui
+                </div>
+                <div
+                  className={`today-indicator-connector today-indicator-connector--level-${todayLevel}`}
+                  style={{ left: todayPosition }}
+                />
+                {milestones.map((milestone) => (
+                  <div key={milestone.id}>
                     <div
-                      className={`milestone-label milestone-label--${milestone.color} milestone-label--level-${milestone.level}`}
-                      style={{ left: milestone.position }}
+                      className={`milestone-label milestone-label--${milestone.milestoneType} milestone-label--level-${milestone.level}`}
+                      style={{ left: milestone.left }}
                     >
-                      {milestone.date} - {milestone.label}
+                      {milestone.milestoneDate} - {milestone.name}
                     </div>
                     <div
-                      className={`milestone-connector milestone-connector--${milestone.color} milestone-connector--level-${milestone.level}`}
-                      style={{ left: milestone.position }}
+                      className={`milestone-connector milestone-connector--${milestone.milestoneType} milestone-connector--level-${milestone.level}`}
+                      style={{ left: milestone.left }}
                     />
                   </div>
                 ))}
@@ -196,14 +238,33 @@ function Roadmap() {
 
               {/* Years Row */}
               <div className="years-row">
-                <div className="year-block" style={{ width: 100 }}>2025</div>
-                <div className="year-block" style={{ width: 1200 }}>2026</div>
-                <div className="year-block" style={{ width: 100 }}>2027</div>
+                {(() => {
+                  const years = []
+                  let currentYear = null
+                  let count = 0
+                  months.forEach((month, idx) => {
+                    if (month.year !== currentYear) {
+                      if (currentYear !== null) {
+                        years.push({ year: currentYear, width: count * CONFIG.MONTH_WIDTH })
+                      }
+                      currentYear = month.year
+                      count = 1
+                    } else {
+                      count++
+                    }
+                    if (idx === months.length - 1) {
+                      years.push({ year: currentYear, width: count * CONFIG.MONTH_WIDTH })
+                    }
+                  })
+                  return years.map((y, i) => (
+                    <div key={i} className="year-block" style={{ width: y.width }}>{y.year}</div>
+                  ))
+                })()}
               </div>
 
               {/* Months Row */}
               <div className="months-row">
-                {CONFIG.MONTHS.map((month, index) => (
+                {months.map((month, index) => (
                   <div key={index} className="month">{month.name}</div>
                 ))}
               </div>
@@ -211,22 +272,32 @@ function Roadmap() {
 
             {/* Gantt Content */}
             <div className="gantt-content">
+              {/* Today Indicator Line */}
+              <div
+                className="today-indicator"
+                style={{ left: todayPosition }}
+              />
+
               {/* Milestone Lines */}
               <div className="milestones-lines">
-                {MILESTONES.map((milestone, index) => (
+                {milestones.map((milestone) => (
                   <div
-                    key={index}
-                    className={`milestone-line milestone-line--${milestone.color}`}
-                    style={{ left: milestone.position }}
+                    key={milestone.id}
+                    className={`milestone-line milestone-line--${milestone.milestoneType}`}
+                    style={{ left: milestone.left }}
                   />
                 ))}
-                <div className="milestone-line milestone-line--red" style={{ left: 680 }} />
               </div>
 
               {/* Rows */}
               {CATEGORIES.map(cat => (
-                <div key={cat.id} className="gantt-row" data-row={cat.id}>
-                  {CONFIG.MONTHS.map((_, idx) => (
+                <div
+                  key={cat.id}
+                  className="gantt-row"
+                  data-row={cat.id}
+                  style={{ height: categoryHeights[cat.id] || 100 }}
+                >
+                  {months.map((_, idx) => (
                     <div key={idx} className="gantt-cell" />
                   ))}
                   {/* Tasks for this row */}
@@ -239,13 +310,30 @@ function Roadmap() {
                         style={{
                           left: task.left,
                           top: task.top,
-                          width: task.width
+                          width: task.width,
+                          height: taskHeight
                         }}
                         onClick={() => setSelectedTask(task)}
+                        title={task.name}
                       >
                         <span className="task__name">{task.name}</span>
+                        <span className="task__tooltip">{task.name}</span>
                       </div>
                     ))}
+                  {/* Événements avec étoile (seulement dans commercialisation) */}
+                  {cat.id === 'commercialisation' && evenements.map(event => (
+                    <div
+                      key={event.id}
+                      className="evenement"
+                      style={{
+                        left: event.left,
+                        top: event.top
+                      }}
+                    >
+                      <span className="evenement__star">★</span>
+                      <span className="evenement__label">{event.milestoneDate} - {event.name}</span>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
@@ -253,10 +341,7 @@ function Roadmap() {
         </div>
 
         {/* Legend */}
-        <footer className="roadmap-legend">
-          <span className="legend-help">
-            💡 Glissez les tâches • Tirez les bords pour redimensionner • Double-clic pour éditer
-          </span>
+        <div className="roadmap-legend">
           <div className="legend-items">
             <div className="legend-item">
               <div className="legend-box legend-box--delivered"></div>
@@ -267,11 +352,15 @@ function Roadmap() {
               <span>Livraison prioritaire</span>
             </div>
             <div className="legend-item">
-              <div className="legend-box legend-box--light"></div>
-              <span>Planning à valider post validation des spécifications</span>
+              <div className="legend-box legend-box--temps-fort"></div>
+              <span>Temps forts CF</span>
+            </div>
+            <div className="legend-item">
+              <span className="legend-star">★</span>
+              <span>Événements</span>
             </div>
           </div>
-        </footer>
+        </div>
 
         {/* Delivery Summary */}
         <section className="delivery-summary">
