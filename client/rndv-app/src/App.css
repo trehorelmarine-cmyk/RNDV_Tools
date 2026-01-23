@@ -110,3 +110,16 @@
   background: var(--rndv-red);
   color: var(--rndv-white);
 }
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn--secondary:disabled:hover {
+  background: var(--rndv-white);
+  border-color: var(--rndv-gray-300);
+  color: var(--rndv-gray-600);
+}

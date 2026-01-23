@@ -5,6 +5,37 @@
   min-height: calc(100vh - 60px);
 }
 
+/* Loader */
+.roadmap-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+}
+
+.roadmap-loader p {
+  color: var(--rndv-gray-600);
+  font-size: 14px;
+  margin: 0;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--rndv-gray-200);
+  border-top-color: var(--rndv-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Toolbar */
 .roadmap-toolbar {
   display: flex;
@@ -20,8 +51,9 @@
 
 .toolbar-left {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .roadmap-title {
@@ -31,18 +63,54 @@
   margin: 0;
 }
 
-.sync-status {
+.sync-status-footer {
   font-size: 11px;
   color: var(--rndv-gray-500);
-  background: var(--rndv-gray-100);
-  padding: 4px 10px;
-  border-radius: 12px;
 }
 
 .toolbar-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.period-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.period-filter__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--rndv-gray-600);
+}
+
+.period-filter__select {
+  background: var(--rndv-white);
+  border: 1px solid var(--rndv-gray-300);
+  color: var(--rndv-black);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  padding-right: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: border-color 0.2s ease;
+}
+
+.period-filter__select:hover {
+  border-color: var(--rndv-gray-400);
+}
+
+.period-filter__select:focus {
+  outline: none;
+  border-color: var(--rndv-primary);
+  box-shadow: 0 0 0 2px rgba(70, 48, 234, 0.1);
 }
 
 .toolbar-actions-primary {
@@ -425,10 +493,44 @@
   border: 2px solid #DC2626 !important;
 }
 
+/* Task drag & resize */
+.task:active {
+  cursor: grabbing;
+}
+
+.task__resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  cursor: ew-resize;
+  background: transparent;
+  border-radius: 0 6px 6px 0;
+  transition: background 0.2s ease;
+}
+
+.task__resize-handle:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.task__resize-handle::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+}
+
 /* Legend */
 .roadmap-legend {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding: 16px 40px;
   border-top: 1px solid var(--rndv-gray-200);
   background: var(--rndv-white);
@@ -580,6 +682,15 @@
   border-bottom: none;
 }
 
+.delivery-summary__item--past {
+  color: #10B981;
+}
+
+.delivery-summary__item--past .delivery-summary__task-name,
+.delivery-summary__item--past .delivery-summary__date {
+  color: #10B981;
+}
+
 .delivery-summary__task-name {
   color: var(--rndv-black);
   flex: 1;
@@ -590,6 +701,33 @@
   color: var(--rndv-gray-600);
   font-weight: 500;
   white-space: nowrap;
+}
+
+.delivery-summary__legend {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rndv-gray-200);
+  display: flex;
+  gap: 16px;
+}
+
+.delivery-summary__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--rndv-gray-600);
+}
+
+.delivery-summary__legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--rndv-gray-400);
+}
+
+.delivery-summary__legend-item--past .delivery-summary__legend-dot {
+  background: #10B981;
 }
 
 /* Événements (étoiles) */

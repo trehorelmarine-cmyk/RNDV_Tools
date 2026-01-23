@@ -31,14 +31,35 @@ const MONTH_WIDTH = 150
 
 /**
  * Convertit un timestamp ClickUp en position sur la roadmap
- * Base: 1er décembre 2025 = position 0, 150px par mois
+ * Base: 1er décembre 2025 = position 0, 200px par mois
+ * Calcul basé sur les mois calendaires réels
+ * @param {string} timestamp - Timestamp ClickUp en millisecondes
+ * @param {boolean} isEndDate - Si true, calcule la position à la FIN du jour (pour les due dates)
  */
-function dateToPosition(timestamp) {
+function dateToPosition(timestamp, isEndDate = false) {
   if (!timestamp) return null
-  const baseDate = new Date(2025, 11, 1) // 1er décembre 2025
+
+  const baseYear = 2025
+  const baseMonth = 11 // Décembre (0-indexed)
   const taskDate = new Date(parseInt(timestamp))
-  const diffDays = (taskDate - baseDate) / (1000 * 60 * 60 * 24)
-  return Math.max(0, Math.round(diffDays * (MONTH_WIDTH / 30)))
+
+  const taskYear = taskDate.getFullYear()
+  const taskMonth = taskDate.getMonth()
+  const taskDay = taskDate.getDate()
+
+  // Calculer le nombre de mois complets depuis décembre 2025
+  const monthsDiff = (taskYear - baseYear) * 12 + (taskMonth - baseMonth)
+
+  // Calculer la position dans le mois actuel (proportion du mois)
+  const daysInMonth = new Date(taskYear, taskMonth + 1, 0).getDate()
+  // Pour une date de début: position au DÉBUT du jour
+  // Pour une date de fin: position à la FIN du jour
+  const dayProgress = isEndDate ? taskDay / daysInMonth : (taskDay - 1) / daysInMonth
+
+  // Position = mois complets * largeur + progression dans le mois
+  const position = (monthsDiff + dayProgress) * MONTH_WIDTH
+
+  return Math.max(0, Math.round(position))
 }
 
 /**
@@ -53,16 +74,15 @@ function formatDate(timestamp) {
 }
 
 /**
- * Génère la liste des mois entre décembre 2025 et une date de fin
+ * Génère la liste des mois à partir d'un nombre de mois nécessaires
  */
-function generateMonths(endDate) {
+function generateMonthsFromCount(count) {
   const MONTH_NAMES = ['JAN', 'FEV', 'MAR', 'AVR', 'MAI', 'JUIN', 'JUIL', 'AOUT', 'SEP', 'OCT', 'NOV', 'DEC']
   const months = []
 
   let currentDate = new Date(2025, 11, 1) // Décembre 2025
-  const lastDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1) // Mois de la date de fin
 
-  while (currentDate <= lastDate) {
+  for (let i = 0; i < count; i++) {
     const monthIndex = currentDate.getMonth()
     const year = currentDate.getFullYear()
     months.push({
@@ -131,7 +151,7 @@ function hasTag(task, tagName) {
 function transformTask(task) {
   const category = LIST_TO_CATEGORY[task.list.id]
   const left = dateToPosition(task.start_date) || 0
-  const endPos = dateToPosition(task.due_date) || left + 100
+  const endPos = dateToPosition(task.due_date, true) || left + 100
 
   // Vérifier les tags
   const isEvenement = hasTag(task, 'événement') || hasTag(task, 'evenement')
@@ -147,6 +167,9 @@ function transformTask(task) {
   const dateWidth = Math.max(MIN_TASK_WIDTH, endPos - left)
   const width = isMilestone ? 2 : dateWidth
 
+  // Vérifier si la livraison est maintenue au planning initial (étiquette ClickUp)
+  const isDeliveryMaintained = hasTag(task, 'livraison maintenue au planning')
+
   return {
     id: task.id,
     name: task.name,
@@ -155,7 +178,7 @@ function transformTask(task) {
     left: left,
     width: width,
     top: 0,
-    delivered: task.status?.type === 'closed',
+    delivered: isDeliveryMaintained,
     priority: task.priority?.priority === 'urgent',
     clickupUrl: task.url,
     // Types spéciaux
@@ -333,7 +356,9 @@ export async function fetchAllTasks() {
   const tasksByCategory = {}
   const allMilestones = []
   const allEvenements = []
+  const pastDeliveries = [] // Tâches livrées avant décembre 2025
   let latestEndDate = new Date(2025, 11, 1) // Minimum: décembre 2025
+  const roadmapStartDate = new Date(2025, 11, 1) // 1er décembre 2025
 
   tasksArrays.forEach((tasks, arrayIndex) => {
     const listId = listIds[arrayIndex]
@@ -344,9 +369,27 @@ export async function fetchAllTasks() {
     }
 
     tasks.forEach(task => {
-      // Tracker la date de fin la plus tardive
       if (task.due_date) {
         const dueDate = new Date(parseInt(task.due_date))
+
+        // Tâches qui se terminent avant décembre 2025 → pastDeliveries
+        if (dueDate < roadmapStartDate) {
+          // Ajouter aux livraisons passées (pour le récapitulatif)
+          const day = String(dueDate.getDate()).padStart(2, '0')
+          const month = String(dueDate.getMonth() + 1).padStart(2, '0')
+          const year = dueDate.getFullYear()
+          pastDeliveries.push({
+            id: task.id,
+            name: task.name,
+            row: category,
+            endDate: `${day}/${month}/${year}`,
+            endTimestamp: parseInt(task.due_date),
+            isPast: true
+          })
+          return
+        }
+
+        // Tracker la date de fin la plus tardive
         if (dueDate > latestEndDate) {
           latestEndDate = dueDate
         }
@@ -431,22 +474,48 @@ export async function fetchAllTasks() {
     }
   }
 
-  // Calculer la position du jour actuel
+  // Calculer la position du jour actuel (même logique que dateToPosition)
   const today = new Date()
-  const baseDate = new Date(2025, 11, 1) // 1er décembre 2025
-  const diffDays = (today - baseDate) / (1000 * 60 * 60 * 24)
-  const todayPosition = Math.max(0, Math.round(diffDays * (MONTH_WIDTH / 30)))
+  const baseYear = 2025
+  const baseMonth = 11 // Décembre
+  const monthsDiff = (today.getFullYear() - baseYear) * 12 + (today.getMonth() - baseMonth)
+  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
+  const dayProgress = (today.getDate() - 1) / daysInMonth
+  const todayPosition = Math.max(0, Math.round((monthsDiff + dayProgress) * MONTH_WIDTH))
 
   // Assigner les niveaux aux milestones et à "aujourd'hui"
   const { milestones: milestonesWithLevels, todayLevel } = assignMilestoneLevels(allMilestones, todayPosition)
 
+  // Calculer la position de fin la plus tardive (incluant la largeur des tâches)
+  let maxEndPosition = 0
+  for (const task of allTasks) {
+    const endPosition = task.left + task.width
+    if (endPosition > maxEndPosition) {
+      maxEndPosition = endPosition
+    }
+  }
+  // Inclure aussi les milestones et événements
+  for (const m of milestonesWithLevels) {
+    if (m.left > maxEndPosition) maxEndPosition = m.left
+  }
+  for (const e of sortedEvenements) {
+    if (e.left > maxEndPosition) maxEndPosition = e.left
+  }
+
+  // Calculer le nombre de mois nécessaires pour couvrir toutes les tâches
+  const monthsNeeded = Math.ceil(maxEndPosition / MONTH_WIDTH) + 1
+
   // Générer la liste des mois dynamiquement
-  const months = generateMonths(latestEndDate)
+  const months = generateMonthsFromCount(monthsNeeded)
+
+  // Trier les livraisons passées par date
+  const sortedPastDeliveries = pastDeliveries.sort((a, b) => a.endTimestamp - b.endTimestamp)
 
   return {
     tasks: allTasks,
     milestones: milestonesWithLevels,
     evenements: sortedEvenements,
+    pastDeliveries: sortedPastDeliveries,
     categoryHeights,
     taskHeight: uniformTaskHeight,
     todayPosition,
