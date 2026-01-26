@@ -4,6 +4,8 @@ import cors from 'cors'
 import fetch from 'node-fetch'
 import { parse } from 'csv-parse/sync'
 import { fetchAllTasks, testConnection } from './services/clickup.js'
+import { getTaskPositions, saveTaskPositions, resetTaskPositions, testConnection as testDbConnection } from './services/database.js'
+import { getSpectacles } from './services/spectacles.js'
 
 const app = express()
 const PORT = 3001
@@ -258,6 +260,73 @@ app.get('/api/clickup/test', async (req, res) => {
     res.json(result)
   } catch (error) {
     console.error('Erreur test ClickUp:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// ============================================
+// Database API Routes (PostgreSQL)
+// ============================================
+
+// GET /api/positions - Récupère les positions personnalisées
+app.get('/api/positions', async (req, res) => {
+  try {
+    const positions = await getTaskPositions()
+    res.json({ positions, count: Object.keys(positions).length })
+  } catch (error) {
+    console.error('Erreur lecture positions:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// POST /api/positions - Sauvegarde les positions personnalisées
+app.post('/api/positions', async (req, res) => {
+  try {
+    const { tasks } = req.body
+    if (!tasks || !Array.isArray(tasks)) {
+      return res.status(400).json({ error: 'tasks array required' })
+    }
+    const result = await saveTaskPositions(tasks)
+    res.json(result)
+  } catch (error) {
+    console.error('Erreur sauvegarde positions:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// DELETE /api/positions - Réinitialise les positions
+app.delete('/api/positions', async (req, res) => {
+  try {
+    const result = await resetTaskPositions()
+    res.json(result)
+  } catch (error) {
+    console.error('Erreur reset positions:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// GET /api/db/test - Teste la connexion à la base de données
+app.get('/api/db/test', async (req, res) => {
+  try {
+    const result = await testDbConnection()
+    res.json(result)
+  } catch (error) {
+    console.error('Erreur test DB:', error)
+    res.status(500).json({ error: error.message })
+  }
+})
+
+// ============================================
+// Spectacles API Routes
+// ============================================
+
+// GET /api/spectacles - Récupère les spectacles de la saison
+app.get('/api/spectacles', (req, res) => {
+  try {
+    const data = getSpectacles()
+    res.json(data)
+  } catch (error) {
+    console.error('Erreur spectacles:', error)
     res.status(500).json({ error: error.message })
   }
 })

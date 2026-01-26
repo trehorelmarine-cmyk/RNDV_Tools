@@ -1,6 +1,7 @@
 import { Routes, Route, NavLink } from 'react-router-dom'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Roadmap from './pages/Roadmap/Roadmap'
+import Spectacles from './pages/Spectacles/Spectacles'
 import './App.css'
 
 function App() {
@@ -12,11 +13,14 @@ function App() {
           <span>RNDV Tools</span>
         </div>
         <div className="navbar-links">
-          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Dashboard
-          </NavLink>
           <NavLink to="/roadmap" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
             Roadmap
+          </NavLink>
+          <NavLink to="/spectacles" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Spectacles
+          </NavLink>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Dashboard support
           </NavLink>
         </div>
       </nav>
@@ -25,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/spectacles" element={<Spectacles />} />
         </Routes>
       </main>
     </div>

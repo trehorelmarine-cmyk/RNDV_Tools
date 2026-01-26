@@ -7,17 +7,7 @@ const CONFIG = {
   MONTH_WIDTH: 150,
   SNAP_GRID: 20,
   MIN_TASK_WIDTH: 40,
-  STORAGE_KEY: 'roadmap-tasks',
-  VERSION: '3' // Incrémenter pour forcer le rechargement des positions
-}
-
-// Vérifier si la version a changé et nettoyer le localStorage
-const savedVersion = localStorage.getItem(CONFIG.STORAGE_KEY + '-version')
-if (savedVersion !== CONFIG.VERSION) {
-  localStorage.removeItem(CONFIG.STORAGE_KEY)
-  localStorage.removeItem(CONFIG.STORAGE_KEY + '-positions')
-  localStorage.setItem(CONFIG.STORAGE_KEY + '-version', CONFIG.VERSION)
-  console.log('Roadmap: positions réinitialisées (nouvelle version)')
+  API_URL: 'http://localhost:3001'
 }
 
 // Mois par défaut (sera remplacé par les données de l'API)
@@ -98,15 +88,41 @@ function Roadmap() {
   const [isLoading, setIsLoading] = useState(false)
   const [hasLocalChanges, setHasLocalChanges] = useState(false)
   const containerRef = useRef(null)
+  const timelineRef = useRef(null)
   const dragRef = useRef(null) // Pour stocker les données de drag en cours
+  const [ganttWidth, setGanttWidth] = useState(0)
+
+  // Mesurer la largeur disponible pour le gantt
+  useEffect(() => {
+    const measureWidth = () => {
+      if (timelineRef.current) {
+        const timelineWidth = timelineRef.current.offsetWidth
+        const sidebarWidth = 140
+        setGanttWidth(timelineWidth - sidebarWidth)
+      }
+    }
+    measureWidth()
+    window.addEventListener('resize', measureWidth)
+    return () => window.removeEventListener('resize', measureWidth)
+  }, [])
 
   // Calculer les positions de filtre selon la période
-  const getFilterPositions = () => {
-    if (periodFilter === 'all') return { start: 0, end: Infinity }
-
+  const getFilterConfig = () => {
     const today = new Date()
     const baseYear = 2025
     const baseMonth = 11 // Décembre
+
+    if (periodFilter === 'all') {
+      return {
+        start: 0,
+        end: Infinity,
+        monthWidth: CONFIG.MONTH_WIDTH,
+        scale: 1,
+        offset: 0,
+        startMonthIndex: 0,
+        endMonthIndex: months.length
+      }
+    }
 
     // Position de début = début du mois en cours
     const startMonthsDiff = (today.getFullYear() - baseYear) * 12 + (today.getMonth() - baseMonth)
@@ -117,64 +133,103 @@ function Roadmap() {
     else if (periodFilter === '6months') monthsToAdd = 6
     else if (periodFilter === '1year') monthsToAdd = 12
 
-    // Position de fin = fin du mois + monthsToAdd
-    const endDate = new Date(today.getFullYear(), today.getMonth() + monthsToAdd, 0)
-    const endMonthsDiff = (endDate.getFullYear() - baseYear) * 12 + (endDate.getMonth() - baseMonth)
-    const endPosition = (endMonthsDiff + 1) * CONFIG.MONTH_WIDTH
+    const endMonthsDiff = startMonthsDiff + monthsToAdd
+    const endPosition = endMonthsDiff * CONFIG.MONTH_WIDTH
 
-    return { start: startPosition, end: endPosition }
+    // Calculer la largeur dynamique des mois pour remplir l'espace
+    const visibleMonthsCount = monthsToAdd
+    const displayMonthWidth = ganttWidth > 0 ? ganttWidth / visibleMonthsCount : CONFIG.MONTH_WIDTH
+    const scale = displayMonthWidth / CONFIG.MONTH_WIDTH
+
+    return {
+      start: startPosition,
+      end: endPosition,
+      monthWidth: displayMonthWidth,
+      scale,
+      offset: startPosition,
+      startMonthIndex: startMonthsDiff,
+      endMonthIndex: endMonthsDiff
+    }
   }
 
-  const { start: filterStartPosition, end: filterEndPosition } = getFilterPositions()
+  const filterConfig = getFilterConfig()
+  const { start: filterStartPosition, end: filterEndPosition } = filterConfig
+  const displayMonthWidth = filterConfig.monthWidth
+  const filterScale = filterConfig.scale
+  const filterOffset = filterConfig.offset
+
+  // Transformer une position originale en position affichée
+  const scalePosition = (pos) => {
+    if (periodFilter === 'all') return pos
+    return (pos - filterOffset) * filterScale
+  }
+
+  // Transformer une largeur originale en largeur affichée
+  const scaleWidth = (width) => {
+    if (periodFilter === 'all') return width
+    return width * filterScale
+  }
 
   // Filtrer et clipper les tâches selon la période
   const filteredTasks = tasks
     .filter(t => {
       const taskEnd = t.left + t.width
-      // La tâche est visible si elle chevauche la période
       return taskEnd > filterStartPosition && t.left < filterEndPosition
     })
     .map(t => {
       if (periodFilter === 'all') return t
 
       const taskEnd = t.left + t.width
-      // Clipper la tâche aux limites de la période
+      // Clipper aux limites de la période
       const clippedLeft = Math.max(t.left, filterStartPosition)
       const clippedEnd = Math.min(taskEnd, filterEndPosition)
       const clippedWidth = clippedEnd - clippedLeft
 
       return {
         ...t,
-        left: clippedLeft,
-        width: clippedWidth,
+        left: scalePosition(clippedLeft),
+        width: scaleWidth(clippedWidth),
         originalLeft: t.left,
         originalWidth: t.width,
         isClipped: clippedLeft !== t.left || clippedEnd !== taskEnd
       }
     })
 
-  const filteredMilestones = milestones.filter(m => m.left >= filterStartPosition && m.left < filterEndPosition)
-  const filteredEvenements = evenements.filter(e => e.left >= filterStartPosition && e.left < filterEndPosition)
+  const filteredMilestones = milestones
+    .filter(m => m.left >= filterStartPosition && m.left < filterEndPosition)
+    .map(m => periodFilter === 'all' ? m : { ...m, left: scalePosition(m.left) })
 
-  // Calculer les mois à afficher (du début à la fin de la période filtrée)
+  const filteredEvenements = evenements
+    .filter(e => e.left >= filterStartPosition && e.left < filterEndPosition)
+    .map(e => periodFilter === 'all' ? e : { ...e, left: scalePosition(e.left) })
+
+  // Calculer les mois à afficher
   const filteredMonths = periodFilter === 'all'
     ? months
-    : months.slice(0, Math.ceil(filterEndPosition / CONFIG.MONTH_WIDTH))
+    : months.slice(filterConfig.startMonthIndex, filterConfig.endMonthIndex)
 
   // Fonction pour synchroniser avec ClickUp
   const syncWithClickUp = async () => {
     setIsLoading(true)
     try {
-      const response = await fetch('http://localhost:3001/api/clickup/tasks')
-      if (!response.ok) throw new Error('Erreur API')
-      const data = await response.json()
+      // Récupérer les données ClickUp et les positions sauvegardées en parallèle
+      const [clickupResponse, positionsResponse] = await Promise.all([
+        fetch('http://localhost:3001/api/clickup/tasks'),
+        fetch('http://localhost:3001/api/positions')
+      ])
+
+      if (!clickupResponse.ok) throw new Error('Erreur API ClickUp')
+      const data = await clickupResponse.json()
 
       // Sauvegarder les positions originales de ClickUp
       setOriginalTasks(data.tasks.map(t => ({ ...t })))
 
-      // Récupérer les ajustements de position sauvegardés
-      const savedPositions = localStorage.getItem(CONFIG.STORAGE_KEY + '-positions')
-      const positions = savedPositions ? JSON.parse(savedPositions) : {}
+      // Récupérer les ajustements de position depuis PostgreSQL
+      let positions = {}
+      if (positionsResponse.ok) {
+        const posData = await positionsResponse.json()
+        positions = posData.positions || {}
+      }
 
       // Vérifier s'il y a des modifications locales
       setHasLocalChanges(Object.keys(positions).length > 0)
@@ -199,9 +254,7 @@ function Roadmap() {
       setLastSync(data.lastSync)
     } catch (error) {
       console.error('Erreur sync ClickUp:', error)
-      // Fallback: charger depuis localStorage
-      const saved = localStorage.getItem(CONFIG.STORAGE_KEY)
-      setTasks(saved ? JSON.parse(saved) : [])
+      setTasks([])
       setOriginalTasks([])
       setMilestones([])
       setEvenements([])
@@ -212,16 +265,21 @@ function Roadmap() {
   }
 
   // Réinitialiser aux positions ClickUp originales
-  const handleReset = () => {
+  const handleReset = async () => {
     if (originalTasks.length === 0) {
       alert('Aucune donnée ClickUp à restaurer. Synchronisez d\'abord.')
       return
     }
-    // Supprimer les positions sauvegardées
-    localStorage.removeItem(CONFIG.STORAGE_KEY + '-positions')
-    // Restaurer les positions originales
-    setTasks(originalTasks.map(t => ({ ...t })))
-    setHasLocalChanges(false)
+    try {
+      // Supprimer les positions sauvegardées dans PostgreSQL
+      await fetch('http://localhost:3001/api/positions', { method: 'DELETE' })
+      // Restaurer les positions originales
+      setTasks(originalTasks.map(t => ({ ...t })))
+      setHasLocalChanges(false)
+    } catch (error) {
+      console.error('Erreur reset:', error)
+      alert('Erreur lors de la réinitialisation')
+    }
   }
 
   // Gestionnaires de drag pour déplacer les tâches
@@ -248,21 +306,40 @@ function Roadmap() {
     setTasks(prevTasks => prevTasks.map(task => {
       if (task.id !== taskId) return task
 
+      let updatedTask
       if (type === 'move') {
         // Déplacer la tâche
         const newLeft = Math.max(0, startLeft + deltaX)
-        return { ...task, left: newLeft }
+        updatedTask = { ...task, left: newLeft }
       } else if (type === 'resize') {
         // Redimensionner la tâche
         const newWidth = Math.max(CONFIG.MIN_TASK_WIDTH, startWidth + deltaX)
-        return { ...task, width: newWidth }
+        updatedTask = { ...task, width: newWidth }
+      } else {
+        updatedTask = task
       }
-      return task
+
+      // Stocker la tâche modifiée pour la sauvegarde
+      dragRef.current.modifiedTask = updatedTask
+      return updatedTask
     }))
     setHasLocalChanges(true)
   }
 
-  const handleDragEnd = () => {
+  const handleDragEnd = async () => {
+    if (dragRef.current?.modifiedTask) {
+      const modifiedTask = dragRef.current.modifiedTask
+      // Sauvegarder dans PostgreSQL
+      try {
+        await fetch(`${CONFIG.API_URL}/api/positions`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tasks: [modifiedTask] })
+        })
+      } catch (error) {
+        console.error('Erreur sauvegarde auto:', error)
+      }
+    }
     dragRef.current = null
     document.removeEventListener('mousemove', handleDragMove)
     document.removeEventListener('mouseup', handleDragEnd)
@@ -272,18 +349,6 @@ function Roadmap() {
     // Charger depuis ClickUp au démarrage
     syncWithClickUp()
   }, [])
-
-  const handleSave = () => {
-    // Sauvegarder les tâches complètes
-    localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(tasks))
-    // Sauvegarder aussi les positions séparément pour le merge avec ClickUp
-    const positions = {}
-    tasks.forEach(task => {
-      positions[task.id] = { left: task.left, top: task.top, width: task.width }
-    })
-    localStorage.setItem(CONFIG.STORAGE_KEY + '-positions', JSON.stringify(positions))
-    alert('Sauvegarde reussie !')
-  }
 
   const handleExportPNG = async () => {
     if (!containerRef.current) return
@@ -347,9 +412,6 @@ function Roadmap() {
             >
               {isLoading ? 'Sync...' : 'Sync ClickUp'}
             </button>
-            <button className="btn btn--primary" onClick={handleSave}>
-              Sauvegarder
-            </button>
             <button
               className="btn btn--secondary"
               onClick={handleReset}
@@ -368,7 +430,7 @@ function Roadmap() {
       <div className="roadmap-container" ref={containerRef}>
 
         {/* Timeline */}
-        <div className="timeline-container">
+        <div className="timeline-container" ref={timelineRef}>
           {/* Categories Sidebar */}
           <aside className="categories-sidebar">
             <div className="category-header-space"></div>
@@ -384,22 +446,26 @@ function Roadmap() {
           </aside>
 
           {/* Gantt Area */}
-          <div className="gantt-area" style={{ width: filteredMonths.length * CONFIG.MONTH_WIDTH }}>
+          <div className="gantt-area" style={{ width: filteredMonths.length * displayMonthWidth }}>
             {/* Gantt Header - Sticky */}
             <div className="gantt-header">
               {/* Milestones Row */}
               <div className="milestones-row">
                 {/* Today Indicator Label */}
-                <div
-                  className={`today-indicator-label today-indicator-label--level-${todayLevel}`}
-                  style={{ left: todayPosition }}
-                >
-                  Aujourd'hui
-                </div>
-                <div
-                  className={`today-indicator-connector today-indicator-connector--level-${todayLevel}`}
-                  style={{ left: todayPosition }}
-                />
+                {(todayPosition >= filterStartPosition && todayPosition < filterEndPosition) && (
+                  <>
+                    <div
+                      className={`today-indicator-label today-indicator-label--level-${todayLevel}`}
+                      style={{ left: scalePosition(todayPosition) }}
+                    >
+                      Aujourd'hui
+                    </div>
+                    <div
+                      className={`today-indicator-connector today-indicator-connector--level-${todayLevel}`}
+                      style={{ left: scalePosition(todayPosition) }}
+                    />
+                  </>
+                )}
                 {filteredMilestones.map((milestone) => (
                   <div key={milestone.id}>
                     <div
@@ -425,7 +491,7 @@ function Roadmap() {
                   filteredMonths.forEach((month, idx) => {
                     if (month.year !== currentYear) {
                       if (currentYear !== null) {
-                        years.push({ year: currentYear, width: count * CONFIG.MONTH_WIDTH })
+                        years.push({ year: currentYear, width: count * displayMonthWidth })
                       }
                       currentYear = month.year
                       count = 1
@@ -433,7 +499,7 @@ function Roadmap() {
                       count++
                     }
                     if (idx === filteredMonths.length - 1) {
-                      years.push({ year: currentYear, width: count * CONFIG.MONTH_WIDTH })
+                      years.push({ year: currentYear, width: count * displayMonthWidth })
                     }
                   })
                   return years.map((y, i) => (
@@ -445,7 +511,7 @@ function Roadmap() {
               {/* Months Row */}
               <div className="months-row">
                 {filteredMonths.map((month, index) => (
-                  <div key={index} className="month">{month.name}</div>
+                  <div key={index} className="month" style={{ width: displayMonthWidth }}>{month.name}</div>
                 ))}
               </div>
             </div>
@@ -453,10 +519,12 @@ function Roadmap() {
             {/* Gantt Content */}
             <div className="gantt-content">
               {/* Today Indicator Line */}
-              <div
-                className="today-indicator"
-                style={{ left: todayPosition }}
-              />
+              {(todayPosition >= filterStartPosition && todayPosition < filterEndPosition) && (
+                <div
+                  className="today-indicator"
+                  style={{ left: scalePosition(todayPosition) }}
+                />
+              )}
 
               {/* Milestone Lines */}
               <div className="milestones-lines">
@@ -478,7 +546,7 @@ function Roadmap() {
                   style={{ height: categoryHeights[cat.id] || 100 }}
                 >
                   {filteredMonths.map((_, idx) => (
-                    <div key={idx} className="gantt-cell" />
+                    <div key={idx} className="gantt-cell" style={{ width: displayMonthWidth }} />
                   ))}
                   {/* Tasks for this row */}
                   {filteredTasks
