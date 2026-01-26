@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Spectacles.css'
 
-const API_URL = 'http://localhost:3001'
+const API_URL = import.meta.env.VITE_API_URL || ''
 
 function Spectacles() {
   const [shows, setShows] = useState([])

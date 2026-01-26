@@ -1,0 +1,95 @@
+# RNDV Tools - Production Docker Compose
+# Usage: docker compose -f docker-compose.prod.yml --env-file .env.prod up -d
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: rndv-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - rndv-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # RNDV API Server (Express.js)
+  rndv-server:
+    build:
+      context: ./client/rndv-app/server
+      dockerfile: Dockerfile.prod
+    container_name: rndv-server
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: rndv
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      CLICKUP_API_TOKEN: ${CLICKUP_API_TOKEN:-}
+      GOOGLE_SHEET_ID: ${GOOGLE_SHEET_ID:-}
+    networks:
+      - rndv-network
+      - proxy-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # RNDV React Client (Vite + nginx)
+  rndv-client:
+    build:
+      context: ./client/rndv-app
+      dockerfile: Dockerfile.prod
+      args:
+        VITE_API_URL: ""
+    container_name: rndv-client
+    restart: unless-stopped
+    networks:
+      - rndv-network
+      - proxy-network
+    depends_on:
+      - rndv-server
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 64M
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  postgres_data:
+
+networks:
+  rndv-network:
+    driver: bridge
+  proxy-network:
+    external: true

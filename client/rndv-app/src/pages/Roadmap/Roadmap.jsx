@@ -7,7 +7,7 @@ const CONFIG = {
   MONTH_WIDTH: 150,
   SNAP_GRID: 20,
   MIN_TASK_WIDTH: 40,
-  API_URL: 'http://localhost:3001'
+  API_URL: import.meta.env.VITE_API_URL || ''
 }
 
 // Mois par défaut (sera remplacé par les données de l'API)
@@ -214,8 +214,8 @@ function Roadmap() {
     try {
       // Récupérer les données ClickUp et les positions sauvegardées en parallèle
       const [clickupResponse, positionsResponse] = await Promise.all([
-        fetch('http://localhost:3001/api/clickup/tasks'),
-        fetch('http://localhost:3001/api/positions')
+        fetch(`${CONFIG.API_URL}/api/clickup/tasks`),
+        fetch(`${CONFIG.API_URL}/api/positions`)
       ])
 
       if (!clickupResponse.ok) throw new Error('Erreur API ClickUp')
@@ -272,7 +272,7 @@ function Roadmap() {
     }
     try {
       // Supprimer les positions sauvegardées dans PostgreSQL
-      await fetch('http://localhost:3001/api/positions', { method: 'DELETE' })
+      await fetch(`${CONFIG.API_URL}/api/positions`, { method: 'DELETE' })
       // Restaurer les positions originales
       setTasks(originalTasks.map(t => ({ ...t })))
       setHasLocalChanges(false)

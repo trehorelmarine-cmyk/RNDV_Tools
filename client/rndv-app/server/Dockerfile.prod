@@ -1,0 +1,18 @@
+# RNDV Server - Node.js Express API
+# Build context: ./client/rndv-app/server
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install production dependencies
+RUN npm install --only=production
+
+# Copy source
+COPY . .
+
+EXPOSE 3001
+
+CMD ["node", "index.js"]

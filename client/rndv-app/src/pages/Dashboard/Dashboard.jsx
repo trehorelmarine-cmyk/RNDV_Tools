@@ -23,7 +23,7 @@ const COLORS = [
   '#FCD34D', '#A78BFA', '#38BDF8', '#C084FC', '#67E8F9'
 ]
 
-const API_URL = 'http://localhost:3001/api/dashboard'
+const API_URL = `${import.meta.env.VITE_API_URL || ''}/api/dashboard`
 
 function Dashboard() {
   const [data, setData] = useState(null)
