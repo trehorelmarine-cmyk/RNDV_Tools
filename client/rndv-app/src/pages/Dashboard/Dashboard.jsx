@@ -15,12 +15,12 @@ import './Dashboard.css'
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const COLORS = [
-  '#4285f4', '#ea4335', '#fbbc04', '#34a853', '#ff6d01',
-  '#46bdc6', '#7baaf7', '#f07b72', '#fcd04f', '#81c995',
-  '#ff8a65', '#4dd0e1', '#ba68c8', '#aed581', '#ffb74d',
-  '#90a4ae', '#f48fb1', '#80deea', '#ce93d8', '#c5e1a5',
-  '#ffcc80', '#b0bec5', '#ef9a9a', '#80cbc4', '#e6ee9c',
-  '#ffe082', '#bcaaa4', '#b39ddb', '#9fa8da', '#a5d6a7'
+  '#4630EA', '#EF4444', '#F59E0B', '#10B981', '#F97316',
+  '#06B6D4', '#7C3AED', '#EC4899', '#84CC16', '#6366F1',
+  '#14B8A6', '#E11D48', '#D946EF', '#8B5CF6', '#0EA5E9',
+  '#F43F5E', '#A855F7', '#22D3EE', '#FB923C', '#4ADE80',
+  '#FBBF24', '#2DD4BF', '#FB7185', '#818CF8', '#34D399',
+  '#FCD34D', '#A78BFA', '#38BDF8', '#C084FC', '#67E8F9'
 ]
 
 const API_URL = 'http://localhost:3001/api/dashboard'
@@ -141,12 +141,12 @@ function Dashboard() {
   const getTrend = (values) => {
     const firstHalf = values.slice(0, Math.ceil(values.length / 2)).reduce((a, b) => a + b, 0)
     const secondHalf = values.slice(Math.ceil(values.length / 2)).reduce((a, b) => a + b, 0)
-    if (firstHalf === 0 && secondHalf === 0) return { className: 'trend-stable', icon: '—', text: 'N/A' }
-    if (firstHalf === 0) return { className: 'trend-up', icon: '↑', text: 'Nouveau' }
+    if (firstHalf === 0 && secondHalf === 0) return { className: 'dash-trend--stable', icon: '—', text: 'N/A' }
+    if (firstHalf === 0) return { className: 'dash-trend--up', icon: '↑', text: 'Nouveau' }
     const ratio = secondHalf / firstHalf
-    if (ratio < 0.6) return { className: 'trend-down', icon: '↓', text: 'En baisse' }
-    if (ratio > 1.4) return { className: 'trend-up', icon: '↑', text: 'En hausse' }
-    return { className: 'trend-stable', icon: '→', text: 'Stable' }
+    if (ratio < 0.6) return { className: 'dash-trend--down', icon: '↓', text: 'En baisse' }
+    if (ratio > 1.4) return { className: 'dash-trend--up', icon: '↑', text: 'En hausse' }
+    return { className: 'dash-trend--stable', icon: '→', text: 'Stable' }
   }
 
   // Actions de sélection
@@ -172,95 +172,188 @@ function Dashboard() {
 
   if (loading) {
     return (
-      <div className="dashboard-loading">
-        <div className="spinner"></div>
-        <p>Chargement des données...</p>
+      <div className="dash-page">
+        <div className="dash-loader">
+          <div className="loader-spinner"></div>
+          <p>Chargement des données...</p>
+        </div>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="dashboard-error">
-        <h2>Erreur</h2>
-        <p>{error}</p>
-        <p className="error-hint">Assurez-vous que le serveur backend est lancé sur le port 3001</p>
-        <button className="btn btn--primary" onClick={fetchData}>Réessayer</button>
+      <div className="dash-page">
+        <div className="dash-error">
+          <h2>Erreur</h2>
+          <p>{error}</p>
+          <p className="dash-error__hint">Assurez-vous que le serveur backend est lancé sur le port 3001</p>
+          <button className="btn btn--primary" onClick={fetchData}>Réessayer</button>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="dashboard">
-      <h1 className="dashboard-title">RNDV - Tableau de Bord</h1>
-      <p className="dashboard-subtitle">Comédie-Française | Suivi des incidents billetterie</p>
-      <p className="last-update">Dernière mise à jour: {data?.lastUpdate}</p>
-
-      {/* Section Aujourd'hui */}
-      <section className="today-section">
-        <div className="today-header">
-          <h2>Tendances du Jour</h2>
-          <span className="today-date">{data?.today?.date}</span>
+    <div className="dash-page">
+      {/* Toolbar */}
+      <div className="dash-toolbar">
+        <div className="dash-toolbar__left">
+          <h2 className="dash-toolbar__title">Dashboard Support - Incidents Billetterie</h2>
         </div>
+        <button className="btn btn--primary" onClick={fetchData}>
+          Actualiser
+        </button>
+      </div>
 
-        <div className="today-stats">
-          <div className="today-stat">
-            <div className="value">{todayStats.total}</div>
-            <div className="label">Tickets du jour</div>
+      <div className="dash-container">
+        {/* Section Aujourd'hui */}
+        <section className="dash-today">
+          <div className="dash-today__header">
+            <h3 className="dash-today__title">Tendances du Jour</h3>
+            <span className="dash-today__date">{data?.today?.date}</span>
           </div>
-          <div className="today-stat critical">
-            <div className="value">{todayStats.critique}</div>
-            <div className="label">Critique</div>
-          </div>
-          <div className="today-stat major">
-            <div className="value">{todayStats.majeur}</div>
-            <div className="label">Majeur</div>
-          </div>
-          <div className="today-stat">
-            <div className="value">{todayStats.mineur}</div>
-            <div className="label">Mineur</div>
-          </div>
-        </div>
 
-        <div className="today-content">
-          <div className="today-problems">
-            <h3>Problèmes signalés</h3>
-            {todayProblemGroups.length === 0 ? (
-              <div className="no-problems">Aucun ticket aujourd'hui</div>
-            ) : (
-              todayProblemGroups.map((problem, idx) => (
-                <div key={idx} className="problem-item">
-                  <span className="problem-name">
-                    <span className={`urgency-badge urgency-${problem.urgence.toLowerCase().replace('/', '-')}`}>
-                      {problem.urgence}
+          <div className="dash-today__stats">
+            <div className="dash-stat">
+              <div className="dash-stat__value">{todayStats.total}</div>
+              <div className="dash-stat__label">Tickets du jour</div>
+            </div>
+            <div className="dash-stat dash-stat--critical">
+              <div className="dash-stat__value">{todayStats.critique}</div>
+              <div className="dash-stat__label">Critique</div>
+            </div>
+            <div className="dash-stat dash-stat--major">
+              <div className="dash-stat__value">{todayStats.majeur}</div>
+              <div className="dash-stat__label">Majeur</div>
+            </div>
+            <div className="dash-stat dash-stat--minor">
+              <div className="dash-stat__value">{todayStats.mineur}</div>
+              <div className="dash-stat__label">Mineur</div>
+            </div>
+          </div>
+
+          <div className="dash-today__content">
+            <div className="dash-today__problems">
+              <h4>Problèmes signalés</h4>
+              {todayProblemGroups.length === 0 ? (
+                <div className="dash-today__empty">Aucun ticket aujourd'hui</div>
+              ) : (
+                todayProblemGroups.map((problem, idx) => (
+                  <div key={idx} className="dash-problem">
+                    <span className="dash-problem__name">
+                      <span className={`dash-badge dash-badge--${problem.urgence.toLowerCase().replace('/', '-')}`}>
+                        {problem.urgence}
+                      </span>
+                      {problem.name}
                     </span>
-                    {problem.name}
-                  </span>
-                  <span className="problem-count">{problem.count}</span>
-                </div>
-              ))
-            )}
+                    <span className="dash-problem__count">{problem.count}</span>
+                  </div>
+                ))
+              )}
+            </div>
+
+            <div className="dash-today__history">
+              <h4>Volume des 15 derniers jours</h4>
+              <div className="dash-today__chart">
+                {historyChartData && (
+                  <Bar
+                    data={historyChartData}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: { legend: { display: false } },
+                      scales: {
+                        y: {
+                          beginAtZero: true,
+                          grid: { color: 'rgba(255,255,255,0.1)' },
+                          ticks: { color: 'rgba(255,255,255,0.7)', font: { size: 10 } }
+                        },
+                        x: {
+                          grid: { display: false },
+                          ticks: { color: 'rgba(255,255,255,0.7)', font: { size: 10 } }
+                        }
+                      }
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section Analyse Mensuelle */}
+        <section className="dash-section">
+          <div className="dash-section__header">
+            <h3 className="dash-section__title">Analyse Mensuelle</h3>
+            <span className="dash-section__info">Problèmes ayant au moins une occurrence dans les 3 derniers mois</span>
           </div>
 
-          <div className="today-history">
-            <h3>Volume des 15 derniers jours</h3>
-            <div className="history-chart-container">
-              {historyChartData && (
+          {/* Contrôles */}
+          <div className="dash-controls">
+            <div className="dash-controls__header">
+              <h4>Sélectionner les problèmes (classés par récurrence)</h4>
+              <div className="dash-controls__actions">
+                <button className="btn btn--secondary" onClick={() => selectTop(5)}>Top 5</button>
+                <button className="btn btn--secondary" onClick={() => selectTop(10)}>Top 10</button>
+                <button className="btn btn--secondary" onClick={selectAll}>Tout</button>
+                <button className="btn btn--secondary" onClick={selectNone}>Aucun</button>
+              </div>
+            </div>
+            <div className="dash-checkbox-grid">
+              {sortedProblems.map((problem, index) => (
+                <div
+                  key={problem.name}
+                  className={`dash-checkbox ${selectedProblems.includes(problem.name) ? 'dash-checkbox--checked' : ''}`}
+                  onClick={() => toggleProblem(problem.name)}
+                >
+                  <span
+                    className="dash-checkbox__dot"
+                    style={{ background: COLORS[index % COLORS.length] }}
+                  />
+                  <input
+                    type="checkbox"
+                    checked={selectedProblems.includes(problem.name)}
+                    onChange={() => toggleProblem(problem.name)}
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                  <label>{problem.name}</label>
+                  <span className="dash-checkbox__badge">{problem.total}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Graphique d'évolution */}
+          <div className="dash-chart">
+            <div className="dash-chart__wrapper">
+              {evolutionChartData && (
                 <Bar
-                  data={historyChartData}
+                  data={evolutionChartData}
                   options={{
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                      legend: {
+                        position: 'top',
+                        labels: { usePointStyle: true, padding: 15, font: { size: 11, family: 'Rubik' } }
+                      },
+                      title: {
+                        display: true,
+                        text: 'Évolution des problèmes par mois',
+                        font: { size: 14, family: 'Rubik', weight: '600' },
+                        color: '#000'
+                      }
+                    },
                     scales: {
                       y: {
                         beginAtZero: true,
-                        grid: { color: 'rgba(255,255,255,0.1)' },
-                        ticks: { color: 'rgba(255,255,255,0.7)', font: { size: 10 } }
+                        title: { display: true, text: 'Nombre de tickets', font: { family: 'Rubik' } },
+                        grid: { color: 'rgba(0,0,0,0.06)' }
                       },
                       x: {
-                        grid: { display: false },
-                        ticks: { color: 'rgba(255,255,255,0.7)', font: { size: 10 } }
+                        title: { display: true, text: 'Période', font: { family: 'Rubik' } },
+                        grid: { display: false }
                       }
                     }
                   }}
@@ -268,133 +361,65 @@ function Dashboard() {
               )}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section Analyse Mensuelle */}
-      <h3 className="section-title">Analyse Mensuelle</h3>
-      <div className="filter-info">Problèmes ayant au moins une occurrence dans les 3 derniers mois</div>
-
-      {/* Contrôles */}
-      <div className="controls">
-        <div className="controls-header">
-          <h3>Sélectionner les problèmes (classés par récurrence)</h3>
-          <div className="controls-actions">
-            <button onClick={() => selectTop(5)}>Top 5</button>
-            <button onClick={() => selectTop(10)}>Top 10</button>
-            <button onClick={selectAll}>Tout</button>
-            <button onClick={selectNone}>Aucun</button>
-          </div>
-        </div>
-        <div className="checkbox-grid">
-          {sortedProblems.map((problem, index) => (
-            <div
-              key={problem.name}
-              className={`checkbox-item ${selectedProblems.includes(problem.name) ? 'checked' : ''}`}
-              onClick={() => toggleProblem(problem.name)}
-            >
-              <span
-                className="color-dot"
-                style={{ background: COLORS[index % COLORS.length] }}
-              />
-              <input
-                type="checkbox"
-                checked={selectedProblems.includes(problem.name)}
-                onChange={() => toggleProblem(problem.name)}
-                onClick={(e) => e.stopPropagation()}
-              />
-              <label>{problem.name}</label>
-              <span className="occurrence-badge">{problem.total}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Graphique d'évolution */}
-      <div className="chart-container">
-        <div className="chart-wrapper">
-          {evolutionChartData && (
-            <Bar
-              data={evolutionChartData}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                  legend: {
-                    position: 'top',
-                    labels: { usePointStyle: true, padding: 15, font: { size: 11 } }
-                  },
-                  title: {
-                    display: true,
-                    text: 'Évolution des problèmes par mois',
-                    font: { size: 16 }
-                  }
-                },
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Nombre de tickets' }
-                  },
-                  x: {
-                    title: { display: true, text: 'Période' }
-                  }
-                }
-              }}
-            />
-          )}
-        </div>
-      </div>
-
-      {/* Tableau récapitulatif */}
-      <div className="table-container">
-        <h3>Tableau récapitulatif</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Problème</th>
-              {data?.months?.map((m, i) => <th key={i}>{m}</th>)}
-              <th>Total</th>
-              <th>Tendance</th>
-            </tr>
-          </thead>
-          <tbody>
-            {selectedProblems.length === 0 ? (
-              <tr>
-                <td colSpan={data?.months?.length + 3} className="no-data">
-                  Sélectionnez des problèmes
-                </td>
-              </tr>
-            ) : (
-              selectedProblems
-                .sort((a, b) => {
-                  const idxA = sortedProblems.findIndex(p => p.name === a)
-                  const idxB = sortedProblems.findIndex(p => p.name === b)
-                  return idxA - idxB
-                })
-                .map(problem => {
-                  const values = data.monthlyData[problem]
-                  const total = values.reduce((a, b) => a + b, 0)
-                  const trend = getTrend(values)
-                  const idx = sortedProblems.findIndex(p => p.name === problem)
-
-                  return (
-                    <tr key={problem}>
-                      <td>
-                        <span
-                          className="table-color-dot"
-                          style={{ background: COLORS[idx % COLORS.length] }}
-                        />
-                        {problem}
+          {/* Tableau récapitulatif */}
+          <div className="dash-table">
+            <h4>Tableau récapitulatif</h4>
+            <div className="dash-table__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Problème</th>
+                    {data?.months?.map((m, i) => <th key={i}>{m}</th>)}
+                    <th>Total</th>
+                    <th>Tendance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {selectedProblems.length === 0 ? (
+                    <tr>
+                      <td colSpan={data?.months?.length + 3} className="dash-table__empty">
+                        Sélectionnez des problèmes
                       </td>
-                      {values.map((v, i) => <td key={i}>{v || '-'}</td>)}
-                      <td><strong>{total}</strong></td>
-                      <td className={trend.className}>{trend.icon} {trend.text}</td>
                     </tr>
-                  )
-                })
-            )}
-          </tbody>
-        </table>
+                  ) : (
+                    selectedProblems
+                      .sort((a, b) => {
+                        const idxA = sortedProblems.findIndex(p => p.name === a)
+                        const idxB = sortedProblems.findIndex(p => p.name === b)
+                        return idxA - idxB
+                      })
+                      .map(problem => {
+                        const values = data.monthlyData[problem]
+                        const total = values.reduce((a, b) => a + b, 0)
+                        const trend = getTrend(values)
+                        const idx = sortedProblems.findIndex(p => p.name === problem)
+
+                        return (
+                          <tr key={problem}>
+                            <td>
+                              <span
+                                className="dash-table__dot"
+                                style={{ background: COLORS[idx % COLORS.length] }}
+                              />
+                              {problem}
+                            </td>
+                            {values.map((v, i) => <td key={i}>{v || '-'}</td>)}
+                            <td><strong>{total}</strong></td>
+                            <td className={trend.className}>{trend.icon} {trend.text}</td>
+                          </tr>
+                        )
+                      })
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className="dash-footer">
+        Dernière mise à jour : {data?.lastUpdate}
       </div>
     </div>
   )
