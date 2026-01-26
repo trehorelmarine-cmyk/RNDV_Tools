@@ -6,6 +6,7 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/spectacles/' : '/',
   server: {
     port: 5175,
+    strictPort: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3003',
