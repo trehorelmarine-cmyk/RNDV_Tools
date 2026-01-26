@@ -13,13 +13,6 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 const APPS = [
   {
-    name: 'Dashboard Support',
-    description: 'Analyse des incidents billetterie depuis Google Sheets',
-    icon: '📊',
-    url: isDev ? 'http://localhost:5173' : '/dashboard',
-    color: '#1a73e8',
-  },
-  {
     name: 'Roadmap',
     description: 'Roadmap projet avec integration ClickUp',
     icon: '🗺️',
@@ -32,6 +25,13 @@ const APPS = [
     icon: '🎭',
     url: isDev ? 'http://localhost:5175' : '/spectacles',
     color: '#EA4335',
+  },
+  {
+    name: 'Dashboard Support',
+    description: 'Analyse des incidents billetterie depuis Google Sheets',
+    icon: '📊',
+    url: isDev ? 'http://localhost:5173' : '/dashboard',
+    color: '#1a73e8',
   },
 ]
 
