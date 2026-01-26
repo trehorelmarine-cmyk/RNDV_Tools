@@ -1,0 +1,30 @@
+{
+  "name": "rndv-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*/client",
+    "apps/*/server",
+    "apps/gateway"
+  ],
+  "scripts": {
+    "dev": "concurrently -n gateway,dash-srv,dash-cli,road-srv,road-cli,spec-srv,spec-cli -c blue,green,cyan,yellow,magenta,red,white \"npm run dev:gateway\" \"npm run dev:dashboard:server\" \"npm run dev:dashboard:client\" \"npm run dev:roadmap:server\" \"npm run dev:roadmap:client\" \"npm run dev:spectacles:server\" \"npm run dev:spectacles:client\"",
+    "dev:gateway": "cd apps/gateway && node --watch --env-file=../../.env server/index.js",
+    "dev:dashboard:server": "cd apps/dashboard/server && node --watch --env-file=../../../.env src/index.js",
+    "dev:dashboard:client": "cd apps/dashboard/client && npx vite",
+    "dev:roadmap:server": "cd apps/roadmap/server && node --watch --env-file=../../../.env src/index.js",
+    "dev:roadmap:client": "cd apps/roadmap/client && npx vite",
+    "dev:spectacles:server": "cd apps/spectacles/server && node --watch --env-file=../../../.env src/index.js",
+    "dev:spectacles:client": "cd apps/spectacles/client && npx vite",
+    "install:all": "npm install",
+    "db:start": "docker-compose up -d",
+    "db:stop": "docker-compose down",
+    "db:reset": "docker-compose down -v && docker-compose up -d",
+    "build:shared": "cd packages/shared && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

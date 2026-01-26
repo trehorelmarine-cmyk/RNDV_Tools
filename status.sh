@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================
-# RNDV Server - Script de statut
+# RNDV Tools - Script de statut
 # ============================================
 
 # Couleurs
@@ -20,114 +20,100 @@ WARN="${YELLOW}⚠${NC}"
 
 # Chemin du projet
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SERVER_DIR="$PROJECT_DIR/server"
 
 # Charger les variables d'environnement
-if [ -f "$SERVER_DIR/.env" ]; then
-    export $(grep -v '^#' "$SERVER_DIR/.env" | xargs)
+if [ -f "$PROJECT_DIR/.env" ]; then
+    export $(grep -v '^#' "$PROJECT_DIR/.env" | xargs)
 fi
 
-PORT=${PORT:-3000}
-BASE_URL="http://localhost:$PORT"
+# Ports
+GATEWAY_PORT=${GATEWAY_PORT:-3005}
+DASHBOARD_PORT=${DASHBOARD_PORT:-3001}
+ROADMAP_PORT=${ROADMAP_PORT:-3002}
+SPECTACLES_PORT=${SPECTACLES_PORT:-3003}
+DASHBOARD_CLIENT_PORT=${DASHBOARD_CLIENT_PORT:-5173}
+ROADMAP_CLIENT_PORT=${ROADMAP_CLIENT_PORT:-5174}
+SPECTACLES_CLIENT_PORT=${SPECTACLES_CLIENT_PORT:-5175}
 
-# Fonction pour vérifier un endpoint
-check_endpoint() {
-    local url=$1
+# Compteurs
+RUNNING=0
+STOPPED=0
+
+# Fonction pour vérifier un port
+check_service() {
+    local port=$1
     local name=$2
-    local response=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 2 "$url" 2>/dev/null)
+    local url=$3
+    local PID=$(lsof -t -i :$port 2>/dev/null)
 
-    if [ "$response" = "200" ]; then
+    if [ -n "$PID" ]; then
         echo -e "  $CHECK ${GREEN}$name${NC}"
-        echo -e "     ${WHITE}$url${NC}"
-        return 0
+        echo -e "     Port: ${WHITE}$port${NC}  PID: ${WHITE}$PID${NC}"
+        if [ -n "$url" ]; then
+            echo -e "     ${WHITE}$url${NC}"
+        fi
+        RUNNING=$((RUNNING + 1))
     else
-        echo -e "  $CROSS ${RED}$name${NC} (HTTP $response)"
-        echo -e "     ${WHITE}$url${NC}"
-        return 1
+        echo -e "  $CROSS ${RED}$name${NC}"
+        echo -e "     Port: ${WHITE}$port${NC}  ${RED}Arrêté${NC}"
+        STOPPED=$((STOPPED + 1))
     fi
 }
 
-# Fonction pour vérifier l'API health
-check_health() {
-    local response=$(curl -s --connect-timeout 2 "$BASE_URL/api/health" 2>/dev/null)
-
-    if [ -z "$response" ]; then
-        return 1
-    fi
-
-    # Parser le JSON avec grep/sed basique
-    local status=$(echo "$response" | grep -o '"status":"[^"]*"' | cut -d'"' -f4)
-    local db=$(echo "$response" | grep -o '"database":"[^"]*"' | cut -d'"' -f4)
-
-    if [ "$status" = "ok" ] && [ "$db" = "connected" ]; then
-        return 0
+# Fonction pour vérifier PostgreSQL
+check_postgres() {
+    if docker ps --format '{{.Names}}' 2>/dev/null | grep -q postgres; then
+        echo -e "  $CHECK ${GREEN}PostgreSQL${NC} (Docker)"
+    elif pg_isready -q 2>/dev/null; then
+        echo -e "  $CHECK ${GREEN}PostgreSQL${NC} (local)"
     else
-        return 1
+        echo -e "  $CROSS ${RED}PostgreSQL${NC}"
+        STOPPED=$((STOPPED + 1))
     fi
 }
 
 # Affichage
-clear
 echo ""
 echo -e "${BLUE}╔═══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║${NC}${WHITE}                 RNDV Server - Status                           ${NC}${BLUE}║${NC}"
+echo -e "${BLUE}║${NC}${WHITE}                  RNDV Tools - Status                           ${NC}${BLUE}║${NC}"
 echo -e "${BLUE}╚═══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-# Vérifier si le serveur tourne
-PID=$(lsof -t -i :$PORT 2>/dev/null)
-
-if [ -z "$PID" ]; then
-    echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${RED}║${NC}  $CROSS ${RED}SERVEUR ARRÊTÉ${NC}                                            ${RED}║${NC}"
-    echo -e "${RED}║${NC}                                                                 ${RED}║${NC}"
-    echo -e "${RED}║${NC}  Démarrez le serveur avec: ${WHITE}./start.sh${NC}                         ${RED}║${NC}"
-    echo -e "${RED}╚═══════════════════════════════════════════════════════════════╝${NC}"
-    echo ""
-    exit 1
-fi
-
-echo -e "${CYAN}SERVEUR${NC}"
-echo -e "  $CHECK ${GREEN}En cours d'exécution${NC}"
-echo -e "     Port: ${WHITE}$PORT${NC}"
-echo -e "     PID:  ${WHITE}$PID${NC}"
+# Base de données
+echo -e "${CYAN}BASE DE DONNÉES${NC}"
+check_postgres
 echo ""
 
-# Vérifier la santé de l'API
-echo -e "${CYAN}API HEALTH${NC}"
-if check_health; then
-    echo -e "  $CHECK ${GREEN}API fonctionnelle${NC}"
-    echo -e "  $CHECK ${GREEN}Base de données connectée${NC}"
-else
-    echo -e "  $CROSS ${RED}API non disponible ou base de données déconnectée${NC}"
-fi
+# Serveurs backend
+echo -e "${CYAN}SERVEURS BACKEND${NC}"
+check_service $GATEWAY_PORT "Gateway" "http://localhost:$GATEWAY_PORT"
+check_service $DASHBOARD_PORT "Dashboard Server" "http://localhost:$DASHBOARD_PORT"
+check_service $ROADMAP_PORT "Roadmap Server" "http://localhost:$ROADMAP_PORT"
+check_service $SPECTACLES_PORT "Spectacles Server" "http://localhost:$SPECTACLES_PORT"
 echo ""
 
-# Vérifier les applications
-echo -e "${CYAN}APPLICATIONS${NC}"
-echo ""
-
-echo -e "  ${YELLOW}Roadmap Planning${NC}"
-check_endpoint "$BASE_URL/roadmap/roadmap.html" "Page principale"
-echo ""
-
-echo -e "  ${YELLOW}Analyse Demandes RNDV${NC}"
-check_endpoint "$BASE_URL/analyse/rapport_evolution.html" "Page principale"
-echo ""
-
-# Vérifier les endpoints API
-echo -e "${CYAN}API ENDPOINTS${NC}"
-echo ""
-check_endpoint "$BASE_URL/api/health" "Health Check"
-check_endpoint "$BASE_URL/api/tasks" "Liste des tâches"
-check_endpoint "$BASE_URL/api/milestones" "Liste des jalons"
+# Clients frontend
+echo -e "${CYAN}CLIENTS FRONTEND (Vite)${NC}"
+check_service $DASHBOARD_CLIENT_PORT "Dashboard Client" "http://localhost:$DASHBOARD_CLIENT_PORT"
+check_service $ROADMAP_CLIENT_PORT "Roadmap Client" "http://localhost:$ROADMAP_CLIENT_PORT"
+check_service $SPECTACLES_CLIENT_PORT "Spectacles Client" "http://localhost:$SPECTACLES_CLIENT_PORT"
 echo ""
 
 # Résumé
+TOTAL=$((RUNNING + STOPPED))
 echo -e "${BLUE}═══════════════════════════════════════════════════════════════${NC}"
-echo -e "${CYAN}COMMANDES DISPONIBLES${NC}"
-echo -e "  ${WHITE}./start.sh${NC}   - Démarrer le serveur"
-echo -e "  ${WHITE}./stop.sh${NC}    - Arrêter le serveur"
-echo -e "  ${WHITE}./status.sh${NC}  - Afficher ce statut"
-echo -e "  ${WHITE}tail -f server/server.log${NC} - Voir les logs"
+if [ "$STOPPED" -eq 0 ]; then
+    echo -e "  ${GREEN}✓ $RUNNING/$TOTAL services actifs${NC}"
+elif [ "$RUNNING" -eq 0 ]; then
+    echo -e "  ${RED}✗ Aucun service actif${NC}"
+    echo -e "  Démarrez avec: ${WHITE}./start.sh${NC}"
+else
+    echo -e "  ${YELLOW}⚠ $RUNNING/$TOTAL services actifs ($STOPPED arrêté(s))${NC}"
+fi
+echo ""
+echo -e "${CYAN}COMMANDES${NC}"
+echo -e "  ${WHITE}./start.sh${NC}          - Démarrer tous les services"
+echo -e "  ${WHITE}./stop.sh${NC}           - Arrêter tous les services"
+echo -e "  ${WHITE}./stop.sh --all${NC}     - Arrêter services + PostgreSQL"
+echo -e "  ${WHITE}tail -f .logs/dev.log${NC} - Voir les logs"
 echo ""

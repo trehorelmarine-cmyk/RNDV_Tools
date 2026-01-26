@@ -1,0 +1,12 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY apps/spectacles/server/package.json ./
+RUN npm install --production
+
+COPY apps/spectacles/server/src ./src
+
+EXPOSE 3003
+
+CMD ["node", "src/index.js"]

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration Google Sheets - Teams Exporter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #eee;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #667eea;
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+
+    h2 {
+      color: #888;
+      margin: 32px 0 16px 0;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .step {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .step-content {
+      margin-left: 44px;
+      color: #aaa;
+    }
+
+    code {
+      background: #252542;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 13px;
+      color: #667eea;
+    }
+
+    pre {
+      background: #252542;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 12px;
+    }
+
+    .warning {
+      background: #3d2e1f;
+      border-left: 4px solid #f59e0b;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .success {
+      background: #1a3d2e;
+      border-left: 4px solid #059669;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    a {
+      color: #667eea;
+    }
+
+    .copy-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .copy-btn:hover {
+      background: #5a6fd6;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Configuration Google Sheets</h1>
+
+    <p>Pour exporter directement vos conversations Teams vers Google Sheets, vous devez configurer un script Google Apps. Suivez ces etapes :</p>
+
+    <h2>Etape 1 : Ouvrir votre Google Sheet</h2>
+    <div class="step">
+      <div class="step-title"><span class="step-number">1</span>Ouvrir la feuille de calcul</div>
+      <div class="step-content">
+        Ouvrez votre Google Sheet : <br>
+        <a href="https://docs.google.com/spreadsheets/d/1PyHVc6MWJlPs61mt8CdnWLaxyth47EUk3Z9cIQj6EY0/edit" target="_blank">
+          https://docs.google.com/spreadsheets/d/1PyHVc6MWJlPs61mt8CdnWLaxyth47EUk3Z9cIQj6EY0/edit
+        </a>
+      </div>
+    </div>
+
+    <h2>Etape 2 : Creer le script Apps Script</h2>
+    <div class="step">
+      <div class="step-title"><span class="step-number">2</span>Ouvrir l'editeur de scripts</div>
+      <div class="step-content">
+        Dans le menu, cliquez sur <code>Extensions</code> > <code>Apps Script</code>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">3</span>Coller le code</div>
+      <div class="step-content">
+        Supprimez le code existant et collez le code suivant :
+        <pre id="scriptCode">function doPost(e) {
+  try {
+    const data = JSON.parse(e.postData.contents);
+    const messages = data.messages;
+
+    if (!messages || !Array.isArray(messages)) {
+      return ContentService.createTextOutput(JSON.stringify({
+        success: false,
+        error: 'Invalid data format'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    sheet.clear();
+
+    // Add headers
+    sheet.getRange(1, 1, 1, 4).setValues([['Date', 'Heure', 'Auteur', 'Message']]);
+    const headerRange = sheet.getRange(1, 1, 1, 4);
+    headerRange.setFontWeight('bold');
+    headerRange.setBackground('#667eea');
+    headerRange.setFontColor('#ffffff');
+
+    // Add data
+    if (messages.length > 0) {
+      const rows = messages.map(msg => [
+        msg.date || '',
+        msg.time || '',
+        msg.author || '',
+        msg.content || ''
+      ]);
+      sheet.getRange(2, 1, rows.length, 4).setValues(rows);
+    }
+
+    sheet.autoResizeColumns(1, 4);
+    sheet.getRange(2, 4, Math.max(1, messages.length), 1).setWrap(true);
+    sheet.setColumnWidth(4, 500);
+
+    return ContentService.createTextOutput(JSON.stringify({
+      success: true,
+      rowsAdded: messages.length
+    })).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      success: false,
+      error: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({
+    status: 'ok',
+    message: 'Teams Exporter API ready'
+  })).setMimeType(ContentService.MimeType.JSON);
+}</pre>
+        <button class="copy-btn" onclick="copyCode()">Copier le code</button>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">4</span>Sauvegarder</div>
+      <div class="step-content">
+        Appuyez sur <code>Ctrl+S</code> (ou <code>Cmd+S</code> sur Mac) pour sauvegarder.
+      </div>
+    </div>
+
+    <h2>Etape 3 : Deployer le script</h2>
+    <div class="step">
+      <div class="step-title"><span class="step-number">5</span>Nouveau deploiement</div>
+      <div class="step-content">
+        Cliquez sur <code>Deployer</code> > <code>Nouveau deploiement</code>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">6</span>Configurer le deploiement</div>
+      <div class="step-content">
+        <ul>
+          <li>Type : <code>Application Web</code></li>
+          <li>Executer en tant que : <code>Moi</code></li>
+          <li>Qui peut acceder : <code>Tout le monde</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">7</span>Copier l'URL</div>
+      <div class="step-content">
+        Apres le deploiement, copiez l'URL fournie. Elle ressemble a :<br>
+        <code>https://script.google.com/macros/s/AKfycbx.../exec</code>
+      </div>
+    </div>
+
+    <h2>Etape 4 : Utiliser dans l'extension</h2>
+    <div class="step">
+      <div class="step-title"><span class="step-number">8</span>Configurer l'extension</div>
+      <div class="step-content">
+        <ol>
+          <li>Ouvrez Teams sur la conversation souhaitee</li>
+          <li>Cliquez sur l'icone de l'extension</li>
+          <li>Selectionnez <code>Google Sheets</code></li>
+          <li>Collez l'URL du script</li>
+          <li>Cliquez sur <code>Exporter</code></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="success">
+      <strong>C'est tout !</strong> Vos messages Teams seront maintenant exportes directement dans votre Google Sheet.
+    </div>
+
+    <div class="warning">
+      <strong>Note :</strong> Si vous modifiez le script, vous devez creer un nouveau deploiement pour que les changements soient pris en compte.
+    </div>
+  </div>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById('scriptCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copie !';
+        setTimeout(() => {
+          btn.textContent = 'Copier le code';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

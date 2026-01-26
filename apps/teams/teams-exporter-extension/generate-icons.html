@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Icons</title>
+</head>
+<body>
+  <h1>Generateur d'icones</h1>
+  <p>Cliquez sur les boutons pour telecharger les icones:</p>
+  <button onclick="downloadIcon(16)">Download icon16.png</button>
+  <button onclick="downloadIcon(48)">Download icon48.png</button>
+  <button onclick="downloadIcon(128)">Download icon128.png</button>
+  <br><br>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    function downloadIcon(size) {
+      const canvas = document.getElementById('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // Create gradient background
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#667eea');
+      gradient.addColorStop(1, '#764ba2');
+
+      // Draw rounded rectangle
+      const radius = size * 0.2;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      // Draw lines (message icon)
+      ctx.strokeStyle = 'white';
+      ctx.lineCap = 'round';
+      ctx.lineWidth = size * 0.06;
+
+      const padding = size * 0.25;
+      const lineHeight = size * 0.15;
+
+      ctx.beginPath();
+      ctx.moveTo(padding, padding);
+      ctx.lineTo(size - padding, padding);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(padding, padding + lineHeight);
+      ctx.lineTo(size - padding, padding + lineHeight);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(padding, padding + lineHeight * 2);
+      ctx.lineTo(size - padding * 1.5, padding + lineHeight * 2);
+      ctx.stroke();
+
+      // Draw arrow
+      const arrowX = size * 0.7;
+      const arrowY = size * 0.65;
+      const arrowSize = size * 0.15;
+
+      ctx.beginPath();
+      ctx.moveTo(arrowX, arrowY);
+      ctx.lineTo(arrowX + arrowSize, arrowY + arrowSize);
+      ctx.lineTo(arrowX, arrowY + arrowSize * 2);
+      ctx.stroke();
+
+      // Download
+      const link = document.createElement('a');
+      link.download = `icon${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+</html>

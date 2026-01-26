@@ -1,14 +1,15 @@
-.DS_Store
-
-# Node.js
+# Dependencies
 node_modules/
-npm-debug.log*
+package-lock.json
 
-# Environment variables
+# Build
+dist/
+build/
+
+# Environment
 .env
 .env.prod
 .deploy.env
-*.env.local
 
 # IDE
 .idea/
@@ -16,5 +17,14 @@ npm-debug.log*
 *.swp
 *.swo
 
+# OS
+.DS_Store
+Thumbs.db
+
 # Logs
-server/server.log
+*.log
+npm-debug.log*
+.logs/
+
+# Docker volumes
+postgres_data/
