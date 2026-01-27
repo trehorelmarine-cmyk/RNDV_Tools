@@ -1,0 +1,30 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to production server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          command_timeout: 30m
+          script: |
+            cd /opt/apps/rndv
+            echo "Pulling latest code..."
+            git pull origin main
+            echo "Building Docker images..."
+            docker compose -f docker-compose.prod.yml --env-file .env.prod build
+            echo "Restarting services..."
+            docker compose -f docker-compose.prod.yml --env-file .env.prod up -d
+            echo "Deployment complete!"
+            docker compose -f docker-compose.prod.yml --env-file .env.prod ps
