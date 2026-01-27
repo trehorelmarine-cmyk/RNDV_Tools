@@ -181,6 +181,8 @@ function transformTask(task) {
     delivered: isDeliveryMaintained,
     priority: task.priority?.priority === 'urgent',
     clickupUrl: task.url,
+    dueDate: task.due_date ? parseInt(task.due_date) : null,
+    status: task.status?.status?.toLowerCase() || '',
     // Types spéciaux
     isEvenement: isEvenement,
     isMilestone: isMilestone,
@@ -205,8 +207,8 @@ function tasksOverlapOrTooClose(task1, task2) {
 function placeTasks(tasks, taskHeight) {
   if (tasks.length === 0) return { tasks: [], rowHeight: 60 }
 
-  // Trier par date de début
-  const sortedTasks = [...tasks].sort((a, b) => a.left - b.left)
+  // Trier par date de fin (la plus lointaine en dernier)
+  const sortedTasks = [...tasks].sort((a, b) => (a.left + a.width) - (b.left + b.width))
 
   // Liste des tâches déjà placées avec leurs positions
   const placedTasks = []
@@ -345,8 +347,21 @@ function assignMilestoneLevels(milestones, todayPosition = null) {
  * Récupère toutes les tâches du dossier Roadmap
  */
 export async function fetchAllTasks() {
-  // Liste des IDs de listes à récupérer
-  const listIds = Object.keys(LIST_TO_CATEGORY)
+  // Récupérer les listes du dossier dans l'ordre ClickUp
+  const folderLists = await fetchFolderLists()
+
+  // Construire les catégories ordonnées depuis ClickUp
+  const orderedCategories = folderLists
+    .filter(list => LIST_TO_CATEGORY[list.id])
+    .map(list => ({
+      id: LIST_TO_CATEGORY[list.id],
+      name: list.name.toUpperCase()
+    }))
+
+  // Liste des IDs de listes à récupérer (dans l'ordre ClickUp)
+  const listIds = orderedCategories.map(cat => {
+    return Object.entries(LIST_TO_CATEGORY).find(([, v]) => v === cat.id)?.[0]
+  }).filter(Boolean)
 
   // Récupérer les tâches de chaque liste en parallèle
   const tasksPromises = listIds.map(listId => fetchListTasks(listId))
@@ -384,7 +399,7 @@ export async function fetchAllTasks() {
             row: category,
             endDate: `${day}/${month}/${year}`,
             endTimestamp: parseInt(task.due_date),
-            isPast: true
+            status: task.status?.status?.toLowerCase() || ''
           })
           return
         }
@@ -465,8 +480,7 @@ export async function fetchAllTasks() {
   }
 
   // S'assurer que toutes les catégories ont une hauteur minimum
-  const ALL_CATEGORIES = ['pac', 'rapports', 'vente', 'billetterie', 'pmo', 'commercialisation']
-  for (const cat of ALL_CATEGORIES) {
+  for (const cat of orderedCategories.map(c => c.id)) {
     if (!categoryHeights[cat]) {
       categoryHeights[cat] = cat === 'commercialisation' && sortedEvenements.length > 0
         ? eventsHeight + 60
@@ -516,6 +530,7 @@ export async function fetchAllTasks() {
     milestones: milestonesWithLevels,
     evenements: sortedEvenements,
     pastDeliveries: sortedPastDeliveries,
+    categories: orderedCategories,
     categoryHeights,
     taskHeight: uniformTaskHeight,
     todayPosition,

@@ -1,20 +1,38 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Spectacles.css'
 
 const API_URL = import.meta.env.VITE_API_URL || ''
+const SIDEBAR_WIDTH = 220
 
 function Spectacles() {
   const [shows, setShows] = useState([])
   const [months, setMonths] = useState([])
   const [todayPosition, setTodayPosition] = useState(null)
-  const [monthWidth, setMonthWidth] = useState(150)
+  const [baseMonthWidth, setBaseMonthWidth] = useState(150)
+  const [displayMonthWidth, setDisplayMonthWidth] = useState(150)
   const [venueColors, setVenueColors] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [venueFilter, setVenueFilter] = useState('all')
+  const timelineRef = useRef(null)
 
   useEffect(() => {
     fetchSpectacles()
   }, [])
+
+  // Adapter la largeur des mois à l'écran
+  useEffect(() => {
+    if (!months.length || isLoading) return
+
+    const calculateWidth = () => {
+      const availableWidth = window.innerWidth - SIDEBAR_WIDTH
+      const calculated = Math.floor(availableWidth / months.length)
+      setDisplayMonthWidth(Math.max(calculated, baseMonthWidth))
+    }
+
+    calculateWidth()
+    window.addEventListener('resize', calculateWidth)
+    return () => window.removeEventListener('resize', calculateWidth)
+  }, [months, baseMonthWidth, isLoading])
 
   const fetchSpectacles = async () => {
     setIsLoading(true)
@@ -25,7 +43,7 @@ function Spectacles() {
       setShows(data.shows)
       setMonths(data.months)
       setTodayPosition(data.todayPosition)
-      setMonthWidth(data.monthWidth)
+      setBaseMonthWidth(data.monthWidth)
       setVenueColors(data.venueColors)
     } catch (error) {
       console.error('Erreur chargement spectacles:', error)
@@ -45,7 +63,8 @@ function Spectacles() {
     )
   }
 
-  const totalWidth = months.length * monthWidth
+  const scale = displayMonthWidth / baseMonthWidth
+  const totalWidth = months.length * displayMonthWidth
 
   // Venues uniques (ordre d'apparition)
   const uniqueVenues = [...new Set(shows.map(s => s.venue))]
@@ -103,7 +122,7 @@ function Spectacles() {
           </aside>
 
           {/* Gantt Area */}
-          <div className="spectacles-gantt" style={{ width: totalWidth }}>
+          <div className="spectacles-gantt" ref={timelineRef} style={{ width: totalWidth }}>
             {/* Header */}
             <div className="spectacles-gantt__header">
               {/* Today label row */}
@@ -112,13 +131,13 @@ function Spectacles() {
                   <>
                     <div
                       className="spectacles-today__label"
-                      style={{ left: todayPosition }}
+                      style={{ left: todayPosition * scale }}
                     >
                       Aujourd'hui
                     </div>
                     <div
                       className="spectacles-today__connector"
-                      style={{ left: todayPosition }}
+                      style={{ left: todayPosition * scale }}
                     />
                   </>
                 )}
@@ -127,7 +146,7 @@ function Spectacles() {
               {/* Months row */}
               <div className="spectacles-months-row">
                 {months.map((month, index) => (
-                  <div key={index} className="spectacles-month" style={{ width: monthWidth }}>
+                  <div key={index} className="spectacles-month" style={{ width: displayMonthWidth }}>
                     {month.name} {month.year}
                   </div>
                 ))}
@@ -140,7 +159,7 @@ function Spectacles() {
               {todayPosition !== null && (
                 <div
                   className="spectacles-today__line"
-                  style={{ left: todayPosition }}
+                  style={{ left: todayPosition * scale }}
                 />
               )}
 
@@ -149,15 +168,15 @@ function Spectacles() {
                 <div key={show.id} className="spectacles-row">
                   {/* Grid cells */}
                   {months.map((_, idx) => (
-                    <div key={idx} className="spectacles-cell" style={{ width: monthWidth }} />
+                    <div key={idx} className="spectacles-cell" style={{ width: displayMonthWidth }} />
                   ))}
 
                   {/* Show bar */}
                   <div
                     className="spectacles-bar"
                     style={{
-                      left: show.left,
-                      width: show.width,
+                      left: show.left * scale,
+                      width: show.width * scale,
                       backgroundColor: show.color
                     }}
                   >

@@ -15,7 +15,7 @@ const DEFAULT_MONTHS = [
   { name: 'DEC', year: 2025 }
 ]
 
-const CATEGORIES = [
+const DEFAULT_CATEGORIES = [
   { id: 'pac', name: 'PAC' },
   { id: 'rapports', name: 'RAPPORTS' },
   { id: 'vente', name: 'VENTE' },
@@ -77,6 +77,7 @@ function Roadmap() {
   const [milestones, setMilestones] = useState([])
   const [evenements, setEvenements] = useState([])
   const [pastDeliveries, setPastDeliveries] = useState([]) // Livraisons avant décembre 2025
+  const [categories, setCategories] = useState(DEFAULT_CATEGORIES)
   const [categoryHeights, setCategoryHeights] = useState(DEFAULT_CATEGORY_HEIGHTS)
   const [taskHeight, setTaskHeight] = useState(32)
   const [todayPosition, setTodayPosition] = useState(getTodayPosition())
@@ -203,6 +204,7 @@ function Roadmap() {
     .filter(e => e.left >= filterStartPosition && e.left < filterEndPosition)
     .map(e => periodFilter === 'all' ? e : { ...e, left: scalePosition(e.left) })
 
+
   // Calculer les mois à afficher
   const filteredMonths = periodFilter === 'all'
     ? months
@@ -246,6 +248,7 @@ function Roadmap() {
       setMilestones(data.milestones || [])
       setEvenements(data.evenements || [])
       setPastDeliveries(data.pastDeliveries || [])
+      setCategories(data.categories || DEFAULT_CATEGORIES)
       setCategoryHeights(data.categoryHeights || DEFAULT_CATEGORY_HEIGHTS)
       setTaskHeight(data.taskHeight || 32)
       setTodayPosition(data.todayPosition || getTodayPosition())
@@ -434,7 +437,7 @@ function Roadmap() {
           {/* Categories Sidebar */}
           <aside className="categories-sidebar">
             <div className="category-header-space"></div>
-            {CATEGORIES.map(cat => (
+            {categories.map(cat => (
               <div
                 key={cat.id}
                 className={`category category--${cat.id}`}
@@ -538,7 +541,7 @@ function Roadmap() {
               </div>
 
               {/* Rows */}
-              {CATEGORIES.map(cat => (
+              {categories.map(cat => (
                 <div
                   key={cat.id}
                   className="gantt-row"
@@ -634,19 +637,32 @@ function Roadmap() {
         <section className="delivery-summary">
           <h2 className="delivery-summary__title">Récapitulatif des dates de livraison</h2>
           <div className="delivery-summary__sections">
-            {CATEGORIES.map(cat => {
+            {categories.map(cat => {
+              const isDone = (status) => ['en production', 'achevé'].includes(status)
+
               // Tâches du planning (après décembre 2025)
-              const planningTasks = filteredTasks
+              const planningTasks = tasks
                 .filter(task => task.row === cat.id)
                 .map(task => {
-                  // Utiliser les positions originales (non clippées) pour les dates
-                  const originalEndPosition = (task.originalLeft ?? task.left) + (task.originalWidth ?? task.width)
+                  // Utiliser la date de fin ClickUp directement
+                  if (task.dueDate) {
+                    const date = new Date(task.dueDate)
+                    const MONTH_NAMES = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+                    const dayStr = date.getDate() === 1 ? '1er' : date.getDate()
+                    return {
+                      name: task.name,
+                      endDate: `${dayStr} ${MONTH_NAMES[date.getMonth()]} ${date.getFullYear()}`,
+                      endTimestamp: task.dueDate,
+                      isPast: isDone(task.status)
+                    }
+                  }
+                  // Fallback: calculer depuis la position
+                  const endPosition = task.left + task.width
                   return {
                     name: task.name,
-                    endDate: positionToDate(originalEndPosition),
-                    endPosition: originalEndPosition,
-                    endTimestamp: originalEndPosition, // Pour le tri
-                    isPast: originalEndPosition < todayPosition
+                    endDate: positionToDate(endPosition),
+                    endTimestamp: endPosition,
+                    isPast: isDone(task.status)
                   }
                 })
 
@@ -663,7 +679,7 @@ function Roadmap() {
                     name: task.name,
                     endDate: `${dayStr} ${monthName} ${year}`,
                     endTimestamp: task.endTimestamp,
-                    isPast: true
+                    isPast: isDone(task.status)
                   }
                 })
 

@@ -1,6 +1,6 @@
 .spectacles-page {
   background: var(--rndv-gray-100);
-  padding: 16px;
+  padding: 0;
   min-height: calc(100vh - 72px);
 }
 
@@ -66,9 +66,9 @@
   gap: 12px;
   padding: 12px 20px;
   background: var(--rndv-white);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 16px;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid var(--rndv-gray-200);
 }
 
 .spectacles-toolbar__left {
@@ -126,11 +126,10 @@
 
 /* Container */
 .spectacles-container {
-  max-width: 1800px;
-  margin: 0 auto;
+  width: 100%;
   background: var(--rndv-white);
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(70, 48, 234, 0.08), var(--shadow-sm);
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -195,6 +194,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 /* Header */

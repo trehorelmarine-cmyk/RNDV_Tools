@@ -43,9 +43,11 @@ function Dashboard() {
       if (!response.ok) throw new Error('Erreur de chargement des données')
       const result = await response.json()
       setData(result)
-      // Sélectionner les 3 premiers problèmes par défaut
-      const defaultSelected = Object.keys(result.monthlyData).slice(0, 3)
-      setSelectedProblems(defaultSelected)
+      // Sélectionner le Top 5 par défaut (triés par occurrence totale)
+      const sorted = Object.entries(result.monthlyData)
+        .map(([name, values]) => ({ name, total: values.reduce((a, b) => a + b, 0) }))
+        .sort((a, b) => b.total - a.total)
+      setSelectedProblems(sorted.slice(0, 5).map(p => p.name))
     } catch (err) {
       setError(err.message)
       console.error('Erreur:', err)
@@ -294,10 +296,13 @@ function Dashboard() {
             <div className="dash-controls__header">
               <h4>Sélectionner les problèmes (classés par récurrence)</h4>
               <div className="dash-controls__actions">
-                <button className="btn btn--secondary" onClick={() => selectTop(5)}>Top 5</button>
-                <button className="btn btn--secondary" onClick={() => selectTop(10)}>Top 10</button>
-                <button className="btn btn--secondary" onClick={selectAll}>Tout</button>
-                <button className="btn btn--secondary" onClick={selectNone}>Aucun</button>
+                {[5, 10].map(n => {
+                  const topN = sortedProblems.slice(0, n).map(p => p.name)
+                  const isActive = selectedProblems.length === topN.length && topN.every(p => selectedProblems.includes(p))
+                  return <button key={n} className={`btn ${isActive ? 'btn--primary' : 'btn--secondary'}`} onClick={() => selectTop(n)}>Top {n}</button>
+                })}
+                <button className={`btn ${data && selectedProblems.length === Object.keys(data.monthlyData).length ? 'btn--primary' : 'btn--secondary'}`} onClick={selectAll}>Tout</button>
+                <button className={`btn ${selectedProblems.length === 0 ? 'btn--primary' : 'btn--secondary'}`} onClick={selectNone}>Aucun</button>
               </div>
             </div>
             <div className="dash-checkbox-grid">
