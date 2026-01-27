@@ -15,21 +15,21 @@ const APPS = [
   {
     name: 'Roadmap',
     description: 'Roadmap projet avec integration ClickUp',
-    icon: '🗺️',
+    image: 'RNDV_05-Illustration.png',
     url: isDev ? 'http://localhost:5174' : '/roadmap',
     color: '#00D9A5',
   },
   {
     name: 'Spectacles',
     description: 'Planning spectacles saison 2025/2026',
-    icon: '🎭',
+    image: 'RNDV_07-Illustration.png',
     url: isDev ? 'http://localhost:5175' : '/spectacles',
     color: '#EA4335',
   },
   {
     name: 'Dashboard Support',
-    description: 'Analyse des incidents billetterie depuis Google Sheets',
-    icon: '📊',
+    description: 'Analyse des incidents billetterie depuis Teams',
+    image: 'RNDV_08-Illustration.png',
     url: isDev ? 'http://localhost:5173' : '/dashboard',
     color: '#1a73e8',
   },
@@ -52,106 +52,124 @@ app.get('*', (req, res) => {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RNDV Tools - Gateway</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F1F3F4;
+      background: #FFFFFF;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 24px;
-      height: 60px;
-      background: #4630EA;
-      color: #FFFFFF;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 0 48px;
+      height: 72px;
+      background: #f7f7f7;
     }
     .nav__brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #FFFFFF;
+      gap: 10px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #000;
       text-decoration: none;
     }
-    .nav__brand img { height: 32px; filter: brightness(0) invert(1); }
-    .nav__links { display: flex; gap: 8px; }
+    .nav__brand img { height: 48px; }
+    .nav__links { display: flex; gap: 12px; }
     .nav__link {
       padding: 8px 16px;
       border-radius: 8px;
-      color: rgba(255,255,255,0.8);
+      color: #5F6368;
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
       transition: all 0.2s ease;
     }
     .nav__link:hover {
-      background: rgba(255,255,255,0.1);
-      color: #FFFFFF;
+      color: #4630EA;
     }
     .content {
-      max-width: 900px;
-      margin: 48px auto;
-      padding: 0 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 48px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     h1 {
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 8px;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 28px;
       color: #000;
-    }
-    .subtitle {
-      color: #5F6368;
-      font-size: 16px;
-      margin-bottom: 32px;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav { padding: 0 24px; }
+      .content { padding: 0 24px; margin-top: 40px; }
+      h1 { font-size: 28px; margin-bottom: 32px; }
     }
     .card {
-      background: white;
-      border-radius: 12px;
-      padding: 24px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 24px 24px;
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       border: 1px solid #E8EAED;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      border-color: #4630EA;
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      border-color: #00D9A5;
     }
-    .card-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
+    .card-image {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 16px;
     }
     .card-name {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #000;
     }
     .card-desc {
       color: #5F6368;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.6;
+      flex: 1;
     }
-    .card-badge {
+    .card-cta {
       display: inline-block;
-      margin-top: 12px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      color: white;
+      margin-top: 14px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: #4630EA;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s ease;
+      text-align: center;
+    }
+    .card:hover .card-cta {
+      background: #3520c5;
     }
   </style>
 </head>
@@ -159,7 +177,6 @@ app.get('*', (req, res) => {
   <nav class="nav">
     <a href="/" class="nav__brand">
       <img src="/logo-rndv.png" alt="RNDV" onerror="this.style.display='none'" />
-      <span>RNDV Tools</span>
     </a>
     <div class="nav__links">
       ${APPS.map(app => `<a href="${app.url}" class="nav__link">${app.name}</a>`).join('')}
@@ -167,14 +184,13 @@ app.get('*', (req, res) => {
   </nav>
   <div class="content">
     <h1>Applications RNDV</h1>
-    <p class="subtitle">Suite d'outils R&D Vente - Comedie-Francaise</p>
     <div class="grid">
       ${APPS.map(app => `
         <a href="${app.url}" class="card">
-          <div class="card-icon">${app.icon}</div>
+          <img src="/${app.image}" alt="${app.name}" class="card-image" />
           <div class="card-name">${app.name}</div>
           <div class="card-desc">${app.description}</div>
-          <span class="card-badge" style="background: ${app.color}">${app.name}</span>
+          <span class="card-cta">En savoir plus</span>
         </a>
       `).join('')}
     </div>

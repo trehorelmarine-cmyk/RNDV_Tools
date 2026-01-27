@@ -1,7 +1,7 @@
 .dash-page {
   background: var(--rndv-gray-100);
   padding: 16px;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 72px);
 }
 
 /* Buttons */

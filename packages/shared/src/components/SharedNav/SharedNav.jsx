@@ -23,7 +23,6 @@ export function SharedNav({ appName }) {
       <div className="shared-nav__brand">
         <a href={isDev ? `http://localhost:${APP_CONFIG.gateway.port}` : '/'} className="shared-nav__home">
           <img src="/logo-rndv.png" alt="RNDV" className="shared-nav__logo" />
-          <span>{appName || 'RNDV Tools'}</span>
         </a>
       </div>
       <div className="shared-nav__links">
